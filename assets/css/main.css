@@ -148,9 +148,9 @@ a {
   gap: 32px;
   width: 100%;
   max-width: none;
-  min-height: 100dvh;
-  margin: -62px 0 0;
-  padding: 118px clamp(28px, 5.8vw, 108px) 34px;
+  min-height: calc(100dvh - 90px);
+  margin: 90px 0 0;
+  padding: 34px clamp(28px, 5.8vw, 108px) 34px;
 }
 
 .hero-media {
@@ -881,9 +881,9 @@ h3 {
 
   .hero-section {
     grid-template-columns: 1fr;
-    min-height: 100dvh;
-    margin-top: -70px;
-    padding: 100px 16px 28px;
+    min-height: calc(100dvh - 86px);
+    margin-top: 86px;
+    padding: 34px 16px 28px;
     max-width: none;
   }
 
@@ -970,8 +970,9 @@ h3 {
   }
 
   .hero-section {
-    min-height: 100dvh;
-    padding: 94px 12px 26px;
+    min-height: calc(100dvh - 78px);
+    margin-top: 78px;
+    padding: 30px 12px 26px;
   }
 
   .hero-media {
