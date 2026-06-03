@@ -1,0 +1,51 @@
+baseURL = "https://kurergo.ru/"
+locale = "ru-RU"
+title = "Курьер Яндекс Еды"
+defaultContentLanguage = "ru"
+enableRobotsTXT = true
+summaryLength = 22
+
+[pagination]
+  pagerSize = 20
+
+[params]
+  description = "Работа курьером в Яндекс Еде: свободный график, быстрый старт, ежедневные выплаты и доставка рядом с домом."
+  referral_url = "https://reg.eda.yandex.ru/?advertisement_campaign=forms_for_agents&user_invite_code=6e62c0afd4884c3babee380b329a32e8&utm_content=blank"
+  phone = ""
+  city = "Россия"
+  yandexMetrika = ""
+
+[menu]
+  [[menu.main]]
+    name = "Калькулятор"
+    url = "/#calculator"
+    weight = 10
+  [[menu.main]]
+    name = "Условия"
+    url = "/#formats"
+    weight = 20
+  [[menu.main]]
+    name = "Вопросы"
+    url = "/#faq"
+    weight = 30
+  [[menu.main]]
+    name = "Найдите свой город"
+    url = "/#cities"
+    weight = 35
+  [[menu.main]]
+    name = "Блог"
+    url = "/blog/"
+    weight = 40
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+
+[services]
+  [services.rss]
+    limit = 12

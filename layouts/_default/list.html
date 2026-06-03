@@ -1,0 +1,42 @@
+{{ define "main" }}
+  <section class="page-hero">
+    <p class="eyebrow">Материалы для старта</p>
+    <h1>{{ .Title }}</h1>
+    <p>{{ .Description }}</p>
+  </section>
+  <section class="section">
+    {{ $paginator := .Paginate (.Pages.ByDate.Reverse) 20 }}
+    <div class="post-grid post-grid-wide">
+      {{ range $paginator.Pages }}
+        <a class="post-card" href="{{ .RelPermalink }}">
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02.01.2006" }}</time>
+          <h2>{{ .Title }}</h2>
+          <p>{{ .Description }}</p>
+        </a>
+      {{ end }}
+    </div>
+    {{ if gt $paginator.TotalPages 1 }}
+      <nav class="pagination" aria-label="Навигация по страницам блога">
+        {{ with $paginator.Prev }}
+          <a class="pagination-link pagination-prev" href="{{ .URL }}" aria-label="Предыдущая страница">Назад</a>
+        {{ else }}
+          <span class="pagination-link pagination-disabled" aria-hidden="true">Назад</span>
+        {{ end }}
+        <div class="pagination-pages">
+          {{ range $paginator.Pagers }}
+            {{ if eq . $paginator }}
+              <span class="pagination-page pagination-current" aria-current="page">{{ .PageNumber }}</span>
+            {{ else }}
+              <a class="pagination-page" href="{{ .URL }}" aria-label="Страница {{ .PageNumber }}">{{ .PageNumber }}</a>
+            {{ end }}
+          {{ end }}
+        </div>
+        {{ with $paginator.Next }}
+          <a class="pagination-link pagination-next" href="{{ .URL }}" aria-label="Следующая страница">Вперёд</a>
+        {{ else }}
+          <span class="pagination-link pagination-disabled" aria-hidden="true">Вперёд</span>
+        {{ end }}
+      </nav>
+    {{ end }}
+  </section>
+{{ end }}

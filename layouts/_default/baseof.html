@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="{{ .Site.Language.Locale | default "ru-RU" }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ if .IsHome }}{{ .Site.Title }}: работа курьером с гибким графиком{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+    <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+    {{ with .Params.keywords }}<meta name="keywords" content="{{ delimit . ", " }}">{{ end }}
+    <link rel="canonical" href="{{ .Permalink }}">
+    <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+    <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
+    <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+    <meta property="og:url" content="{{ .Permalink }}">
+    <meta property="og:image" content="{{ "images/og-banner.jpg" | absURL }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#ffde40">
+    {{ with resources.Get "css/main.css" }}
+      {{ $css := . | minify | fingerprint }}
+      <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+    {{ end }}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "EmploymentAgency",
+        "name": "{{ .Site.Title }}",
+        "url": "{{ .Site.BaseURL }}",
+        "description": "{{ .Site.Params.description }}",
+        "areaServed": "{{ .Site.Params.city }}"
+      }
+    </script>
+    {{ if .IsHome }}
+      <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {"@type":"Question","name":"Можно ли устроиться курьером, если вам еще не исполнилось 18 лет?","acceptedAnswer":{"@type":"Answer","text":"В сервисе Яндекс Еда основной набор курьеров обычно начинается с 18 лет. Актуальные возрастные требования лучше проверить во время регистрации."}},
+            {"@type":"Question","name":"Какие документы понадобятся для оформления?","acceptedAnswer":{"@type":"Answer","text":"Для граждан России обычно требуется паспорт с пропиской. Для иностранных граждан список документов может включать паспорт, регистрацию, миграционную карту, СНИЛС, ИНН, ДМС и документы для работы в регионе."}},
+            {"@type":"Question","name":"Можно ли выполнять заказы по выходным?","acceptedAnswer":{"@type":"Answer","text":"Да. Курьер может выбирать доступные слоты и локации с учетом правил своей курьерской службы и доступности заказов."}},
+            {"@type":"Question","name":"Сколько заказов обычно выполняется за час?","acceptedAnswer":{"@type":"Answer","text":"Количество заказов зависит от спроса, района, времени суток, транспорта, погоды и скорости выдачи в точках. В обычный рабочий день ориентир может доходить примерно до двух заказов в час, но это не гарантия."}},
+            {"@type":"Question","name":"Можно ли совмещать доставки с основной работой?","acceptedAnswer":{"@type":"Answer","text":"Да. Многие курьеры используют доставку как подработку и выходят на слоты после основной работы, учебы или в свободные дни."}},
+            {"@type":"Question","name":"Можно ли получать выплаты каждый день или каждую неделю?","acceptedAnswer":{"@type":"Answer","text":"Да, возможны разные графики выплат. Для прямых курьеров-партнеров в статусе самозанятого выплаты могут быть ежедневными, для других форматов выплаты могут производиться раз в неделю."}},
+            {"@type":"Question","name":"Можно ли выполнять доставки с iPhone или нужен Android?","acceptedAnswer":{"@type":"Answer","text":"Можно использовать смартфон на iOS или Android, если актуальная версия рабочего приложения доступна для устройства и подходит под требования подключения."}},
+            {"@type":"Question","name":"Какие приложения необходимо установить?","acceptedAnswer":{"@type":"Answer","text":"Для работы курьером обычно используется приложение Яндекс Про. В нем курьер принимает заказы, смотрит маршруты, управляет слотами и отслеживает статус доставок."}}
+          ]
+        }
+      </script>
+    {{ end }}
+    {{ if and .IsPage .Params.faq }}
+      <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {{- range $index, $item := .Params.faq -}}
+              {{- if $index }},{{ end -}}
+              {
+                "@type": "Question",
+                "name": {{ $item.question | jsonify | safeJS }},
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": {{ $item.answer | jsonify | safeJS }}
+                }
+              }
+            {{- end -}}
+          ]
+        }
+      </script>
+    {{ end }}
+    {{ with .Site.Params.yandexMetrika }}
+      <script>
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+        ym({{ . }}, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true });
+      </script>
+    {{ end }}
+  </head>
+  <body>
+    {{ with .Site.Params.yandexMetrika }}<noscript><div><img src="https://mc.yandex.ru/watch/{{ . }}" style="position:absolute; left:-9999px;" alt=""></div></noscript>{{ end }}
+    <header class="site-header" data-header>
+      <a class="brand" href="{{ "/" | relURL }}" aria-label="На главную">
+        <span class="brand-mark" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="50" height="49" viewBox="0 0 50 49" fill="none" focusable="false">
+            <rect width="49" height="49" x="0.5" fill="#FCE000" rx="12"></rect>
+            <path fill="#212121" d="M38.771 34.403c-2.982 2.632-6.872 4.22-11.117 4.22-8.905 0-15.578-6.897-15.578-14.78 0-7.413 5.91-13.466 13.24-13.466 6.915 0 11.905 5.362 11.905 11.168 0 5.442-4.293 9.856-9.567 9.856-4.827 0-8.233-3.655-8.233-7.558 0-3.503 2.71-6.244 5.897-6.244 2.82 0 4.56 2.055 4.56 3.946 0 1.641-1.154 2.633-2.224 2.633-.379 0-.524-.08-.675-.175.344-.444.515-1.02.429-1.622a2.116 2.116 0 0 0-2.401-1.791c-.991.148-1.62.822-1.931 1.321a3.64 3.64 0 0 0-.54 1.932c0 2.785 2.596 4.587 5.117 4.587 3.684.002 6.454-3.215 6.454-6.885 0-4.492-3.893-8.199-8.79-8.199-5.686 0-10.124 4.815-10.124 10.497 0 6.439 5.489 11.808 12.463 11.808 7.71 0 13.796-6.42 13.796-14.109 0-8.266-6.998-15.417-16.134-15.417-9.72 0-17.468 8.014-17.468 17.718 0 10.36 8.698 19.032 19.806 19.032 5.313 0 10.187-1.995 13.907-5.277zM26.76 23.797c0-.005-.002-.002 0 0"></path>
+          </svg>
+        </span>
+        <span>Курьерский старт</span>
+      </a>
+      <nav class="main-nav" aria-label="Основная навигация">
+        {{ range .Site.Menus.main }}
+          <a href="{{ .URL | relURL }}">{{ .Name }}</a>
+        {{ end }}
+      </nav>
+      <a class="header-cta" href="{{ .Site.Params.referral_url }}" target="_blank" rel="noopener nofollow sponsored" data-cta="header">Стать курьером</a>
+    </header>
+    <main>
+      {{ block "main" . }}{{ end }}
+    </main>
+    <footer class="site-footer">
+      <div>
+        <strong>Курьерский старт</strong>
+        <p>Информационный сайт для подключения к доставке заказов. Условия и доход зависят от города, спроса, времени на линии и выбранного формата.</p>
+      </div>
+      <div class="footer-links">
+        <a href="{{ "/blog/" | relURL }}">Блог</a>
+        <a href="{{ "/index.xml" | relURL }}">RSS</a>
+        <a href="{{ .Site.Params.referral_url }}" target="_blank" rel="noopener nofollow sponsored">Регистрация</a>
+      </div>
+    </footer>
+    {{ with resources.Get "js/main.js" }}
+      {{ $js := . | minify | fingerprint }}
+      <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
+    {{ end }}
+  </body>
+</html>
