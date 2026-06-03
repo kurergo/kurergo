@@ -10,7 +10,7 @@ summaryLength = 22
 
 [params]
   description = "Работа курьером в Яндекс Еде: свободный график, быстрый старт, ежедневные выплаты и доставка рядом с домом."
-  referral_url = "https://reg.eda.yandex.ru/?advertisement_campaign=forms_for_agents&user_invite_code=6e62c0afd4884c3babee380b329a32e8&utm_content=blank"
+  referral_url = "https://reg.eda.yandex.ru/?advertisement_campaign=forms_for_agents&user_invite_code=569fd35d6ccc4111852a73036a77109f&utm_content=blank"
   phone = ""
   city = "Россия"
   yandexMetrika = ""
