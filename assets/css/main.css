@@ -45,8 +45,8 @@ a {
   gap: 28px;
   align-items: center;
   max-width: 1180px;
-  margin: 14px auto 0;
-  padding: 12px 14px;
+  margin: 4px auto 0;
+  padding: 6px 10px;
   border: 1px solid rgba(20, 17, 15, 0.08);
   border-radius: 999px;
   background: rgba(255, 253, 247, 0.78);
@@ -148,8 +148,8 @@ a {
   gap: 32px;
   width: 100%;
   max-width: none;
-  min-height: calc(100dvh - 90px);
-  margin: 90px 0 0;
+  min-height: calc(100dvh - 72px);
+  margin: 72px 0 0;
   padding: 34px clamp(28px, 5.8vw, 108px) 34px;
 }
 
@@ -881,8 +881,8 @@ h3 {
 
   .hero-section {
     grid-template-columns: 1fr;
-    min-height: calc(100dvh - 86px);
-    margin-top: 86px;
+    min-height: calc(100dvh - 72px);
+    margin-top: 72px;
     padding: 34px 16px 28px;
     max-width: none;
   }
@@ -950,8 +950,8 @@ h3 {
 
 @media (max-width: 640px) {
   .site-header {
-    margin-top: 8px;
-    padding: 8px;
+    margin-top: 4px;
+    padding: 5px 8px;
   }
 
   .brand span:last-child {
@@ -970,8 +970,8 @@ h3 {
   }
 
   .hero-section {
-    min-height: calc(100dvh - 78px);
-    margin-top: 78px;
+    min-height: calc(100dvh - 68px);
+    margin-top: 68px;
     padding: 30px 12px 26px;
   }
 
