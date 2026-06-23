@@ -4,11 +4,16 @@
     <h1>{{ .Title }}</h1>
     <p>{{ .Description }}</p>
   </section>
+  {{ if eq .Section "blog" }}
+    {{ partial "blog-registration-cta.html" (dict "page" . "compact" false) }}
+  {{ end }}
   <section class="section">
     {{ $paginator := .Paginate (.Pages.ByDate.Reverse) 20 }}
     <div class="post-grid post-grid-wide">
       {{ range $paginator.Pages }}
+        {{ $image := .Params.image | default "/media/kurer.jpg" }}
         <a class="post-card" href="{{ .RelPermalink }}">
+          <img class="post-card-image" src="{{ $image | relURL }}" alt="" loading="lazy">
           <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02.01.2006" }}</time>
           <h2>{{ .Title }}</h2>
           <p>{{ .Description }}</p>

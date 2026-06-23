@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+backend:
+  name: github
+  repo: kurergo/kurergo
+  branch: main
+
+locale: ru
+media_folder: static/media
+public_folder: /media
+
+collections:
+  - name: "posts"
+    label: "Статьи блога"
+    label_singular: "Статья"
+    folder: "content/blog"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    preview_path: "blog/{{slug}}/"
+    fields:
+      - { label: "Заголовок", name: "title", widget: "string" }
+      - { label: "Описание", name: "description", widget: "string" }
+      - {
+          label: "Изображение",
+          name: "image",
+          widget: "image",
+          default: "/media/kurer.jpg",
+          required: false,
+        }
+      - {
+          label: "Дата",
+          name: "date",
+          widget: "datetime",
+          format: "YYYY-MM-DDTHH:mm:ss+03:00",
+          picker_utc: false,
+        }
+      - { label: "Черновик", name: "draft", widget: "boolean", default: false, required: false }
+      - { label: "Ключевые слова", name: "keywords", widget: "list", required: false }
+      - { label: "Текст статьи", name: "body", widget: "markdown" }

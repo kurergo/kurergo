@@ -1,0 +1,29 @@
+{{ $compact := .compact }}
+{{ $page := .page }}
+<section class="blog-registration-cta{{ if $compact }} blog-registration-cta-compact{{ end }}" aria-labelledby="blog-registration-title">
+  <div class="blog-registration-copy">
+    <p class="eyebrow">Старт без лишнего ожидания</p>
+    <h2 id="blog-registration-title">Начните уже сегодня</h2>
+    {{ if not $compact }}
+      <p>Оставьте заявку, пройдите короткие инструкции и выберите удобный слот. Формат можно подобрать под свой график: пешком, на велосипеде, самокате или автомобиле.</p>
+    {{ end }}
+    <a class="btn btn-primary" href="{{ $page.Site.Params.referral_url }}" target="_blank" rel="noopener nofollow sponsored" data-cta="blog-registration">Стать курьером</a>
+  </div>
+  <div class="blog-registration-features" aria-label="Преимущества регистрации">
+    <article>
+      <img src="{{ "images/blog-cta/start.png" | relURL }}" alt="" loading="lazy">
+      <h3>Быстрый старт</h3>
+      <p>Анкета, инструкции и первый слот без длинного отбора.</p>
+    </article>
+    <article>
+      <img src="{{ "images/blog-cta/many.png" | relURL }}" alt="" loading="lazy">
+      <h3>Регулярные выплаты</h3>
+      <p>Следите за начислениями и планируйте доход в удобном режиме.</p>
+    </article>
+    <article>
+      <img src="{{ "images/blog-cta/calendar.png" | relURL }}" alt="" loading="lazy">
+      <h3>Гибкое расписание</h3>
+      <p>Выбирайте время и районы, которые подходят вашей неделе.</p>
+    </article>
+  </div>
+</section>

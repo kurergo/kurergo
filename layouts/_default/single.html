@@ -5,13 +5,14 @@
       <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02.01.2006" }}</time>
       <h1>{{ .Title }}</h1>
       <p>{{ .Description }}</p>
+      {{ $image := .Params.image | default "/media/kurer.jpg" }}
+      <img class="article-cover" src="{{ $image | relURL }}" alt="" loading="eager">
     </header>
     <div class="article-body">
       {{ .Content }}
     </div>
-    <div class="article-cta">
-      <h2>Хотите перейти от чтения к первому слоту?</h2>
-      <a class="btn btn-primary" href="{{ .Site.Params.referral_url }}" target="_blank" rel="noopener nofollow sponsored">Заполнить заявку</a>
-    </div>
+    {{ if eq .Section "blog" }}
+      {{ partial "blog-registration-cta.html" (dict "page" . "compact" true) }}
+    {{ end }}
   </article>
 {{ end }}
