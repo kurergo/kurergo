@@ -30,9 +30,9 @@ collections:
           pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Используйте только маленькие латинские буквы, цифры и дефисы"],
         }
       - {
-          label: "Description / SEO-описание",
+          label: "Дескрипшен (description)",
           name: "description",
-          widget: "text",
+          widget: "string",
           required: true,
           hint: "Короткое описание статьи для meta description, карточек блога и сниппета в поиске. Оптимально 120-170 символов.",
         }
