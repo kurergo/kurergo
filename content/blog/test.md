@@ -1,7 +1,7 @@
 ---
 title: nТест
 slug: test
-description: Тест
+description: Тест descruption
 image: /media/kurer.jpg
 date: 2026-06-24T10:49:00+03:00
 lastmod: 2026-06-24T10:49:00+03:00
