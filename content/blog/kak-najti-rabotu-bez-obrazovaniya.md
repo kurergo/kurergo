@@ -2,7 +2,7 @@
 title: 'Как найти работу без образования: реальные варианты без долгого отбора'
 slug: kak-najti-rabotu-bez-obrazovaniya
 description: 'Какая работа доступна без профильного образования: доставка, сервис, склад, продажи, подработка и быстрый старт без опыта.'
-image: /media/Chaevye-ot-klientov.jpg
+image: /media/kur1.png
 date: 2026-06-16T09:00:00+03:00
 lastmod: ''
 keywords:
