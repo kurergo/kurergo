@@ -29,7 +29,13 @@ collections:
           hint: "Например: rabota-kurierom-v-moskve. Только латиница, цифры и дефисы. Можно менять у опубликованных статей.",
           pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Используйте только маленькие латинские буквы, цифры и дефисы"],
         }
-      - { label: "Описание", name: "description", widget: "string" }
+      - {
+          label: "Description / SEO-описание",
+          name: "description",
+          widget: "text",
+          required: true,
+          hint: "Короткое описание статьи для meta description, карточек блога и сниппета в поиске. Оптимально 120-170 символов.",
+        }
       - {
           label: "Изображение",
           name: "image",
