@@ -3,10 +3,17 @@ locale = "ru-RU"
 title = "Курьер Яндекс Еды"
 defaultContentLanguage = "ru"
 enableRobotsTXT = true
+enableGitInfo = true
 summaryLength = 22
 
 [pagination]
   pagerSize = 20
+
+[frontmatter]
+  date = ["date", "publishDate", "lastmod"]
+  lastmod = ["lastmod", ":git", "date", "publishDate"]
+  publishDate = ["publishDate", "date"]
+  expiryDate = ["expiryDate"]
 
 [params]
   description = "Работа курьером в Яндекс Еде: свободный график, быстрый старт, ежедневные выплаты и доставка рядом с домом."

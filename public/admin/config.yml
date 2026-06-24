@@ -14,12 +14,21 @@ collections:
     label_singular: "Статья"
     folder: "content/blog"
     create: true
+    identifier_field: "slug"
     slug: "{{slug}}"
     extension: "md"
     format: "frontmatter"
     preview_path: "blog/{{slug}}/"
     fields:
       - { label: "Заголовок", name: "title", widget: "string" }
+      - {
+          label: "Адрес страницы ЧПУ",
+          name: "slug",
+          widget: "string",
+          required: true,
+          hint: "Например: rabota-kurierom-v-moskve. Только латиница, цифры и дефисы. Можно менять у опубликованных статей.",
+          pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Используйте только маленькие латинские буквы, цифры и дефисы"],
+        }
       - { label: "Описание", name: "description", widget: "string" }
       - {
           label: "Изображение",
@@ -34,6 +43,15 @@ collections:
           widget: "datetime",
           format: "YYYY-MM-DDTHH:mm:ss+03:00",
           picker_utc: false,
+        }
+      - {
+          label: "Дата обновления для sitemap",
+          name: "lastmod",
+          widget: "datetime",
+          format: "YYYY-MM-DDTHH:mm:ss+03:00",
+          picker_utc: false,
+          required: false,
+          hint: "Можно оставить пустым: на GitHub Pages Hugo возьмет дату последнего коммита файла. Заполните вручную, если нужно задать точную дату обновления.",
         }
       - { label: "Черновик", name: "draft", widget: "boolean", default: false, required: false }
       - { label: "Ключевые слова", name: "keywords", widget: "list", required: false }
