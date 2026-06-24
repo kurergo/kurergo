@@ -2,7 +2,7 @@
 title: 'Электросамокат для курьера: как выбрать модель для доставок'
 slug: elektrosamokat-dlya-kurera-kak-vybrat
 description: 'Как выбрать электросамокат для работы курьером: запас хода, вес, колеса, тормоза, аккумулятор, сезонность и расходы.'
-image: /media/scale_1200.png
+image: /media/smokat.webp
 date: 2026-06-19T09:00:00+03:00
 lastmod: ''
 keywords:
