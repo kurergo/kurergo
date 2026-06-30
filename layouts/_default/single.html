@@ -6,7 +6,12 @@
       <h1>{{ .Title }}</h1>
       <p>{{ .Description }}</p>
       {{ $image := .Params.image | default "/media/kurer.jpg" }}
-      <img class="article-cover" src="{{ $image | relURL }}" alt="" loading="eager">
+      {{ $imageSrc := $image }}
+      {{ $webp := replaceRE "\\.(jpg|jpeg|png)$" ".webp" $image }}
+      {{ if and (ne $webp $image) (fileExists (printf "static%s" $webp)) }}
+        {{ $imageSrc = $webp }}
+      {{ end }}
+      <img class="article-cover" src="{{ $imageSrc | relURL }}" alt="" width="960" height="480" loading="eager" fetchpriority="high" decoding="async">
     </header>
     <div class="article-body">
       {{ .Content }}

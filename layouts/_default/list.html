@@ -12,8 +12,13 @@
     <div class="post-grid post-grid-wide">
       {{ range $paginator.Pages }}
         {{ $image := .Params.image | default "/media/kurer.jpg" }}
+        {{ $imageSrc := $image }}
+        {{ $webp := replaceRE "\\.(jpg|jpeg|png)$" ".webp" $image }}
+        {{ if and (ne $webp $image) (fileExists (printf "static%s" $webp)) }}
+          {{ $imageSrc = $webp }}
+        {{ end }}
         <a class="post-card" href="{{ .RelPermalink }}">
-          <img class="post-card-image" src="{{ $image | relURL }}" alt="" loading="lazy">
+          <img class="post-card-image" src="{{ $imageSrc | relURL }}" alt="" width="480" height="270" loading="lazy" decoding="async">
           <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02.01.2006" }}</time>
           <h2>{{ .Title }}</h2>
           <p>{{ .Description }}</p>
