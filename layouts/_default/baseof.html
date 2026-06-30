@@ -18,12 +18,16 @@
     {{ if eq .Kind "home" }}<meta name="yandex-verification" content="b85b9051b2e579f0">{{ end }}
     <link rel="icon" href="{{ "favicon.ico" | relURL }}" sizes="any">
     <link rel="shortcut icon" href="{{ "favicon.ico" | relURL }}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+    {{ if .IsHome }}
+      <link rel="preload" as="image" href="{{ "images/hero-energy.webp" | relURL }}" type="image/webp" fetchpriority="high">
+    {{ end }}
     {{ with resources.Get "css/main.css" }}
       {{ $css := . | minify | fingerprint }}
-      <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+      {{ if $.IsHome }}
+        <style>{{ $css.Content | safeCSS }}</style>
+      {{ else }}
+        <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+      {{ end }}
     {{ end }}
     <script type="application/ld+json">
       {

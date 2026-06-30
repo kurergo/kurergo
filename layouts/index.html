@@ -2,7 +2,7 @@
   {{ $applyURL := .Site.Params.referral_url }}
   <section class="hero-section">
     <div class="hero-media" aria-hidden="true">
-      <img src="{{ "images/hero-energy.webp" | relURL }}" alt="">
+      <img src="{{ "images/hero-energy.webp" | relURL }}" alt="" width="1672" height="941" fetchpriority="high" decoding="async">
     </div>
     <div class="hero-content">
       <p class="eyebrow">Работа курьером</p>
@@ -136,7 +136,7 @@
       </article>
     </div>
     <div class="formats-media">
-      <img src="{{ "images/courier-bike-template.webp" | relURL }}" alt="Курьер на велосипеде доставляет заказ по городу">
+      <img src="{{ "images/courier-bike-template.webp" | relURL }}" alt="Курьер на велосипеде доставляет заказ по городу" width="1024" height="500" loading="lazy" decoding="async">
     </div>
   </section>
 
@@ -204,7 +204,7 @@
       {{ range first 3 (where .Site.RegularPages "Section" "blog") }}
         {{ $image := .Params.image | default "/media/kurer.jpg" }}
         <a class="post-card" href="{{ .RelPermalink }}">
-          <img class="post-card-image" src="{{ $image | relURL }}" alt="" loading="lazy">
+          <img class="post-card-image" src="{{ $image | relURL }}" alt="" loading="lazy" decoding="async">
           <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02.01.2006" }}</time>
           <h3>{{ .Title }}</h3>
           <p>{{ .Description }}</p>

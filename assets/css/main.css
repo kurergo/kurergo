@@ -1,21 +1,7 @@
-@font-face {
-  font-family: "YS Text";
-  src: url("https://yastatic.net/s3/home/fonts/ys/4/text-regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "YS Text";
-  src: url("https://yastatic.net/s3/home/fonts/ys/4/text-medium.woff2") format("woff2");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
 :root {
   color-scheme: light;
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  --font-display: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
   --bg: #fffaf5;
   --cream: #f5f0eb;
   --cream-2: #f0ebe6;
@@ -48,7 +34,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);
-  font-family: "YS Text", "Onest", Arial, sans-serif;
+  font-family: var(--font-sans);
   font-size: 16px;
   line-height: 1.45;
   text-rendering: optimizeLegibility;
@@ -71,7 +57,7 @@ h2,
 h3,
 h4 {
   margin: 0;
-  font-family: "Manrope", "YS Text", Arial, sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   line-height: 0.92;
   letter-spacing: -0.01em;
@@ -132,7 +118,7 @@ input {
   gap: 11px;
   min-width: max-content;
   color: var(--ink);
-  font-family: "Manrope", "YS Text", Arial, sans-serif;
+  font-family: var(--font-display);
   font-size: 1.08rem;
   font-weight: 800;
   line-height: 1;
@@ -185,7 +171,7 @@ input {
   padding: 0 24px;
   border: 0;
   border-radius: 22px;
-  font-family: "Manrope", "YS Text", Arial, sans-serif;
+  font-family: var(--font-display);
   font-size: 1rem;
   font-weight: 700;
   line-height: 1;
@@ -284,7 +270,7 @@ input {
   border-radius: 999px;
   background: var(--yellow);
   color: var(--ink);
-  font-family: "YS Text", Arial, sans-serif;
+  font-family: var(--font-sans);
   font-size: 0.92rem;
   font-weight: 500;
 }
@@ -329,7 +315,7 @@ input {
 .hero-stats strong {
   display: block;
   color: var(--white-soft);
-  font-family: "Manrope", "YS Text", Arial, sans-serif;
+  font-family: var(--font-display);
   font-size: clamp(1.45rem, 2.4vw, 2rem);
   line-height: 0.95;
 }
@@ -342,7 +328,7 @@ input {
   padding: 18px max(20px, calc((100vw - var(--container)) / 2)) 0;
   background: var(--bg);
   color: var(--ink);
-  font-family: "Manrope", "YS Text", Arial, sans-serif;
+  font-family: var(--font-display);
   font-size: clamp(0.94rem, 1.2vw, 1.04rem);
   font-weight: 700;
 }
@@ -432,7 +418,7 @@ input {
 
 .app-grid span {
   color: var(--muted-2);
-  font-family: "Manrope", "YS Text", Arial, sans-serif;
+  font-family: var(--font-display);
   font-size: 2rem;
   font-weight: 700;
   line-height: 1;
@@ -534,7 +520,7 @@ input[type="range"]::-moz-range-thumb {
 
 .income-calc output,
 .calc-result strong {
-  font-family: "Manrope", "YS Text", Arial, sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-variant-numeric: tabular-nums;
 }
@@ -682,7 +668,7 @@ input[type="range"]::-moz-range-thumb {
 .step-list strong {
   display: block;
   color: var(--white-soft);
-  font-family: "Manrope", "YS Text", Arial, sans-serif;
+  font-family: var(--font-display);
   font-size: 1.1rem;
   line-height: 1.08;
 }
@@ -719,7 +705,7 @@ input[type="range"]::-moz-range-thumb {
 .faq-list summary::after {
   content: "+";
   color: var(--muted);
-  font-family: "Manrope", "YS Text", Arial, sans-serif;
+  font-family: var(--font-display);
   font-size: 1.4rem;
   line-height: 1;
 }
@@ -1123,7 +1109,7 @@ input[type="range"]::-moz-range-thumb {
 
 .site-footer strong {
   display: block;
-  font-family: "Manrope", "YS Text", Arial, sans-serif;
+  font-family: var(--font-display);
   font-size: 1.06rem;
 }
 
