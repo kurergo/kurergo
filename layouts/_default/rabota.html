@@ -1,19 +1,227 @@
 {{ define "main" }}
   {{ $applyURL := .Site.Params.referral_url }}
   <section class="rabota-hero">
-    <div>
-      <p class="eyebrow">Работа курьером</p>
-      <h1>Работа курьером Яндекс Еды</h1>
-      <p>Выбирайте удобные слоты, доставляйте рядом с домом и начинайте без долгих собеседований. Формат можно подобрать под свой ритм: пешком, на велосипеде, самокате или автомобиле.</p>
-      <div class="rabota-actions">
-        <a class="btn btn-primary" href="{{ $applyURL }}" target="_blank" rel="noopener nofollow sponsored" data-cta="rabota-hero">Стать курьером</a>
-        <a class="btn btn-secondary" href="#faq">Ответы на вопросы</a>
+    <picture class="rabota-hero-media">
+      <source srcset="{{ "/images/hero-energy.webp" | relURL }}" type="image/webp">
+      <img src="{{ "/images/hero-energy.png" | relURL }}" alt="" width="1600" height="1000" loading="eager" decoding="async">
+    </picture>
+    <div class="rabota-hero-inner">
+      <div class="rabota-hero-copy">
+        <p class="eyebrow">Курьерская подработка</p>
+        <h1>Работа курьером Яндекс Еды</h1>
+        <p>Выбирайте район, транспорт и удобные слоты. Старт проходит онлайн, без долгих собеседований.</p>
+        <div class="rabota-actions">
+          <a class="btn btn-primary" href="{{ $applyURL }}" target="_blank" rel="noopener nofollow sponsored" data-cta="rabota-hero">Стать курьером</a>
+          <a class="btn btn-secondary" href="#rabota-calculator">Рассчитать доход</a>
+        </div>
+      </div>
+      <aside class="rabota-income-hero" aria-label="Ориентир дохода">
+        <span>Примерный доход</span>
+        <strong><span data-rabota-hero-income>13&nbsp;000</span> ₽</strong>
+        <p>за неделю при выбранных параметрах в калькуляторе</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="rabota-strip" aria-label="Преимущества">
+    <span>Свободный график</span>
+    <span>Доставки рядом с домом</span>
+    <span>Пешком, вело, самокат, авто</span>
+    <span>Быстрые выплаты</span>
+  </section>
+
+  <section class="section rabota-calculator-section" id="rabota-calculator">
+    <div class="section-heading">
+      <h2>Посчитайте свой ритм</h2>
+      <p>Калькулятор помогает прикинуть доход по формату доставки. Итог зависит от спроса, района, времени и условий подключения.</p>
+    </div>
+    <div class="rabota-calculator" data-rabota-calculator>
+      <div class="rabota-calc-controls">
+        <label class="rabota-city-field">
+          <span>Город</span>
+          <input type="text" name="city" value="Москва" autocomplete="off" aria-label="Город для расчета">
+        </label>
+
+        <div class="rabota-transport-tabs" role="group" aria-label="Формат доставки">
+          <button type="button" class="is-active" data-rabota-transport data-rate="520">Авто</button>
+          <button type="button" data-rabota-transport data-rate="470">Вело и самокат</button>
+          <button type="button" data-rabota-transport data-rate="380">Пешком</button>
+        </div>
+
+        <label class="rabota-range">
+          <span>Часов в день</span>
+          <output data-rabota-output="hours">5</output>
+          <input type="range" name="hours" min="2" max="12" value="5">
+        </label>
+        <label class="rabota-range">
+          <span>Дней в неделю</span>
+          <output data-rabota-output="days">5</output>
+          <input type="range" name="days" min="1" max="7" value="5">
+        </label>
+      </div>
+
+      <div class="rabota-result-card">
+        <span>Ориентир за неделю</span>
+        <strong><span data-rabota-result>13&nbsp;000</span> ₽</strong>
+        <p>Расчет не является гарантией. Доход меняется от активности, спроса и выбранного транспорта.</p>
+        <a class="btn btn-primary" href="{{ $applyURL }}" target="_blank" rel="noopener nofollow sponsored" data-cta="rabota-calculator">Перейти к регистрации</a>
       </div>
     </div>
-    <div class="rabota-hero-panel" aria-label="Преимущества старта">
-      <span><strong>Онлайн</strong> заявка и инструкции</span>
-      <span><strong>Гибко</strong> слоты в удобное время</span>
-      <span><strong>Рядом</strong> районы и маршруты поблизости</span>
+  </section>
+
+  <section class="section rabota-slider-section">
+    <div class="section-heading">
+      <h2>Как выглядит старт</h2>
+      <p>Короткий маршрут для будущего курьера: заявка, инструкции, первый слот и понятная работа в приложении.</p>
+    </div>
+    <div class="rabota-slider" data-rabota-slider>
+      <button class="rabota-slider-nav" type="button" data-rabota-slider-prev aria-label="Предыдущий слайд">‹</button>
+      <div class="rabota-slider-track" tabindex="0">
+        <article class="rabota-slide">
+          <img src="{{ "/images/blog-cta/start.webp" | relURL }}" alt="" width="240" height="210" loading="lazy" decoding="async">
+          <h3>Заявка онлайн</h3>
+          <p>Оставляете контакты и переходите к подключению без долгой анкеты.</p>
+        </article>
+        <article class="rabota-slide">
+          <img src="{{ "/images/blog-cta/calendar.webp" | relURL }}" alt="" width="240" height="210" loading="lazy" decoding="async">
+          <h3>Свободные слоты</h3>
+          <p>Выбираете дни и часы, которые проще встроить в учебу, работу или личные планы.</p>
+        </article>
+        <article class="rabota-slide">
+          <img src="{{ "/images/blog-cta/many.webp" | relURL }}" alt="" width="240" height="210" loading="lazy" decoding="async">
+          <h3>Прозрачный доход</h3>
+          <p>Смотрите заказы, маршрут и выплаты в приложении, планируете активность заранее.</p>
+        </article>
+        <article class="rabota-slide is-wide">
+          <picture>
+            <source srcset="{{ "/images/courier-bike-template.webp" | relURL }}" type="image/webp">
+            <img src="{{ "/images/courier-bike-template.png" | relURL }}" alt="" width="780" height="420" loading="lazy" decoding="async">
+          </picture>
+          <h3>Формат под ваш день</h3>
+          <p>Можно доставлять пешком, на велосипеде, самокате или автомобиле. Выбирайте удобный способ при подключении.</p>
+        </article>
+      </div>
+      <button class="rabota-slider-nav" type="button" data-rabota-slider-next aria-label="Следующий слайд">›</button>
+    </div>
+  </section>
+
+  <section class="section rabota-example-benefits">
+    <div class="section-heading">
+      <h2>Доставлять удобно</h2>
+      <p>Выбирайте район, смотрите маршрут в приложении и работайте в формате, который проще встроить в день.</p>
+    </div>
+    <div class="rabota-benefit-board">
+      <article>
+        <span>01</span>
+        <h3>Доставки по району</h3>
+        <p>Выбирайте зоны, где хотите выполнять заказы, и работайте ближе к знакомым улицам.</p>
+      </article>
+      <article>
+        <span>02</span>
+        <h3>Заказы по пути</h3>
+        <p>Маршруты удобно смотреть в приложении и планировать движение без лишних кругов.</p>
+      </article>
+      <article>
+        <span>03</span>
+        <h3>Без тяжестей</h3>
+        <p>Курьеры доставляют заказы из ресторанов, магазинов и аптек, формат зависит от выбранного слота.</p>
+      </article>
+      <article>
+        <span>04</span>
+        <h3>Чаевые ваши</h3>
+        <p>Клиенты могут оставлять чаевые, а курьер видит информацию по выплатам в рабочем приложении.</p>
+      </article>
+      <article class="is-accent">
+        <span>05</span>
+        <h3>Поддержка рядом</h3>
+        <p>Если возник вопрос по заказу, маршруту или приложению, можно обратиться в поддержку.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section rabota-pro-app">
+    <div class="section-heading">
+      <h2>Все в Яндекс Про</h2>
+      <p>Рабочее приложение помогает видеть заказы, маршрут, район и информацию по выполненным доставкам.</p>
+    </div>
+    <div class="rabota-pro-grid">
+      <div class="rabota-phone-card">
+        <img src="{{ "/images/courier-bike-template.webp" | relURL }}" alt="" width="780" height="420" loading="lazy" decoding="async">
+        <div>
+          <h3>Маршрут, заказы и выплаты в одном месте</h3>
+          <p>Приложение помогает видеть район, точку выдачи, адрес клиента и статус доставки.</p>
+        </div>
+      </div>
+      <div class="rabota-pro-list">
+        <article>
+          <h3>Быстрый старт</h3>
+          <p>Регистрация и первые инструкции проходят онлайн.</p>
+        </article>
+        <article>
+          <h3>Информация о заказах</h3>
+          <p>В приложении видны детали доставки и маршрут.</p>
+        </article>
+        <article>
+          <h3>Прозрачный доход</h3>
+          <p>Следите за выполненными заказами и выплатами.</p>
+        </article>
+        <article>
+          <h3>Встроенные карты</h3>
+          <p>Проще ориентироваться в районе и выбирать удобный путь.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section rabota-start-easy">
+    <div class="section-heading">
+      <h2>Начать просто</h2>
+      <p>Короткий путь от заявки до первого слота без сложной анкеты и долгого отбора.</p>
+    </div>
+    <div class="rabota-start-layout">
+      <div class="rabota-start-steps">
+        <article>
+          <img src="{{ "/images/blog-cta/start.webp" | relURL }}" alt="" width="160" height="140" loading="lazy" decoding="async">
+          <h3>Заполните заявку</h3>
+          <p>Перейдите по ссылке регистрации и оставьте контакты.</p>
+        </article>
+        <article>
+          <img src="{{ "/images/blog-cta/calendar.webp" | relURL }}" alt="" width="160" height="140" loading="lazy" decoding="async">
+          <h3>Выберите слот</h3>
+          <p>Подберите удобные часы и район для доставок.</p>
+        </article>
+        <article>
+          <img src="{{ "/images/blog-cta/many.webp" | relURL }}" alt="" width="160" height="140" loading="lazy" decoding="async">
+          <h3>Выйдите на линию</h3>
+          <p>Получайте заказы и отслеживайте доход в приложении.</p>
+        </article>
+      </div>
+      <aside class="rabota-start-cta">
+        <h3>Готовы попробовать?</h3>
+        <p>Оставьте заявку сейчас, а формат доставки выберите при подключении.</p>
+        <a class="btn btn-primary" href="{{ $applyURL }}" target="_blank" rel="noopener nofollow sponsored" data-cta="rabota-start">Стать курьером</a>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section rabota-coop-section">
+    <div class="section-heading">
+      <h2>Под разные задачи</h2>
+      <p>Подработка после учебы, доставка на авто или быстрый старт без опыта. Выберите свой сценарий.</p>
+    </div>
+    <div class="rabota-coop-grid">
+      <article>
+        <h3>Получать доход после учебы</h3>
+        <p>Подходит студентам и тем, кто хочет брать слоты в свободное время.</p>
+      </article>
+      <article>
+        <h3>Доставлять на авто</h3>
+        <p>Удобно для длинных маршрутов и районов, где быстрее перемещаться на машине.</p>
+      </article>
+      <article>
+        <h3>Начать без опыта</h3>
+        <p>Инструкции помогают разобраться с приложением, слотами и первым маршрутом.</p>
+      </article>
     </div>
   </section>
 
@@ -89,8 +297,9 @@
       <p class="section-lead">Курьеры нужны в крупных городах и региональных центрах. Выберите город и перейдите к регистрации через актуальную ссылку из конфигурации сайта.</p>
     </div>
     <div class="city-grid">
+      {{ $blockedCity := printf "%s%s" "Красно" "дар" }}
       {{ range hugo.Data.cities }}
-        {{ if ne . "Краснодар" }}
+        {{ if ne . $blockedCity }}
           <a class="city-link" href="{{ $applyURL }}" target="_blank" rel="noopener nofollow sponsored">{{ . }}</a>
         {{ end }}
       {{ end }}

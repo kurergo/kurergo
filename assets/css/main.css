@@ -98,13 +98,13 @@ input {
   align-items: center;
   min-height: 72px;
   padding: 12px max(18px, calc((100vw - var(--container)) / 2));
-  border-bottom: 1px solid var(--line);
-  background: rgba(255, 250, 245, 0.92);
+  border-bottom: 1px solid rgba(255, 250, 245, 0.08);
+  background: rgba(18, 16, 14, 0.96);
   backdrop-filter: blur(16px);
 }
 
 .site-header.is-scrolled {
-  box-shadow: 0 18px 40px -32px rgba(35, 15, 10, 0.35);
+  box-shadow: 0 18px 44px -30px rgba(0, 0, 0, 0.65);
 }
 
 .brand,
@@ -115,14 +115,21 @@ input {
 }
 
 .brand {
-  gap: 11px;
   min-width: max-content;
-  color: var(--ink);
+  color: var(--white-soft);
   font-family: var(--font-display);
   font-size: 1.08rem;
   font-weight: 800;
   line-height: 1;
   text-decoration: none;
+}
+
+.brand-logo {
+  display: block;
+  width: clamp(150px, 13vw, 190px);
+  height: auto;
+  max-height: 48px;
+  object-fit: contain;
 }
 
 .brand-mark,
@@ -162,6 +169,14 @@ input {
   color: var(--ink);
 }
 
+.site-header .main-nav a {
+  color: rgba(255, 250, 245, 0.76);
+}
+
+.site-header .main-nav a:hover {
+  color: var(--white-soft);
+}
+
 .header-cta,
 .btn {
   display: inline-flex;
@@ -183,8 +198,8 @@ input {
 .header-cta {
   min-height: 44px;
   padding-inline: 22px;
-  background: var(--ink);
-  color: var(--white-soft);
+  background: var(--yellow);
+  color: var(--ink);
   border-radius: 999px;
 }
 
@@ -322,58 +337,510 @@ input {
 
 .rabota-hero {
   width: min(calc(100% - 40px), var(--container));
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.42fr);
-  gap: clamp(22px, 4vw, 44px);
-  align-items: end;
-  margin: clamp(42px, 7vw, 88px) auto 0;
-  padding: clamp(34px, 5vw, 58px);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: clamp(560px, calc(100dvh - 92px), 760px);
+  margin: 16px auto 0;
   border-radius: var(--radius-lg);
+  background: var(--dark-2);
+  color: var(--white-soft);
+  box-shadow: var(--shadow);
+}
+
+.rabota-hero::after {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  content: "";
   background:
-    radial-gradient(circle at 84% 14%, rgba(255, 215, 0, 0.52), transparent 18rem),
-    linear-gradient(135deg, var(--cream-2), #ffffff);
+    linear-gradient(90deg, rgba(20, 16, 12, 0.82) 0%, rgba(20, 16, 12, 0.58) 44%, rgba(20, 16, 12, 0.08) 100%),
+    linear-gradient(180deg, rgba(20, 16, 12, 0.18) 0%, rgba(20, 16, 12, 0.62) 100%);
+}
+
+.rabota-hero-media,
+.rabota-hero-media img {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+}
+
+.rabota-hero-media img {
+  object-fit: cover;
+  object-position: 63% calc(50% + 46px);
+}
+
+.rabota-hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(260px, 0.36fr);
+  gap: clamp(22px, 4vw, 46px);
+  align-items: end;
+  min-height: inherit;
+  padding: clamp(38px, 5.4vw, 70px);
+}
+
+.rabota-hero-copy {
+  max-width: 720px;
+}
+
+.rabota-hero .eyebrow {
+  color: var(--yellow);
 }
 
 .rabota-hero h1 {
   max-width: 760px;
-  margin-top: 20px;
-  font-size: clamp(2.8rem, 7vw, 5.6rem);
+  margin-top: 18px;
+  font-size: clamp(3.1rem, 7vw, 5.95rem);
+  color: var(--white-soft);
 }
 
 .rabota-hero p:not(.eyebrow) {
-  max-width: 720px;
-  margin-top: 22px;
-  color: var(--muted);
-  font-size: clamp(1.05rem, 1.55vw, 1.24rem);
+  max-width: 610px;
+  margin-top: 20px;
+  color: rgba(255, 250, 245, 0.82);
+  font-size: clamp(1.02rem, 1.45vw, 1.22rem);
 }
 
 .rabota-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 30px;
+  margin-top: 28px;
 }
 
-.rabota-hero-panel {
+.rabota-income-hero {
+  display: grid;
+  gap: 12px;
+  padding: 24px;
+  border: 1px solid rgba(255, 250, 245, 0.18);
+  border-radius: 28px;
+  background: rgba(255, 250, 245, 0.12);
+  backdrop-filter: blur(18px);
+}
+
+.rabota-income-hero > span,
+.rabota-result-card > span {
+  color: rgba(255, 250, 245, 0.72);
+  font-weight: 700;
+}
+
+.rabota-income-hero strong,
+.rabota-result-card strong {
+  color: var(--yellow);
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.2vw, 3.45rem);
+  line-height: 0.95;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.rabota-income-hero p,
+.rabota-result-card p {
+  color: rgba(255, 250, 245, 0.7);
+}
+
+.rabota-strip {
+  width: min(calc(100% - 40px), var(--container));
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin: 12px auto 0;
+}
+
+.rabota-strip span {
+  display: block;
+  min-height: 52px;
+  padding: 15px 18px;
+  border-radius: 999px;
+  background: var(--yellow);
+  color: var(--ink);
+  font-weight: 800;
+  text-align: center;
+}
+
+.rabota-calculator-section .section-heading {
+  max-width: 780px;
+}
+
+#rabota-calculator,
+#faq,
+#cities {
+  scroll-margin-top: 92px;
+}
+
+.rabota-calculator {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(330px, 0.78fr);
+  gap: clamp(18px, 3vw, 36px);
+  align-items: stretch;
+  margin-top: 34px;
+}
+
+.rabota-calc-controls,
+.rabota-result-card,
+.rabota-slide {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+
+.rabota-calc-controls {
+  display: grid;
+  gap: 22px;
+  padding: clamp(22px, 3.8vw, 38px);
+  background: var(--card);
+}
+
+.rabota-city-field,
+.rabota-range {
   display: grid;
   gap: 10px;
 }
 
-.rabota-hero-panel span {
-  display: block;
-  padding: 18px;
+.rabota-city-field span,
+.rabota-range span {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.rabota-city-field input {
+  min-height: 58px;
+  width: 100%;
   border: 1px solid var(--line);
-  border-radius: 22px;
-  background: rgba(255, 255, 255, 0.78);
+  border-radius: 18px;
+  background: var(--cream);
+  color: var(--ink);
+  padding: 0 18px;
+  font-size: 1.08rem;
+  font-weight: 800;
+}
+
+.rabota-transport-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.rabota-transport-tabs button,
+.rabota-slider-nav {
+  border: 0;
+  cursor: pointer;
+  transition: transform 0.18s var(--ease), background 0.18s var(--ease), color 0.18s var(--ease);
+}
+
+.rabota-transport-tabs button {
+  min-height: 54px;
+  padding: 10px 14px;
+  border-radius: 18px;
+  background: var(--cream);
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.rabota-transport-tabs button.is-active {
+  background: var(--yellow);
+}
+
+.rabota-transport-tabs button:active,
+.rabota-slider-nav:active {
+  transform: translateY(1px) scale(0.99);
+}
+
+.rabota-range {
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px 18px;
+  align-items: center;
+}
+
+.rabota-range input {
+  grid-column: 1 / -1;
+  width: 100%;
+}
+
+.rabota-range output {
+  min-width: 64px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: var(--yellow);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.4vw, 1.9rem);
+  font-weight: 800;
+  line-height: 1;
+  text-align: center;
+}
+
+.rabota-result-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  min-width: 0;
+  padding: clamp(24px, 4vw, 40px);
+  background: var(--dark-2);
+  color: var(--white-soft);
+}
+
+.rabota-result-card .btn {
+  width: fit-content;
+  max-width: 100%;
+}
+
+.rabota-slider-section .section-heading {
+  max-width: 820px;
+}
+
+.rabota-slider {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: center;
+  margin-top: 34px;
+}
+
+.rabota-slider-track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(280px, 34%);
+  gap: 14px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 4px 2px 18px;
+  scrollbar-width: thin;
+}
+
+.rabota-slide {
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  scroll-snap-align: start;
+  overflow: hidden;
+  background: var(--card);
+}
+
+.rabota-slide img {
+  width: 100%;
+  height: 190px;
+  object-fit: contain;
+  padding: 22px;
+  background: var(--yellow);
+}
+
+.rabota-slide.is-wide {
+  grid-column: span 2;
+}
+
+.rabota-slide.is-wide img {
+  object-fit: cover;
+  object-position: center;
+  padding: 0;
+}
+
+.rabota-slide h3,
+.rabota-slide p {
+  padding-inline: 24px;
+}
+
+.rabota-slide h3 {
+  margin-top: 22px;
+  font-size: clamp(1.35rem, 2.1vw, 1.75rem);
+}
+
+.rabota-slide p {
+  margin-top: 12px;
+  padding-bottom: 24px;
   color: var(--muted);
 }
 
-.rabota-hero-panel strong {
-  display: block;
-  margin-bottom: 4px;
+.rabota-slider-nav {
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--white-soft);
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.rabota-benefit-board {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr 0.9fr;
+  gap: 12px;
+}
+
+.rabota-benefit-board article,
+.rabota-pro-list article,
+.rabota-start-steps article,
+.rabota-start-cta,
+.rabota-coop-grid article {
+  border-radius: var(--radius-lg);
+  background: var(--cream);
+  box-shadow: var(--shadow);
+}
+
+.rabota-benefit-board article {
+  min-height: 236px;
+  padding: 26px;
+}
+
+.rabota-benefit-board article:first-child {
+  grid-row: span 2;
+  min-height: 484px;
+  background:
+    linear-gradient(180deg, rgba(255, 215, 0, 0.92), rgba(255, 215, 0, 0.72)),
+    var(--yellow);
+}
+
+.rabota-benefit-board article.is-accent {
+  background: var(--dark-2);
+  color: var(--white-soft);
+}
+
+.rabota-benefit-board span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  height: 34px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: rgba(35, 15, 10, 0.08);
   color: var(--ink);
-  font-family: var(--font-display);
-  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.rabota-benefit-board article.is-accent span {
+  background: var(--yellow);
+}
+
+.rabota-benefit-board h3,
+.rabota-pro-grid h3,
+.rabota-start-layout h3,
+.rabota-coop-grid h3 {
+  margin-top: 24px;
+  font-size: clamp(1.35rem, 2.4vw, 2rem);
+  line-height: 1;
+}
+
+.rabota-benefit-board p,
+.rabota-pro-grid p,
+.rabota-start-layout p,
+.rabota-coop-grid p {
+  margin-top: 14px;
+  color: var(--muted);
+}
+
+.rabota-benefit-board article.is-accent p,
+.rabota-start-cta p {
+  color: rgba(255, 250, 245, 0.72);
+}
+
+.rabota-pro-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
+  gap: 14px;
+  align-items: stretch;
+}
+
+.rabota-phone-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 540px;
+  border-radius: var(--radius-lg);
+  background: var(--dark-2);
+  color: var(--white-soft);
+  box-shadow: var(--shadow);
+}
+
+.rabota-phone-card img {
+  width: 100%;
+  height: 100%;
+  min-height: 540px;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.82;
+}
+
+.rabota-phone-card > div {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  padding: 32px;
+  background: linear-gradient(180deg, transparent, rgba(20, 16, 12, 0.88));
+}
+
+.rabota-phone-card p {
+  max-width: 520px;
+  color: rgba(255, 250, 245, 0.76);
+}
+
+.rabota-pro-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.rabota-pro-list article {
+  min-height: 264px;
+  padding: 24px;
+}
+
+.rabota-pro-list article:nth-child(2),
+.rabota-pro-list article:nth-child(3) {
+  background: var(--yellow);
+}
+
+.rabota-start-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.36fr);
+  gap: 14px;
+}
+
+.rabota-start-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.rabota-start-steps article {
+  min-height: 330px;
+  padding: 24px;
+}
+
+.rabota-start-steps img {
+  width: 150px;
+  height: 130px;
+  object-fit: contain;
+}
+
+.rabota-start-cta {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 28px;
+  background: var(--dark-2);
+  color: var(--white-soft);
+}
+
+.rabota-start-cta .btn {
+  margin-top: 24px;
+}
+
+.rabota-coop-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.rabota-coop-grid article {
+  min-height: 250px;
+  padding: 28px;
+}
+
+.rabota-coop-grid article:nth-child(2) {
+  background: var(--yellow);
 }
 
 .ticker {
@@ -1219,8 +1686,33 @@ input[type="range"]::-moz-range-thumb {
     grid-template-columns: 1fr;
   }
 
-  .rabota-hero {
+  .rabota-hero-inner,
+  .rabota-calculator {
     grid-template-columns: 1fr;
+  }
+
+  .rabota-income-hero {
+    max-width: 420px;
+  }
+
+  .rabota-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .rabota-slider-track {
+    grid-auto-columns: minmax(280px, 52%);
+  }
+
+  .rabota-benefit-board,
+  .rabota-pro-grid,
+  .rabota-start-layout,
+  .rabota-coop-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rabota-benefit-board article:first-child {
+    grid-row: auto;
+    min-height: 260px;
   }
 
   .blog-registration-cta {
@@ -1240,6 +1732,11 @@ input[type="range"]::-moz-range-thumb {
 
   .brand {
     font-size: 1rem;
+  }
+
+  .brand-logo {
+    width: 142px;
+    max-height: 38px;
   }
 
   .brand-mark,
@@ -1315,6 +1812,7 @@ input[type="range"]::-moz-range-thumb {
   .article,
   .page-hero,
   .rabota-hero,
+  .rabota-strip,
   .site-footer,
   .searches-section {
     width: min(calc(100% - 28px), var(--container));
@@ -1335,15 +1833,97 @@ input[type="range"]::-moz-range-thumb {
   }
 
   .start-card,
-  .rabota-hero,
   .cities-section .section-heading,
   .blog-registration-cta,
   .final-cta {
     padding: 24px;
   }
 
+  .rabota-hero {
+    min-height: 720px;
+    padding: 0;
+  }
+
+  .rabota-hero-inner {
+    align-content: end;
+    padding: 26px;
+  }
+
+  .rabota-hero h1 {
+    font-size: clamp(2.65rem, 12vw, 4.05rem);
+  }
+
+  .rabota-hero-media img {
+    object-position: 70% calc(50% + 52px);
+  }
+
+  .rabota-income-hero {
+    padding: 18px;
+  }
+
   .rabota-actions .btn {
     width: 100%;
+  }
+
+  .rabota-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .rabota-strip span {
+    min-height: 46px;
+    padding: 12px 15px;
+  }
+
+  .rabota-transport-tabs {
+    grid-template-columns: 1fr;
+  }
+
+  .rabota-calculator {
+    gap: 14px;
+  }
+
+  .rabota-result-card .btn {
+    width: 100%;
+  }
+
+  .rabota-slider {
+    grid-template-columns: 1fr;
+  }
+
+  .rabota-slider-nav {
+    display: none;
+  }
+
+  .rabota-slider-track {
+    grid-auto-columns: minmax(250px, 86%);
+  }
+
+  .rabota-slide.is-wide {
+    grid-column: auto;
+  }
+
+  .rabota-benefit-board,
+  .rabota-pro-list,
+  .rabota-start-steps,
+  .rabota-coop-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rabota-benefit-board article,
+  .rabota-pro-list article,
+  .rabota-start-steps article,
+  .rabota-coop-grid article {
+    min-height: 0;
+    padding: 22px;
+  }
+
+  .rabota-phone-card,
+  .rabota-phone-card img {
+    min-height: 430px;
+  }
+
+  .rabota-phone-card > div {
+    padding: 24px;
   }
 
   .app-grid article,
@@ -1398,6 +1978,15 @@ input[type="range"]::-moz-range-thumb {
 
   .hero-content h1 {
     font-size: clamp(2.65rem, 12vw, 3.6rem);
+  }
+
+  .rabota-hero {
+    min-height: 760px;
+  }
+
+  .rabota-income-hero strong,
+  .rabota-result-card strong {
+    font-size: clamp(1.8rem, 10vw, 2.4rem);
   }
 }
 
