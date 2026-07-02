@@ -1,4 +1,4 @@
-const CACHE_NAME = "kurergo-static-v3";
+const CACHE_NAME = "kurergo-static-v4";
 const ASSET_RE = /\.(?:css|js|mjs|png|jpg|jpeg|webp|svg|ico|woff2?)$/i;
 
 self.addEventListener("install", event => {
