@@ -3,9 +3,9 @@
 
   var RUB = new Intl.NumberFormat("ru-RU");
   var TRANSPORT_RATE = {
-    auto: 445,
-    velo: 390,
-    walk: 350
+    auto: 787.5,
+    velo: 690,
+    walk: 620
   };
   var CITY_RATE_MULTIPLIER = {
     "Москва": 1.25,
@@ -108,6 +108,11 @@
       if (income) income.textContent = formatRub(total);
 
       document.querySelectorAll(".js_income").forEach(function (node) {
+        if (node.dataset.staticIncome === "true") {
+          node.style.visibility = "visible";
+          node.style.opacity = "1";
+          return;
+        }
         node.innerHTML = "доход до&nbsp;" + formatRub(total).replace(" ", "&nbsp;") + " <span class=\"note1\">в&nbsp;месяц</span>";
         node.style.visibility = "visible";
         node.style.opacity = "1";

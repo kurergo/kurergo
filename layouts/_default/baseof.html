@@ -104,6 +104,11 @@
           ym(109618174, 'reachGoal', 'time_60s');
         }
       }, 60000);
+      if ('serviceWorker' in navigator && location.protocol === 'https:') {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('{{ "sw.js" | relURL }}').catch(function() {});
+        });
+      }
     </script>
     <!-- /Yandex.Metrika counter -->
   </head>
