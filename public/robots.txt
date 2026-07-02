@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Host: kurergo.ru
-Sitemap: https://kurergo.ru/sitemap.xml
+Host: localhost:1315
+Sitemap: http://localhost:1315/sitemap.xml
