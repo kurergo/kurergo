@@ -12,7 +12,7 @@ permissions:
 
 concurrency:
   group: "pages"
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 defaults:
   run:
@@ -31,7 +31,7 @@ jobs:
           fetch-depth: 0
       - name: Setup Pages
         id: pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
         with:
           enablement: true
       - name: Install Hugo
@@ -43,10 +43,14 @@ jobs:
       - name: Disable Jekyll
         run: touch public/.nojekyll
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: ./public
+          retention-days: 1
   deploy:
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -55,4 +59,8 @@ jobs:
     steps:
       - name: Deploy
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
+        with:
+          timeout: 900000
+          error_count: 20
+          reporting_interval: 10000
