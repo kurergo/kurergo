@@ -1,0 +1,121 @@
+{{ define "main" }}
+  {{ $applyURL := .Site.Params.referral_url }}
+  <section class="rabota-hero">
+    <div>
+      <p class="eyebrow">Работа курьером</p>
+      <h1>Работа курьером Яндекс Еды</h1>
+      <p>Выбирайте удобные слоты, доставляйте рядом с домом и начинайте без долгих собеседований. Формат можно подобрать под свой ритм: пешком, на велосипеде, самокате или автомобиле.</p>
+      <div class="rabota-actions">
+        <a class="btn btn-primary" href="{{ $applyURL }}" target="_blank" rel="noopener nofollow sponsored" data-cta="rabota-hero">Стать курьером</a>
+        <a class="btn btn-secondary" href="#faq">Ответы на вопросы</a>
+      </div>
+    </div>
+    <div class="rabota-hero-panel" aria-label="Преимущества старта">
+      <span><strong>Онлайн</strong> заявка и инструкции</span>
+      <span><strong>Гибко</strong> слоты в удобное время</span>
+      <span><strong>Рядом</strong> районы и маршруты поблизости</span>
+    </div>
+  </section>
+
+  <section class="section faq" id="faq">
+    <div class="section-heading">
+      <p class="eyebrow">FAQ</p>
+      <h2>Отвечаем на вопросы</h2>
+    </div>
+    <div class="faq-list">
+      <details open>
+        <summary>Можно ли стать курьером-партнером, если мне еще нет 18 лет?</summary>
+        <p>Основной набор курьеров обычно начинается с 18 лет. Актуальные требования лучше проверить во время регистрации, потому что условия могут зависеть от города и формата подключения.</p>
+      </details>
+      <details>
+        <summary>Можно доставлять заказы на велосипеде, самокате или только пешком?</summary>
+        <p>Можно выбрать удобный формат: пешком, велосипед, самокат или автомобиль. Главное, учитывать правила дорожного движения и требования подключения.</p>
+      </details>
+      <details>
+        <summary>Какие документы нужны для оформления?</summary>
+        <p><strong>Для граждан России</strong> обычно требуется паспорт с пропиской. Для иностранных граждан список документов зависит от гражданства и региона работы.</p>
+      </details>
+      <details>
+        <summary>Можно ли выполнять заказы по выходным?</summary>
+        <p>Да. Курьер может выбирать доступное время и районы с учетом правил своей курьерской службы и доступности заказов.</p>
+      </details>
+      <details>
+        <summary>Сколько заказов выполняет курьер за час?</summary>
+        <p>Количество заказов зависит от спроса, района, времени суток, транспорта, погоды и скорости выдачи в точках. В обычный день ориентир может доходить примерно до двух заказов в час, но это не гарантия.</p>
+      </details>
+      <details>
+        <summary>Можно ли получать оплату ежедневно?</summary>
+        <p>Да, для прямых курьеров-партнеров в статусе самозанятых могут быть предусмотрены ежедневные выплаты. Для других форматов график может отличаться.</p>
+      </details>
+      <details>
+        <summary>Есть ли страхование во время заказов?</summary>
+        <p>Условия страхования и поддержки зависят от формата подключения. Подробности стоит уточнить при регистрации и в службе поддержки.</p>
+      </details>
+      <details>
+        <summary>Можно выполнять доставки с телефоном на iOS?</summary>
+        <p>Можно использовать смартфон на iOS или Android, если актуальная версия рабочего приложения доступна для вашего устройства.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="section blog-preview">
+    <div class="section-heading">
+      <p class="eyebrow">Блог</p>
+      <h2>Полезные статьи для будущих курьеров</h2>
+    </div>
+    <div class="post-grid">
+      {{ range first 3 (where .Site.RegularPages "Section" "blog") }}
+        {{ $image := .Params.image | default "/media/kurer.jpg" }}
+        {{ $imageSrc := $image }}
+        {{ $webp := replaceRE "\\.(jpg|jpeg|png)$" ".webp" $image }}
+        {{ if and (ne $webp $image) (fileExists (printf "static%s" $webp)) }}
+          {{ $imageSrc = $webp }}
+        {{ end }}
+        <a class="post-card" href="{{ .RelPermalink }}">
+          <img class="post-card-image" src="{{ $imageSrc | relURL }}" alt="" width="480" height="270" loading="lazy" decoding="async">
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02.01.2006" }}</time>
+          <h3>{{ .Title }}</h3>
+          <p>{{ .Description }}</p>
+        </a>
+      {{ end }}
+    </div>
+    <a class="btn btn-secondary" href="{{ "/blog/" | relURL }}">Открыть блог</a>
+  </section>
+
+  <section class="section cities-section" id="cities">
+    <div class="section-heading">
+      <p class="eyebrow">Города</p>
+      <h2>Найдите свой город</h2>
+      <p class="section-lead">Курьеры нужны в крупных городах и региональных центрах. Выберите город и перейдите к регистрации через актуальную ссылку из конфигурации сайта.</p>
+    </div>
+    <div class="city-grid">
+      {{ range hugo.Data.cities }}
+        {{ if ne . "Краснодар" }}
+          <a class="city-link" href="{{ $applyURL }}" target="_blank" rel="noopener nofollow sponsored">{{ . }}</a>
+        {{ end }}
+      {{ end }}
+    </div>
+  </section>
+
+  <section class="searches-section" aria-labelledby="searches-title">
+    <h2 id="searches-title">Курьеры также ищут</h2>
+    <div class="search-chip-grid">
+      <a href="{{ "/blog/" | relURL }}">работа курьером</a>
+      <a href="{{ "/blog/seo-03-peshij-kurier-yandexa-realnyj-zarabotok/" | relURL }}">работа пешим курьером</a>
+      <a href="{{ "/blog/seo-05-dohod-kuriera-na-velosipede-yandex/" | relURL }}">работа велокурьером</a>
+      <a href="{{ "/blog/seo-29-kurier-na-lichnom-avto-yandex-dostavka/" | relURL }}">работа автокурьером</a>
+      <a href="{{ "/blog/seo-48-kak-zarabotat-pervye-100000-kurierom-yandexa/" | relURL }}">ежедневные выплаты</a>
+      <a href="{{ "/blog/seo-12-rabota-kurierom-yandex-eda-bez-opyta/" | relURL }}">работа без опыта</a>
+      <a href="{{ "/blog/seo-17-rabota-dlya-studentov-kurier-yandex-edy/" | relURL }}">работа для студентов</a>
+      <a href="{{ "/blog/seo-50-kurier-yandexa-2026-polnyj-obzor-professii/" | relURL }}">обзор профессии</a>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div>
+      <p class="eyebrow">Готовы попробовать?</p>
+      <h2>Оставьте заявку и выберите первый удобный слот</h2>
+      <a class="btn btn-primary" href="{{ $applyURL }}" target="_blank" rel="noopener nofollow sponsored" data-cta="rabota-final">Стать курьером</a>
+    </div>
+  </section>
+{{ end }}
