@@ -25,7 +25,7 @@ summaryLength = 22
 [menu]
   [[menu.main]]
     name = "Калькулятор"
-    url = "/#calculator"
+    url = "/#rabota-calculator"
     weight = 10
   [[menu.main]]
     name = "Условия"
