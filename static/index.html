@@ -5751,8 +5751,8 @@ feature-navigator -->
   .kg-sticky-header{box-sizing:border-box!important;width:100%!important;max-width:100vw!important;grid-template-columns:minmax(0,1fr) auto!important;overflow:hidden!important;padding:10px 14px!important;gap:10px 12px!important}
   .kg-sticky-brand{min-width:0!important}
   .kg-sticky-logo{width:128px!important;max-width:100%!important}
-  .kg-sticky-cta{justify-self:end!important;max-width:150px!important;min-height:40px!important;padding:0 14px!important;font-size:13px!important}
-  .kg-sticky-nav{box-sizing:border-box!important;width:100%!important;max-width:100%!important;min-width:0!important;grid-column:1/-1!important;overflow-x:auto!important;gap:14px!important}
+  .kg-sticky-cta{position:absolute!important;top:10px!important;right:max(14px,calc(100vw - 376px))!important;grid-column:auto!important;grid-row:auto!important;justify-self:end!important;width:auto!important;max-width:150px!important;min-height:40px!important;padding:0 14px!important;font-size:13px!important;text-align:center!important;white-space:nowrap!important}
+  .kg-sticky-nav{box-sizing:border-box!important;width:100%!important;max-width:100%!important;min-width:0!important;grid-column:1/-1!important;grid-row:2!important;overflow-x:auto!important;gap:14px!important}
   .kg-sticky-nav a{font-size:14px!important}
   .animation-on [id^="main"]>div>div>div>div:nth-child(n+2),
   .cards-anim [id^="main"]>div>div>div>div:nth-child(n+2),
@@ -5768,8 +5768,8 @@ feature-navigator -->
   #hero,
   #hero>.lc-offsets,
   #hero>.lc-offsets>.lc-grid2,
-  #hero>.lc-offsets>.lc-grid2>.lc-grid2-item{height:680px!important;min-height:680px!important;max-height:none!important}
-  #flex-center-pc-max-width-hero-bg-hero-backgrounds{height:680px!important;min-height:680px!important}
+  #hero>.lc-offsets>.lc-grid2>.lc-grid2-item{height:560px!important;min-height:560px!important;max-height:none!important}
+  #flex-center-pc-max-width-hero-bg-hero-backgrounds{height:560px!important;min-height:560px!important;background-size:contain!important;background-position:center top!important;background-repeat:no-repeat!important}
   #hero>.lc-offsets>.lc-grid2>.lc-grid2-item{display:flex!important;align-items:center!important}
   #hero_grid,#hero_grid>.lc-offsets,#hero_grid>.lc-offsets>.lc-grid2{height:auto!important;min-height:0!important;max-height:none!important}
   #hero_grid>.lc-offsets{box-sizing:border-box!important;padding:0 18px!important;display:block!important}
@@ -5779,12 +5779,14 @@ feature-navigator -->
   #hero_title .lc-text-block{font-size:clamp(38px,12vw,52px)!important;line-height:.92!important;letter-spacing:0!important}
   #hero_subtitle .lc-text-block{font-size:clamp(22px,6.5vw,30px)!important;line-height:1.08!important;letter-spacing:0!important}
   #hero_button{margin-top:8px!important}
-  #hero_button .lc-button2{width:100%!important;min-height:56px!important;border-radius:18px!important;font-size:17px!important}
+  #hero_button .lc-button2{width:100%!important;min-height:56px!important;border-radius:18px!important;font-size:17px!important;text-align:center!important}
+  #hero_button .lc-button2__text{justify-content:center!important;text-align:center!important}
+  #hero_button .lc-styled-text,#hero_button .lc-styled-text__text{width:100%!important;text-align:center!important}
   #features{padding-inline:14px!important}
   section[id*="card-title"] .lc-offsets{padding:44px 18px 18px!important}
   section[id*="card-title"] h2,section[id*="card-title"] .lc-text-block{font-size:clamp(32px,9.4vw,44px)!important;line-height:.98!important;letter-spacing:0!important}
-  #carousel-features{overflow:hidden!important;touch-action:pan-x pan-y!important}
-  #carousel-features .swiper-container{overflow:visible!important;padding-inline:16px!important}
+  #carousel-features{overflow:visible!important;touch-action:pan-x pan-y!important}
+  #carousel-features .swiper-container{overflow-x:auto!important;overflow-y:visible!important;padding-inline:16px!important;scroll-snap-type:x proximity!important;-webkit-overflow-scrolling:touch!important;touch-action:pan-x pan-y!important}
   #carousel-features .swiper-wrapper{display:flex!important;gap:12px!important;transform:none!important}
   #carousel-features .swiper-slide{width:min(82vw,330px)!important;flex:0 0 min(82vw,330px)!important}
   #carousel-features .lc-features__item{height:auto!important;min-height:360px!important;border-radius:24px!important}
@@ -5796,9 +5798,13 @@ feature-navigator -->
   #carousel-features .lc-features__description .lc-text-block{font-size:15px!important;line-height:1.32!important}
   #calculator{overflow:visible!important;touch-action:pan-y!important}
   #calculator .lc-offsets{padding:48px 14px!important}
-  #calculator .calculator__wrapper{box-sizing:border-box!important;width:100%!important;max-width:460px!important;margin-inline:auto!important;padding:22px 16px!important;border-radius:28px!important}
-  #calculator .transport-city-btns,#calculator .transport-buttons{display:grid!important;grid-template-columns:1fr!important;gap:10px!important}
-  #calculator .transport-button,#calculator .dropdown{width:100%!important;min-height:52px!important}
+  #card-tap-2-card-title .lc-text-block{font-size:clamp(28px,8.2vw,36px)!important;line-height:1!important;max-width:calc(100vw - 56px)!important;margin-inline:auto!important}
+  #calculator .calculator__wrapper{box-sizing:border-box!important;width:min(calc(100vw - 56px),430px)!important;max-width:calc(100vw - 56px)!important;margin-inline:auto!important;padding:22px 16px!important;border-radius:28px!important;overflow:hidden!important}
+  #calculator .transport-city-btns,#calculator .transport-buttons{display:flex!important;flex-wrap:wrap!important;width:100%!important;max-width:100%!important;gap:10px!important}
+  #calculator .transport-button{box-sizing:border-box!important;flex:1 1 86px!important;justify-content:center!important;min-width:0!important;min-height:52px!important;padding-inline:10px!important;font-size:14px!important}
+  #calculator .dropdown,#calculator #dropdown-city,#calculator .dropdown__input{box-sizing:border-box!important;flex:1 0 100%!important;width:100%!important;min-width:0!important;min-height:52px!important}
+  #calculator .dropdown{display:block!important}
+  #calculator .dropdown__input{padding-right:44px!important;text-overflow:ellipsis!important}
   #calculator output,#calculator [data-output]{font-size:24px!important;line-height:1!important}
   #calculator .label-text,#calculator .slider__text,#calculator .text{font-size:16px!important;line-height:1.35!important}
   #calculator .income_text_container{padding:18px!important;border-radius:22px!important}
@@ -5816,8 +5822,8 @@ feature-navigator -->
   #carousel-bonus{width:100%!important;max-width:100%!important;overflow-x:auto!important;padding-inline:16px!important;touch-action:pan-x pan-y!important}
   #carousel-bonus .carousel__track{display:flex!important;gap:12px!important;transform:none!important;justify-content:flex-start!important}
   #carousel-bonus .carousel__item{flex:0 0 min(42vw,150px)!important;width:min(42vw,150px)!important;min-width:min(42vw,150px)!important}
-  #yndx-pro-app-carousel{overflow:hidden!important;touch-action:pan-x pan-y!important}
-  #yndx-pro-app-carousel .swiper-container{overflow:visible!important;padding-inline:16px!important}
+  #yndx-pro-app-carousel{overflow:visible!important;touch-action:pan-x pan-y!important}
+  #yndx-pro-app-carousel .swiper-container{overflow-x:auto!important;overflow-y:visible!important;padding-inline:16px!important;scroll-snap-type:x proximity!important;-webkit-overflow-scrolling:touch!important;touch-action:pan-x pan-y!important}
   #yndx-pro-app-carousel .swiper-wrapper{display:flex!important;gap:12px!important;transform:none!important}
   #yndx-pro-app-carousel .swiper-slide{width:min(82vw,330px)!important;flex:0 0 min(82vw,330px)!important}
   #yndx-pro-app-carousel .lc-features__item{height:auto!important;min-height:360px!important;border-radius:24px!important}
@@ -5833,6 +5839,107 @@ feature-navigator -->
   #left-wrapper,#right-wrapper{border-radius:28px!important}
   #left-wrapper .lc-grid2,#right-wrapper .lc-grid2{grid-template-columns:minmax(0,1fr)!important;gap:16px!important}
   #left-wrapper .lc-text-block,#right-wrapper .lc-text-block{max-width:100%!important;overflow-wrap:anywhere!important}
+  #type-coop .lc-offsets{padding-top:36px!important}
+  #carousel-type-coop{overflow:visible!important;touch-action:pan-y!important}
+  #carousel-type-coop .carousel__track{display:grid!important;grid-template-columns:1fr!important;gap:14px!important;transform:none!important}
+  #carousel-type-coop .carousel__item{width:100%!important;min-width:0!important;max-width:100%!important;min-height:148px!important;aspect-ratio:auto!important}
+  #carousel-type-coop .carousel__item img{max-height:128px!important;object-fit:contain!important}
+  .kg-city-picker{border-radius:24px;background:var(--kg-cream2);overflow:hidden}
+  .kg-city-picker summary{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:58px;padding:16px 20px;color:var(--kg-ink);font-weight:800;cursor:pointer}
+  .kg-city-picker summary::after{content:'+';font-size:24px;line-height:1}
+  .kg-city-picker[open] summary::after{content:'-'}
+  .kg-city-picker .kg-city-grid{padding:0 16px 18px;grid-template-columns:1fr!important}
 }
 </style>
+<script>
+(() => {
+  if (window.matchMedia("(max-width: 767px)").matches) {
+    const calcButtons = document.querySelector("#calculatorhtml #calculator .transport-city-btns") || document.querySelector("#calculator .transport-city-btns");
+    if (calcButtons) {
+      Object.assign(calcButtons.style, {
+        display: "flex",
+        flexWrap: "wrap",
+        gap: "10px",
+        width: "100%"
+      });
+      const dropdown = calcButtons.querySelector(".dropdown");
+      if (dropdown) {
+        Object.assign(dropdown.style, {
+          flex: "1 0 100%",
+          width: "100%",
+          minWidth: "100%"
+        });
+      }
+      calcButtons.querySelectorAll(".transport-button").forEach((button) => {
+        Object.assign(button.style, {
+          flex: "1 1 86px",
+          minWidth: "0",
+          justifyContent: "center",
+          paddingInline: "10px",
+          fontSize: "14px"
+        });
+      });
+    }
+
+    ["#carousel-features .swiper-container", "#yndx-pro-app-carousel .swiper-container"].forEach((selector) => {
+      const scroller = document.querySelector(selector);
+      if (scroller) {
+        Object.assign(scroller.style, {
+          overflowX: "auto",
+          overflowY: "visible",
+          WebkitOverflowScrolling: "touch",
+          touchAction: "pan-x pan-y"
+        });
+      }
+    });
+  }
+
+  const grid = document.querySelector(".kg-cities .kg-city-grid");
+  if (!grid || grid.closest(".kg-city-picker")) return;
+
+  const millionCities = [
+    "Москва",
+    "Санкт-Петербург",
+    "Новосибирск",
+    "Екатеринбург",
+    "Казань",
+    "Нижний Новгород",
+    "Красноярск",
+    "Челябинск",
+    "Самара",
+    "Уфа",
+    "Ростов-на-Дону",
+    "Краснодар",
+    "Омск",
+    "Воронеж",
+    "Пермь",
+    "Волгоград"
+  ];
+  const sourceLinks = Array.from(grid.querySelectorAll("a"));
+  const fallbackHref = sourceLinks[0]?.href || "https://reg.eda.yandex.ru/?advertisement_campaign=forms_for_agents&user_invite_code=569fd35d6ccc4111852a73036a77109f&utm_content=blank";
+  const byText = new Map(sourceLinks.map((link) => [link.textContent.trim(), link]));
+  const details = document.createElement("details");
+  const summary = document.createElement("summary");
+
+  details.className = "kg-city-picker";
+  summary.textContent = "Показать города-миллионники";
+  details.append(summary);
+  grid.replaceChildren();
+
+  millionCities.forEach((city) => {
+    const original = byText.get(city);
+    const link = original ? original.cloneNode(true) : document.createElement("a");
+    link.textContent = city;
+    if (!original) {
+      link.href = fallbackHref;
+      link.target = "_blank";
+      link.rel = "noopener nofollow sponsored";
+    }
+    grid.append(link);
+  });
+
+  details.append(grid);
+  document.querySelector(".kg-cities .kg-heading")?.after(details);
+})();
+</script>
 <script src="image/site.js" defer></script></body></html>
