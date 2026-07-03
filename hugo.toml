@@ -55,4 +55,4 @@ summaryLength = 22
 
 [services]
   [services.rss]
-    limit = 12
+    limit = -1
