@@ -6060,6 +6060,20 @@ feature-navigator -->
   #right-btn .lc-button-component,
   #right-btn .lc-button-component>span,
   #right-btn .lc-button2{width:260px!important;min-width:260px!important;max-width:calc(100vw - 48px)!important}
+  /* Latest carousel and hero centering pass */
+  #hero_button,
+  #hero_button .lc-button-component,
+  #hero_button .lc-button-component>span{display:flex!important;justify-content:center!important;width:100%!important}
+  #hero_grid .lc-grid2-item:has(#hero_button){width:100%!important;max-width:100%!important;margin-left:0!important;margin-right:0!important;display:flex!important;justify-content:center!important;justify-self:center!important;align-self:center!important}
+  #hero_grid>.lc-offsets>.lc-grid2>.lc-grid2-item:nth-child(3){width:100%!important;max-width:100%!important;margin:6px 0 0!important;align-self:center!important;justify-self:center!important;display:flex!important;justify-content:center!important}
+  #hero_button .lc-button2{width:min(320px,calc(100vw - 56px))!important;min-width:min(320px,calc(100vw - 56px))!important;margin-inline:auto!important;transform:translateX(-70px)!important}
+  #yndx-pro-app-carousel .lc-features__item-wrap{grid-template-rows:min-content min-content!important;gap:3px 10px!important;align-content:center!important}
+  #yndx-pro-app-carousel .lc-features__spacer-wrapper:first-child{align-self:start!important;height:calc(100% + 26px)!important;transform:translateY(-20px)!important}
+  #yndx-pro-app-carousel .lc-features__image img{object-position:center top!important;transform:translateY(-10px) scale(1.05)!important}
+  #yndx-pro-app-carousel .logo{display:block!important;width:76px!important;height:auto!important;margin:22px 0 6px!important}
+  #yndx-pro-app-carousel .lc-features__title .lc-styled-text__text>div{margin-top:0!important}
+  #yndx-pro-app-carousel .lc-features__description{margin-top:0!important}
+  #yndx-pro-app-carousel .lc-features__description .lc-text-block{line-height:1.12!important}
   @media(max-width:640px){.kg-city-more-grid{grid-template-columns:1fr!important}}
 }
 .kg-city-picker{margin-top:16px;border-radius:24px;background:var(--kg-cream2);overflow:hidden}
