@@ -6091,6 +6091,15 @@ feature-navigator -->
   .header-reg-btn,.reg-btn,.kg-sticky-cta,.kg-btn,#carousel-type-coop .carousel__item,.carousel__item{min-height:44px}
   .lc-carousel__pagination{display:flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;min-height:44px!important}
   .lc-carousel__dot{box-sizing:content-box!important;padding:12px!important;margin:0!important;background-clip:content-box!important}
+  #yndx-pro-app-carousel .lc-carousel__controls{top:18px!important;pointer-events:none!important}
+  #yndx-pro-app-carousel .swiper-slide-duplicate{display:none!important}
+  #yndx-pro-app-carousel .lc-carousel_narrowSlides>.lc-carousel__controls>.lc-carousel__pagination,
+  #yndx-pro-app-carousel .lc-carousel__pagination{box-sizing:border-box!important;display:flex!important;align-items:center!important;justify-content:center!important;gap:6px!important;width:calc(100% - 48px)!important;min-height:24px!important;margin-inline:auto!important;padding:0!important;pointer-events:auto!important}
+  #yndx-pro-app-carousel .lc-carousel__dot,
+  #yndx-pro-app-carousel .swiper-pagination-bullet{flex:1 1 0!important;display:block!important;width:auto!important;min-width:0!important;height:3px!important;min-height:3px!important;max-height:3px!important;margin:0!important;padding:0!important;border-radius:999px!important;background:rgba(35,15,10,.16)!important;background-clip:border-box!important;box-shadow:none!important;opacity:1!important;transform:none!important;transition:background-color 180ms ease,width 180ms ease!important}
+  #yndx-pro-app-carousel .lc-carousel__dot:hover,
+  #yndx-pro-app-carousel .lc-carousel__dot.swiper-pagination-bullet-active,
+  #yndx-pro-app-carousel .swiper-pagination-bullet-active{width:auto!important;height:3px!important;background:#FFD700!important;box-shadow:none!important;opacity:1!important}
   #left-subtitle-1 .lc-text-block,#left-subtitle-2 .lc-text-block,#left-subtitle-3 .lc-text-block,.kg-heading p,.kg-section p,.site-footer p{color:rgba(35,15,10,.78)!important}
   @media(max-width:640px){.kg-city-more-grid{grid-template-columns:1fr!important}}
 }
@@ -6170,6 +6179,71 @@ feature-navigator -->
       });
     };
 
+    const syncYndxProDots = () => {
+      const root = document.querySelector("#yndx-pro-app-carousel");
+      if (!root) return;
+      const viewport = root.querySelector(".swiper-container");
+      const pagination = root.querySelector(".lc-carousel__pagination");
+      const slides = Array.from(root.querySelectorAll(".swiper-slide[data-swiper-slide-index]")).filter((slide) => !slide.classList.contains("swiper-slide-duplicate"));
+      if (!viewport || !pagination || !slides.length) return;
+
+      const indexes = Array.from(new Set(slides.map((slide) => slide.dataset.swiperSlideIndex))).sort((a, b) => Number(a) - Number(b));
+      if (!indexes.length) return;
+
+      if (pagination.dataset.kgSlideIndexes !== indexes.join(",")) {
+        pagination.dataset.kgSlideIndexes = indexes.join(",");
+        pagination.innerHTML = "";
+        indexes.forEach((index, position) => {
+          const dot = document.createElement("button");
+          dot.type = "button";
+          dot.className = "lc-carousel__dot lc-carousel__dot_size_s lc-carousel__dot_custom-size lc-carousel__dot_custom-size-display swiper-pagination-bullet";
+          dot.setAttribute("aria-label", `Перейти к слайду ${position + 1}`);
+          dot.setAttribute("aria-pressed", "false");
+          dot.dataset.kgSlideIndex = index;
+          dot.addEventListener("click", () => {
+            const target = slides.find((slide) => slide.dataset.swiperSlideIndex === index);
+            if (target) viewport.scrollTo({ left: target.offsetLeft, behavior: "smooth" });
+          });
+          pagination.appendChild(dot);
+        });
+      }
+
+      const update = () => {
+        const viewportRect = viewport.getBoundingClientRect();
+        const viewportCenter = viewportRect.left + viewportRect.width / 2;
+        let active = slides[0];
+        let bestDistance = Number.POSITIVE_INFINITY;
+
+        slides.forEach((slide) => {
+          const rect = slide.getBoundingClientRect();
+          if (rect.right <= viewportRect.left || rect.left >= viewportRect.right) return;
+          const distance = Math.abs(rect.left + rect.width / 2 - viewportCenter);
+          if (distance < bestDistance) {
+            bestDistance = distance;
+            active = slide;
+          }
+        });
+
+        pagination.querySelectorAll(".lc-carousel__dot").forEach((dot) => {
+          const isActive = dot.dataset.kgSlideIndex === active.dataset.swiperSlideIndex;
+          dot.classList.toggle("swiper-pagination-bullet-active", isActive);
+          dot.setAttribute("aria-pressed", String(isActive));
+        });
+      };
+
+      if (!viewport.dataset.kgDotsBound) {
+        viewport.dataset.kgDotsBound = "true";
+        let frame = 0;
+        viewport.addEventListener("scroll", () => {
+          cancelAnimationFrame(frame);
+          frame = requestAnimationFrame(update);
+        }, { passive: true });
+        window.addEventListener("resize", update, { passive: true });
+      }
+
+      update();
+    };
+
     const fixMobileCarousels = () => {
       fixScrollableCarousel("#carousel-features", ".carousel__viewport", ".carousel__track", ".carousel__item", "min(82vw, 330px)");
       fixScrollableCarousel("#carousel-bonus", ".carousel__viewport", ".carousel__track", ".carousel__item", "min(58vw, 232px)");
@@ -6187,6 +6261,7 @@ feature-navigator -->
         el.style.width = "min(74vw, 260px)";
         el.style.maxWidth = "100%";
       });
+      syncYndxProDots();
     };
 
     fixMobileCarousels();
