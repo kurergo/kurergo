@@ -85,34 +85,18 @@
         }
       </script>
     {{ end }}
-    {{ if and .IsHome .Params.faq }}
-      <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          "mainEntity": [
-            {{- range $index, $item := .Params.faq -}}
-              {{- if $index }},{{ end -}}
-              {
-                "@type": "Question",
-                "name": {{ $item.question | jsonify | safeJS }},
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": {{ $item.answer | jsonify | safeJS }}
-                }
-              }
-            {{- end -}}
-          ]
-        }
-      </script>
+    {{ $pageFAQ := .Params.faq }}
+    {{ if and .IsPage (eq .Section "landing") .Params.audience_key }}
+      {{ $audienceConfig := index hugo.Data.audiences .Params.audience_key | default dict }}
+      {{ $pageFAQ = $pageFAQ | default $audienceConfig.faq }}
     {{ end }}
-    {{ if and .IsPage .Params.faq }}
+    {{ if $pageFAQ }}
       <script type="application/ld+json">
         {
           "@context": "https://schema.org",
           "@type": "FAQPage",
           "mainEntity": [
-            {{- range $index, $item := .Params.faq -}}
+            {{- range $index, $item := $pageFAQ -}}
               {{- if $index }},{{ end -}}
               {
                 "@type": "Question",

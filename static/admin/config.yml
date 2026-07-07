@@ -27,7 +27,7 @@ collections:
           - { label: "Бейджи Hero", name: "hero_badges", widget: "list", required: false }
           - { label: "Текст CTA", name: "cta_text", widget: "string", default: "Стать курьером" }
           - { label: "CTA URL", name: "cta_url", widget: "string", required: false, hint: "Если пусто, используется referral_url из hugo.toml" }
-          - { label: "URL чата n8n", name: "chat_url", widget: "string", required: false }
+          - { label: "URL webhook n8n", name: "chat_webhook_url", widget: "string", required: false }
           - { label: "Микротекст под CTA", name: "hero_microtext", widget: "string", required: false }
           - label: "Кому подойдет"
             name: "audience"
@@ -70,7 +70,7 @@ collections:
     slug: "{{slug}}"
     extension: "md"
     format: "frontmatter"
-    preview_path: "{{slug}}/"
+    preview_path: "{{url}}"
     fields:
       - { label: "SEO title", name: "title", widget: "string" }
       - {
@@ -79,6 +79,32 @@ collections:
           widget: "string",
           required: true,
           pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Используйте только маленькие латинские буквы, цифры и дефисы"],
+        }
+      - {
+          label: "URL страницы",
+          name: "url",
+          widget: "string",
+          required: true,
+          hint: "Например: /podrabotka_kurerom.html. Для рекламных страниц можно использовать URL с .html.",
+          pattern: ["^/[a-z0-9_/-]+(?:\\.html|/)$", "URL должен начинаться с / и заканчиваться на .html или /"],
+        }
+      - {
+          label: "Аудитория",
+          name: "audience_key",
+          widget: "select",
+          required: true,
+          options:
+            [
+              { label: "Подработка", value: "podrabotka" },
+              { label: "Без опыта", value: "bez_opyta" },
+              { label: "Ежедневная оплата", value: "ezhednevnaya_oplata" },
+              { label: "На велосипеде", value: "na_velosipede" },
+              { label: "Свободный график", value: "svobodniy_grafik" },
+              { label: "На авто", value: "na_avto" },
+              { label: "Пеший", value: "peshiy" },
+              { label: "Выходные", value: "vyhodnye" },
+              { label: "Студентам", value: "studentam" },
+            ],
         }
       - { label: "SEO description", name: "description", widget: "string" }
       - { label: "H1", name: "h1", widget: "string" }
@@ -89,7 +115,7 @@ collections:
       - { label: "Бейджи Hero", name: "hero_badges", widget: "list", required: false }
       - { label: "Текст CTA", name: "cta_text", widget: "string", default: "Стать курьером" }
       - { label: "CTA URL", name: "cta_url", widget: "string", required: false, hint: "Если пусто, используется referral_url из hugo.toml" }
-      - { label: "URL чата n8n", name: "chat_url", widget: "string", required: false }
+      - { label: "URL webhook n8n", name: "chat_webhook_url", widget: "string", required: false }
       - { label: "Микротекст под CTA", name: "hero_microtext", widget: "string", required: false }
       - label: "Кому подойдет"
         name: "audience"

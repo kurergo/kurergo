@@ -53,6 +53,7 @@ document.querySelectorAll("[data-cta]").forEach((link) => {
     };
     reachGoal(goals[cta] || `${cta}_click`, {
       city: link.dataset.city || undefined,
+      audience: link.dataset.audience || document.querySelector("[data-audience]")?.dataset.audience || undefined,
     });
   });
 });
@@ -63,7 +64,9 @@ const chatStatus = document.querySelector("[data-chat-status]");
 
 document.querySelectorAll("[data-chat-open]").forEach((button) => {
   button.addEventListener("click", () => {
-    reachGoal("chat_open");
+    reachGoal("chat_open", {
+      audience: button.dataset.audience || document.querySelector("[data-audience]")?.dataset.audience || undefined,
+    });
     if (chatDialog?.showModal) {
       chatDialog.showModal();
     }

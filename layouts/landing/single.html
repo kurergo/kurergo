@@ -1,15 +1,25 @@
 {{ define "main" }}
   {{ $applyURL := .Params.cta_url | default .Site.Params.referral_url }}
-  {{ $heroImage := .Params.hero_image | default "/images/hero-courier.png" }}
-  {{ $heroAlt := .Params.hero_image_alt | default "Курьер с термосумкой смотрит в телефон на городской улице" }}
-  {{ $cities := .Params.cities | default hugo.Data.cities }}
+  {{ $audienceKey := .Params.audience_key | default .Params.audience | default "" }}
+  {{ $audienceConfig := index hugo.Data.audiences $audienceKey | default dict }}
+  {{ $heroImage := .Params.hero_image | default $audienceConfig.hero_image | default "/images/hero-courier.png" }}
+  {{ $heroAlt := .Params.hero_image_alt | default $audienceConfig.hero_image_alt | default "Курьер с термосумкой смотрит в телефон на городской улице" }}
+  {{ $cities := .Params.cities | default hugo.Data.featured_cities | default hugo.Data.cities }}
+  {{ $calcRates := .Params.calculator.rates | default hugo.Data.income.default.rates | default (dict "walking" 380 "bike" 470 "car" 520) }}
+  {{ $heroBadges := .Params.hero_badges | default $audienceConfig.hero_badges }}
+  {{ $audienceItems := .Params.audience_cards | default .Params.audience_items | default $audienceConfig.audience }}
+  {{ $benefits := .Params.benefits | default $audienceConfig.benefits }}
+  {{ $steps := .Params.steps | default $audienceConfig.steps | default hugo.Data.landing_defaults.steps }}
+  {{ $formats := .Params.formats | default $audienceConfig.formats }}
+  {{ $faq := .Params.faq | default $audienceConfig.faq }}
+  {{ $ctaText := .Params.cta_text | default $audienceConfig.cta_text | default "Стать курьером" }}
 
-  <section class="kg-hero" id="top">
+  <section class="kg-hero" id="top" data-audience="{{ $audienceKey }}">
     <div class="kg-hero-copy">
-      <p class="kg-pill">{{ .Params.hero_badge | default "Подработка курьером" }}</p>
-      <h1>{{ .Params.h1 | default .Title }}</h1>
-      <p class="kg-hero-lead">{{ .Params.hero_subtitle | default .Description }}</p>
-      {{ with .Params.hero_badges }}
+      <p class="kg-pill">{{ .Params.hero_badge | default $audienceConfig.hero_badge | default "Подработка курьером" }}</p>
+      <h1>{{ .Params.h1 | default $audienceConfig.h1 | default .Title }}</h1>
+      <p class="kg-hero-lead">{{ .Params.hero_subtitle | default $audienceConfig.hero_subtitle | default .Description }}</p>
+      {{ with $heroBadges }}
         <ul class="kg-check-list" aria-label="Ключевые условия">
           {{ range . }}
             <li>{{ . }}</li>
@@ -17,8 +27,8 @@
         </ul>
       {{ end }}
       <div class="kg-actions">
-        <a class="kg-btn kg-btn-primary" href="{{ $applyURL }}" target="_blank" rel="noopener nofollow sponsored" data-cta="hero">{{ .Params.cta_text | default "Стать курьером" }}</a>
-        <a class="kg-btn kg-btn-secondary" href="#income-calculator">Рассчитать доход</a>
+        <a class="kg-btn kg-btn-primary" href="{{ $applyURL }}" target="_blank" rel="noopener nofollow sponsored" data-cta="hero" data-audience="{{ $audienceKey }}">{{ $ctaText }}</a>
+        <a class="kg-btn kg-btn-secondary" href="#income-calculator" data-cta="calculator_scroll" data-audience="{{ $audienceKey }}">Рассчитать доход</a>
       </div>
       <p class="kg-note">{{ .Params.hero_microtext | default "Условия и доход зависят от города, спроса и времени на линии." }}</p>
     </div>
@@ -27,7 +37,7 @@
     </div>
   </section>
 
-  {{ with .Params.audience }}
+  {{ with $audienceItems }}
     <section class="kg-section kg-audience" id="audience">
       <div class="kg-section-head">
         <h2>Кому подойдет</h2>
@@ -43,7 +53,7 @@
     </section>
   {{ end }}
 
-  {{ with .Params.benefits }}
+  {{ with $benefits }}
     <section class="kg-section kg-benefits" id="benefits">
       <div class="kg-section-head">
         <h2>Что делает формат удобным</h2>
@@ -82,10 +92,11 @@
         <fieldset>
           <legend>Тип доставки</legend>
           <div class="kg-segmented">
-            <label><input type="radio" name="transport" value="380" checked> Пеший</label>
-            <label><input type="radio" name="transport" value="470"> Велосипед</label>
-            <label><input type="radio" name="transport" value="520"> Авто</label>
+            <label><input type="radio" name="transport" value="{{ $calcRates.walking | default 380 }}" checked> Пеший</label>
+            <label><input type="radio" name="transport" value="{{ $calcRates.bike | default 470 }}"> Велосипед</label>
+            <label><input type="radio" name="transport" value="{{ $calcRates.car | default 520 }}"> Авто</label>
           </div>
+          <p class="kg-field-note">Ориентировочная модель расчета. Коэффициенты редактируются в CMS.</p>
         </fieldset>
 
         <label class="kg-range">
@@ -104,12 +115,12 @@
         <span>Примерный доход в месяц</span>
         <strong><span data-calc-result>41 800</span> ₽</strong>
         <p>Расчет ориентировочный. Доход не гарантируется и зависит от города, спроса, количества заказов и времени на линии.</p>
-        <a class="kg-btn kg-btn-dark" href="{{ $applyURL }}" target="_blank" rel="noopener nofollow sponsored" data-cta="calculator">{{ .Params.cta_text | default "Стать курьером" }}</a>
+        <a class="kg-btn kg-btn-dark" href="{{ $applyURL }}" target="_blank" rel="noopener nofollow sponsored" data-cta="calculator" data-audience="{{ $audienceKey }}">{{ $ctaText }}</a>
       </aside>
     </form>
   </section>
 
-  {{ with .Params.steps }}
+  {{ with $steps }}
     <section class="kg-section kg-steps" id="how">
       <div class="kg-section-head">
         <h2>Как начать</h2>
@@ -126,7 +137,7 @@
     </section>
   {{ end }}
 
-  {{ with .Params.formats }}
+  {{ with $formats }}
     <section class="kg-section kg-formats" id="formats">
       <div class="kg-section-head">
         <h2>Форматы доставки</h2>
@@ -147,7 +158,7 @@
       <h2>Не знаете, какой формат выбрать?</h2>
       <p>Ответьте на несколько вопросов, а консультант подскажет сценарий: пеший, вело, авто, вечерний или по выходным.</p>
     </div>
-    <a class="kg-btn kg-btn-primary" href="{{ .Params.chat_url | default "#chat" }}" data-chat-open>Подобрать формат</a>
+    <button class="kg-btn kg-btn-primary" type="button" data-chat-open data-audience="{{ $audienceKey }}">Подобрать формат</button>
   </section>
 
   <section class="kg-section kg-cities" id="cities">
@@ -164,7 +175,7 @@
         {{ else }}
           {{ $citySlug = . | urlize }}
         {{ end }}
-        <a href="{{ printf "/goroda/%s/" $citySlug | relURL }}" data-cta="city" data-city="{{ $cityName }}">{{ $cityName }}</a>
+        <a href="{{ printf "/goroda/%s/" $citySlug | relURL }}" data-cta="city" data-city="{{ $cityName }}" data-audience="{{ $audienceKey }}">{{ $cityName }}</a>
       {{ end }}
     </div>
   </section>
@@ -194,7 +205,7 @@
     <a class="kg-btn kg-btn-secondary" href="{{ "/blog/" | relURL }}">Открыть WIKI</a>
   </section>
 
-  {{ with .Params.faq }}
+  {{ with $faq }}
     <section class="kg-section kg-faq" id="faq">
       <div class="kg-section-head">
         <h2>Ответы на вопросы</h2>
@@ -213,9 +224,34 @@
   <section class="kg-final" id="register">
     <h2>Готовы попробовать?</h2>
     <p>Пройдите регистрацию онлайн и выберите удобный формат доставки.</p>
-    <a class="kg-btn kg-btn-primary" href="{{ $applyURL }}" target="_blank" rel="noopener nofollow sponsored" data-cta="final">{{ .Params.cta_text | default "Стать курьером" }}</a>
+    <a class="kg-btn kg-btn-primary" href="{{ $applyURL }}" target="_blank" rel="noopener nofollow sponsored" data-cta="final" data-audience="{{ $audienceKey }}">{{ $ctaText }}</a>
     <small>Доход не гарантируется и зависит от города, спроса, количества заказов и времени на линии.</small>
   </section>
 
-  <a class="kg-sticky-cta" href="{{ $applyURL }}" target="_blank" rel="noopener nofollow sponsored" data-cta="sticky">{{ .Params.cta_text | default "Стать курьером" }}</a>
+  <a class="kg-sticky-cta" href="{{ $applyURL }}" target="_blank" rel="noopener nofollow sponsored" data-cta="sticky" data-audience="{{ $audienceKey }}">{{ $ctaText }}</a>
+
+  <dialog class="kg-chat-dialog" data-chat-dialog>
+    <form method="dialog" class="kg-chat-card" data-chat-form data-chat-webhook="{{ .Params.chat_webhook_url }}">
+      <button class="kg-chat-close" type="button" aria-label="Закрыть" data-chat-close>×</button>
+      <p class="kg-pill">AI-консультант</p>
+      <h2>Подберем формат доставки</h2>
+      <p>Укажите город и удобный способ связи. Если подключен n8n webhook, заявка уйдет в сценарий автоматически.</p>
+      <label>
+        <span>Город</span>
+        <input name="city" type="text" autocomplete="address-level2" placeholder="Например, Москва" required>
+      </label>
+      <label>
+        <span>Контакт</span>
+        <input name="contact" type="text" autocomplete="tel" placeholder="Телефон или Telegram" required>
+      </label>
+      <label>
+        <span>Комментарий</span>
+        <textarea name="message" rows="3" placeholder="Пешком, вело, авто, вечера или выходные"></textarea>
+      </label>
+      <input name="audience" type="hidden" value="{{ $audienceKey }}">
+      <button class="kg-btn kg-btn-primary" type="submit">Отправить</button>
+      <p class="kg-chat-status" data-chat-status></p>
+      <a class="kg-chat-fallback" href="{{ $applyURL }}" target="_blank" rel="noopener nofollow sponsored" data-cta="chat_apply" data-audience="{{ $audienceKey }}">Перейти к регистрации без консультации</a>
+    </form>
+  </dialog>
 {{ end }}
