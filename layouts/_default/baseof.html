@@ -41,13 +41,50 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "EmploymentAgency",
-        "name": "{{ .Site.Title }}",
-        "url": "{{ .Site.BaseURL }}",
-        "description": "{{ .Site.Params.description }}",
-        "areaServed": "{{ .Site.Params.city }}"
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "{{ .Site.BaseURL }}#website",
+            "name": "{{ .Site.Title }}",
+            "url": "{{ .Site.BaseURL }}",
+            "description": "{{ .Site.Params.description }}"
+          },
+          {
+            "@type": "Organization",
+            "@id": "{{ .Site.BaseURL }}#organization",
+            "name": "{{ .Site.Title }}",
+            "url": "{{ .Site.BaseURL }}",
+            "logo": "{{ "logo.png" | absURL }}",
+            "description": "{{ .Site.Params.description }}"
+          }
+        ]
       }
     </script>
+    {{ if and .IsPage (eq .Section "blog") }}
+      <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": {{ .Title | jsonify | safeJS }},
+          "description": {{ .Description | jsonify | safeJS }},
+          "datePublished": "{{ .Date.Format "2006-01-02" }}",
+          "dateModified": "{{ .Lastmod.Format "2006-01-02" }}",
+          "author": {
+            "@type": "Organization",
+            "name": "{{ .Site.Title }}"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "{{ .Site.Title }}",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "{{ "logo.png" | absURL }}"
+            }
+          },
+          "mainEntityOfPage": "{{ .Permalink }}"
+        }
+      </script>
+    {{ end }}
     {{ if and .IsHome .Params.faq }}
       <script type="application/ld+json">
         {
@@ -148,7 +185,7 @@
       <div class="footer-links">
         <a href="{{ "/blog/" | relURL }}">Блог</a>
         <a href="{{ "/index.xml" | relURL }}">RSS</a>
-        <a href="{{ .Site.Params.referral_url }}" target="_blank" rel="noopener nofollow sponsored">Регистрация</a>
+        <a href="{{ .Site.Params.referral_url }}" target="_blank" rel="noopener nofollow sponsored" data-cta="footer">Регистрация</a>
       </div>
     </footer>
     {{ with resources.Get "js/main.js" }}

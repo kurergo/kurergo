@@ -1,0 +1,20 @@
+{{ define "main" }}
+  {{ $applyURL := .Params.cta_url | default .Site.Params.referral_url }}
+  <article class="article city-page">
+    <a class="back-link" href="{{ "/#cities" | relURL }}">Назад к городам</a>
+    <header>
+      <p class="eyebrow">Городская страница</p>
+      <h1>{{ .Params.h1 | default .Title }}</h1>
+      <p>{{ .Description }}</p>
+    </header>
+    <div class="article-body">
+      {{ .Content }}
+    </div>
+    <section class="article-cta">
+      <h2>Начните регистрацию в своем городе</h2>
+      <p>Условия, доступные форматы и выплаты уточняются на стороне сервиса при подключении.</p>
+      <a class="btn btn-primary" href="{{ $applyURL }}" target="_blank" rel="noopener nofollow sponsored" data-cta="city_final">Стать курьером</a>
+    </section>
+  </article>
+{{ end }}
+

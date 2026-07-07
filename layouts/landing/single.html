@@ -72,7 +72,9 @@
           <span>Город</span>
           <select name="city">
             {{ range $cities }}
-              <option value="{{ . }}">{{ . }}</option>
+              {{ $cityName := . }}
+              {{ if reflect.IsMap . }}{{ $cityName = .name }}{{ end }}
+              <option value="{{ $cityName }}">{{ $cityName }}</option>
             {{ end }}
           </select>
         </label>
@@ -154,7 +156,15 @@
     </div>
     <div class="kg-city-grid">
       {{ range $cities }}
-        <a href="{{ $applyURL }}" target="_blank" rel="noopener nofollow sponsored">{{ . }}</a>
+        {{ $cityName := . }}
+        {{ $citySlug := "" }}
+        {{ if reflect.IsMap . }}
+          {{ $cityName = .name }}
+          {{ $citySlug = .slug }}
+        {{ else }}
+          {{ $citySlug = . | urlize }}
+        {{ end }}
+        <a href="{{ printf "/goroda/%s/" $citySlug | relURL }}" data-cta="city" data-city="{{ $cityName }}">{{ $cityName }}</a>
       {{ end }}
     </div>
   </section>
@@ -207,5 +217,5 @@
     <small>Доход не гарантируется и зависит от города, спроса, количества заказов и времени на линии.</small>
   </section>
 
-  <a class="kg-sticky-cta" href="{{ $applyURL }}" target="_blank" rel="noopener nofollow sponsored">{{ .Params.cta_text | default "Стать курьером" }}</a>
+  <a class="kg-sticky-cta" href="{{ $applyURL }}" target="_blank" rel="noopener nofollow sponsored" data-cta="sticky">{{ .Params.cta_text | default "Стать курьером" }}</a>
 {{ end }}
