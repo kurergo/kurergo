@@ -28,6 +28,39 @@ if (calc) {
   update();
 }
 
+const incomeCalc = document.querySelector("[data-income-calculator]");
+
+if (incomeCalc) {
+  const format = new Intl.NumberFormat("ru-RU");
+  const fields = {
+    hours: incomeCalc.querySelector('input[name="hours"]'),
+    days: incomeCalc.querySelector('input[name="days"]'),
+    transport: incomeCalc.querySelectorAll('input[name="transport"]'),
+  };
+  const outputs = {
+    hours: incomeCalc.querySelector('[data-calc-output="hours"]'),
+    days: incomeCalc.querySelector('[data-calc-output="days"]'),
+    result: incomeCalc.querySelector("[data-calc-result]"),
+  };
+
+  const updateIncomeCalc = () => {
+    const hours = Number(fields.hours.value);
+    const days = Number(fields.days.value);
+    const rate = Number(incomeCalc.querySelector('input[name="transport"]:checked')?.value || 380);
+    const monthFactor = 4.4;
+    const total = Math.round(hours * days * rate * monthFactor / 100) * 100;
+
+    outputs.hours.textContent = hours;
+    outputs.days.textContent = days;
+    outputs.result.textContent = format.format(total);
+  };
+
+  fields.hours.addEventListener("input", updateIncomeCalc);
+  fields.days.addEventListener("input", updateIncomeCalc);
+  fields.transport.forEach((field) => field.addEventListener("change", updateIncomeCalc));
+  updateIncomeCalc();
+}
+
 const rabotaCalc = document.querySelector("[data-rabota-calculator]");
 
 if (rabotaCalc) {

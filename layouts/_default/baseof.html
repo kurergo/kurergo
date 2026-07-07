@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ if .IsHome }}{{ .Site.Title }}: работа курьером с гибким графиком{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+    <title>{{ if .IsHome }}{{ .Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
     <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
     {{ with .Params.keywords }}<meta name="keywords" content="{{ delimit . ", " }}">{{ end }}
     <link rel="canonical" href="{{ .Permalink }}">
@@ -11,7 +11,7 @@
     <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
     <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
     <meta property="og:url" content="{{ .Permalink }}">
-    {{ $ogImage := .Params.image | default "images/og-banner.jpg" }}
+    {{ $ogImage := .Params.hero_image | default .Params.image | default "images/hero-courier.png" }}
     <meta property="og:image" content="{{ $ogImage | absURL }}">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="theme-color" content="#ffde40">
@@ -19,7 +19,7 @@
     <link rel="icon" href="{{ "favicon.ico" | relURL }}" sizes="any">
     <link rel="shortcut icon" href="{{ "favicon.ico" | relURL }}">
     {{ if .IsHome }}
-      <link rel="preload" as="image" href="{{ "images/hero-energy.webp" | relURL }}" type="image/webp" fetchpriority="high">
+      {{ with .Params.hero_image }}<link rel="preload" as="image" href="{{ . | relURL }}" fetchpriority="high">{{ end }}
     {{ end }}
     {{ if and .IsPage (eq .Section "blog") }}
       {{ $articleImage := .Params.image | default "/media/kurer.jpg" }}
@@ -48,20 +48,23 @@
         "areaServed": "{{ .Site.Params.city }}"
       }
     </script>
-    {{ if .IsHome }}
+    {{ if and .IsHome .Params.faq }}
       <script type="application/ld+json">
         {
           "@context": "https://schema.org",
           "@type": "FAQPage",
           "mainEntity": [
-            {"@type":"Question","name":"Можно ли устроиться курьером, если вам еще не исполнилось 18 лет?","acceptedAnswer":{"@type":"Answer","text":"В сервисе Яндекс Еда основной набор курьеров обычно начинается с 18 лет. Актуальные возрастные требования лучше проверить во время регистрации."}},
-            {"@type":"Question","name":"Какие документы понадобятся для оформления?","acceptedAnswer":{"@type":"Answer","text":"Для граждан России обычно требуется паспорт с пропиской. Для иностранных граждан список документов может включать паспорт, регистрацию, миграционную карту, СНИЛС, ИНН, ДМС и документы для работы в регионе."}},
-            {"@type":"Question","name":"Можно ли выполнять заказы по выходным?","acceptedAnswer":{"@type":"Answer","text":"Да. Курьер может выбирать доступные слоты и локации с учетом правил своей курьерской службы и доступности заказов."}},
-            {"@type":"Question","name":"Сколько заказов обычно выполняется за час?","acceptedAnswer":{"@type":"Answer","text":"Количество заказов зависит от спроса, района, времени суток, транспорта, погоды и скорости выдачи в точках. В обычный рабочий день ориентир может доходить примерно до двух заказов в час, но это не гарантия."}},
-            {"@type":"Question","name":"Можно ли совмещать доставки с основной работой?","acceptedAnswer":{"@type":"Answer","text":"Да. Многие курьеры используют доставку как подработку и выходят на слоты после основной работы, учебы или в свободные дни."}},
-            {"@type":"Question","name":"Можно ли получать выплаты каждый день или каждую неделю?","acceptedAnswer":{"@type":"Answer","text":"Да, возможны разные графики выплат. Для прямых курьеров-партнеров в статусе самозанятого выплаты могут быть ежедневными, для других форматов выплаты могут производиться раз в неделю."}},
-            {"@type":"Question","name":"Можно ли выполнять доставки с iPhone или нужен Android?","acceptedAnswer":{"@type":"Answer","text":"Можно использовать смартфон на iOS или Android, если актуальная версия рабочего приложения доступна для устройства и подходит под требования подключения."}},
-            {"@type":"Question","name":"Какие приложения необходимо установить?","acceptedAnswer":{"@type":"Answer","text":"Для работы курьером обычно используется приложение Яндекс Про. В нем курьер принимает заказы, смотрит маршруты, управляет слотами и отслеживает статус доставок."}}
+            {{- range $index, $item := .Params.faq -}}
+              {{- if $index }},{{ end -}}
+              {
+                "@type": "Question",
+                "name": {{ $item.question | jsonify | safeJS }},
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": {{ $item.answer | jsonify | safeJS }}
+                }
+              }
+            {{- end -}}
           ]
         }
       </script>
@@ -139,8 +142,8 @@
     </main>
     <footer class="site-footer">
       <div>
-        <strong>Курьерский старт</strong>
-        <p>Информационный сайт для подключения к доставке заказов. Условия и доход зависят от города, спроса, времени на линии и выбранного формата.</p>
+        <strong>KurerGO</strong>
+        <p>KurerGO — справочный партнерский ресурс о работе и подработке курьером. Не является официальным сайтом Яндекса. Условия подключения, выплаты и требования могут отличаться по городам.</p>
       </div>
       <div class="footer-links">
         <a href="{{ "/blog/" | relURL }}">Блог</a>

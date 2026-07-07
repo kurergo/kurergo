@@ -1,13 +1,16 @@
 baseURL = "https://kurergo.ru/"
 locale = "ru-RU"
-title = "Курьер Яндекс Еды"
+title = "KurerGO"
 defaultContentLanguage = "ru"
 enableRobotsTXT = true
-enableGitInfo = true
+enableGitInfo = false
 summaryLength = 22
 
 [pagination]
   pagerSize = 20
+
+[permalinks]
+  landing = "/:slug/"
 
 [frontmatter]
   date = ["date", "publishDate", "lastmod"]
@@ -16,7 +19,7 @@ summaryLength = 22
   expiryDate = ["expiryDate"]
 
 [params]
-  description = "Работа курьером в Яндекс Еде: свободный график, быстрый старт, ежедневные выплаты и доставка рядом с домом."
+  description = "KurerGO — справочный ресурс о работе и подработке курьером: форматы доставки, ориентировочный доход, города, WIKI и регистрация онлайн."
   referral_url = "https://reg.eda.yandex.ru/?advertisement_campaign=forms_for_agents&user_invite_code=569fd35d6ccc4111852a73036a77109f&utm_content=blank"
   phone = ""
   city = "Россия"
@@ -24,25 +27,25 @@ summaryLength = 22
 
 [menu]
   [[menu.main]]
-    name = "Калькулятор"
-    url = "/#rabota-calculator"
+    name = "Доход"
+    url = "/#income-calculator"
     weight = 10
   [[menu.main]]
-    name = "Условия"
+    name = "Форматы"
     url = "/#formats"
     weight = 20
   [[menu.main]]
-    name = "Вопросы"
-    url = "/#faq"
-    weight = 30
-  [[menu.main]]
     name = "Найдите свой город"
     url = "/#cities"
-    weight = 35
+    weight = 30
   [[menu.main]]
-    name = "Блог"
+    name = "WIKI"
     url = "/blog/"
     weight = 40
+  [[menu.main]]
+    name = "Вопросы"
+    url = "/#faq"
+    weight = 50
 
 [markup]
   [markup.goldmark]

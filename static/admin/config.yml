@@ -9,8 +9,127 @@ media_folder: static/media
 public_folder: /media
 
 collections:
+  - name: "landing"
+    label: "Посадочные страницы"
+    files:
+      - name: "home"
+        label: "Главная страница"
+        file: "content/_index.md"
+        format: "frontmatter"
+        fields:
+          - { label: "SEO title", name: "title", widget: "string" }
+          - { label: "SEO description", name: "description", widget: "string" }
+          - { label: "H1", name: "h1", widget: "string" }
+          - { label: "Бейдж Hero", name: "hero_badge", widget: "string", required: false }
+          - { label: "Подзаголовок Hero", name: "hero_subtitle", widget: "text" }
+          - { label: "Картинка Hero", name: "hero_image", widget: "image" }
+          - { label: "Alt картинки Hero", name: "hero_image_alt", widget: "string", required: false }
+          - { label: "Бейджи Hero", name: "hero_badges", widget: "list", required: false }
+          - { label: "Текст CTA", name: "cta_text", widget: "string", default: "Стать курьером" }
+          - { label: "CTA URL", name: "cta_url", widget: "string", required: false, hint: "Если пусто, используется referral_url из hugo.toml" }
+          - { label: "URL чата n8n", name: "chat_url", widget: "string", required: false }
+          - { label: "Микротекст под CTA", name: "hero_microtext", widget: "string", required: false }
+          - label: "Кому подойдет"
+            name: "audience"
+            widget: "list"
+            fields:
+              - { label: "Заголовок", name: "title", widget: "string" }
+              - { label: "Текст", name: "text", widget: "string" }
+          - label: "Преимущества"
+            name: "benefits"
+            widget: "list"
+            fields:
+              - { label: "Заголовок", name: "title", widget: "string" }
+              - { label: "Текст", name: "text", widget: "string" }
+          - label: "Как начать"
+            name: "steps"
+            widget: "list"
+            fields:
+              - { label: "Заголовок", name: "title", widget: "string" }
+              - { label: "Текст", name: "text", widget: "string" }
+          - label: "Форматы доставки"
+            name: "formats"
+            widget: "list"
+            fields:
+              - { label: "Заголовок", name: "title", widget: "string" }
+              - { label: "Текст", name: "text", widget: "string" }
+          - { label: "Города", name: "cities", widget: "list" }
+          - label: "FAQ"
+            name: "faq"
+            widget: "list"
+            fields:
+              - { label: "Вопрос", name: "question", widget: "string" }
+              - { label: "Ответ", name: "answer", widget: "text" }
+
+  - name: "landing_pages"
+    label: "Новые посадочные"
+    label_singular: "Посадочная"
+    folder: "content/landing"
+    create: true
+    identifier_field: "slug"
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    preview_path: "{{slug}}/"
+    fields:
+      - { label: "SEO title", name: "title", widget: "string" }
+      - {
+          label: "Адрес страницы ЧПУ",
+          name: "slug",
+          widget: "string",
+          required: true,
+          pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Используйте только маленькие латинские буквы, цифры и дефисы"],
+        }
+      - { label: "SEO description", name: "description", widget: "string" }
+      - { label: "H1", name: "h1", widget: "string" }
+      - { label: "Бейдж Hero", name: "hero_badge", widget: "string", required: false }
+      - { label: "Подзаголовок Hero", name: "hero_subtitle", widget: "text" }
+      - { label: "Картинка Hero", name: "hero_image", widget: "image" }
+      - { label: "Alt картинки Hero", name: "hero_image_alt", widget: "string", required: false }
+      - { label: "Бейджи Hero", name: "hero_badges", widget: "list", required: false }
+      - { label: "Текст CTA", name: "cta_text", widget: "string", default: "Стать курьером" }
+      - { label: "CTA URL", name: "cta_url", widget: "string", required: false, hint: "Если пусто, используется referral_url из hugo.toml" }
+      - { label: "URL чата n8n", name: "chat_url", widget: "string", required: false }
+      - { label: "Микротекст под CTA", name: "hero_microtext", widget: "string", required: false }
+      - label: "Кому подойдет"
+        name: "audience"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Заголовок", name: "title", widget: "string" }
+          - { label: "Текст", name: "text", widget: "string" }
+      - label: "Преимущества"
+        name: "benefits"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Заголовок", name: "title", widget: "string" }
+          - { label: "Текст", name: "text", widget: "string" }
+      - label: "Как начать"
+        name: "steps"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Заголовок", name: "title", widget: "string" }
+          - { label: "Текст", name: "text", widget: "string" }
+      - label: "Форматы доставки"
+        name: "formats"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Заголовок", name: "title", widget: "string" }
+          - { label: "Текст", name: "text", widget: "string" }
+      - { label: "Города", name: "cities", widget: "list", required: false }
+      - label: "FAQ"
+        name: "faq"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Вопрос", name: "question", widget: "string" }
+          - { label: "Ответ", name: "answer", widget: "text" }
+
   - name: "posts"
-    label: "Статьи блога"
+    label: "WIKI / статьи"
     label_singular: "Статья"
     folder: "content/blog"
     create: true
@@ -43,6 +162,8 @@ collections:
           default: "/media/kurer.jpg",
           required: false,
         }
+      - { label: "Категория", name: "category", widget: "string", default: "работа курьером", required: false }
+      - { label: "Метки", name: "tags", widget: "list", required: false }
       - {
           label: "Дата",
           name: "date",
