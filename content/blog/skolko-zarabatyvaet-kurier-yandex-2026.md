@@ -130,6 +130,12 @@ faq:
 
 Эта часть особенно полезна для аудитории статьи: людям, которые выбирают подработку или основной источник дохода. Заранее решите, что будет считаться успешным тестом: понятный район, приемлемая нагрузка, удобный график, отсутствие сильного стресса и ясное понимание дальнейших действий.
 
+## Что влияет на чистый доход
+
+После общей оценки дохода посмотрите детали, которые меняют итоговую сумму: [лучшее время для работы](/blog/luchshee-vremya-dlya-raboty-kurerom/), [полный день курьером](/blog/rabota-kurerom-na-polnyj-den/), [налоги самозанятого курьера](/blog/skolko-nalogov-platit-samozanyatyj-kurer/), [вывод денег на карту](/blog/kak-vyvesti-dengi-kureru-yandex-eda-na-kartu/), [платное ожидание](/blog/platnoe-ozhidanie-v-yandex-dostavke-dlya-kurera/) и [чаевые](/blog/chaevye-kureru-v-dostavke-yandex-eda/).
+
+Если хотите сравнить формат с альтернативами, откройте [Яндекс Еда или Купер](/blog/yandex-eda-ili-kuper-gde-luchshe-rabotat-kurerom/) и [курьер или таксист](/blog/rabota-kurerom-ili-taksistom-chto-vybrat/).
+
 ## Вопросы и ответы
 
 ### Сколько зарабатывает курьер Яндекса в месяц?

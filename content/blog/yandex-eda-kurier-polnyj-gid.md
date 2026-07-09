@@ -142,6 +142,12 @@ faq:
 
 Для Яндекса и голосовых ассистентов важны ясные формулировки. Поэтому ключевые ответы вынесены в отдельные подзаголовки, а в конце есть FAQ. Так странице проще соответствовать информационному запросу, а читателю проще найти нужный ответ без лишнего поиска.
 
+## Практические разборы для курьера
+
+Если вы уже поняли общую логику Яндекс Еды, переходите к ситуациям, которые чаще всего возникают на смене: [клиент не открывает дверь](/blog/chto-delat-esli-klient-ne-otkryvaet-dver-kureru/), [пропал интернет](/blog/chto-delat-kureru-esli-propal-internet/), [как устроен рейтинг](/blog/kak-ustroen-reyting-kurera-i-kak-ego-ne-isportit/), [за что бывают вычеты и ограничения](/blog/za-chto-shtrafuyut-kurerov-yandex-eda/) и [как доставлять больше без лишней усталости](/blog/kak-dostavlyat-bolshe-i-menshe-ustavat/).
+
+Для финансовой части полезны отдельные материалы про [вывод денег на карту](/blog/kak-vyvesti-dengi-kureru-yandex-eda-na-kartu/), [налоги самозанятого курьера](/blog/skolko-nalogov-platit-samozanyatyj-kurer/) и [чаевые в доставке](/blog/chaevye-kureru-v-dostavke-yandex-eda/).
+
 ## Вопросы и ответы
 
 ### Кто такой курьер Яндекс Еды?

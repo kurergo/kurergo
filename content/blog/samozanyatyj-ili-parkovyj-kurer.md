@@ -167,6 +167,12 @@ faq:
 - [Как быстро пройти регистрацию в Яндекс Про](/blog/seo-13-kak-bystro-projti-registraciyu-v-yandex-pro/)
 - [Как стать курьером Яндекс Еды](/blog/kak-stat-kurierom-yandex-eda/)
 
+## Самозанятость, выплаты и налоги
+
+Чтобы глубже разобраться в финансовой части, посмотрите отдельные разборы: [как стать самозанятым курьером](/blog/kak-stat-samozanyatym-kurerom-i-ne-zaputatsya/), [можно ли работать без самозанятости](/blog/mozhno-li-rabotat-kurerom-bez-samozanyatosti/), [сколько налогов платит самозанятый курьер](/blog/skolko-nalogov-platit-samozanyatyj-kurer/), [налоговые вычеты](/blog/nalogovye-vychety-dlya-samozanyatyh-kurerov/) и [что делать при блокировке самозанятости или выплат](/blog/chto-delat-esli-samozanyatost-zablokirovali-kureru/).
+
+Если вопрос уже не в статусе, а в деньгах на карте, переходите к инструкции [как вывести деньги курьеру](/blog/kak-vyvesti-dengi-kureru-yandex-eda-na-kartu/).
+
 ## Вопросы и ответы
 
 ### Самозанятый или парковый курьер: что выбрать для доставок: с чего начать?
