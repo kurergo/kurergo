@@ -1,11 +1,12 @@
 ---
-url: "/rabota_kurerom_svobodniy_grafik.html"
-slug: "svobodniy-grafik"
-audience_key: "svobodniy_grafik"
-title: "Курьер со свободным графиком — работа в удобное время"
-description: "Работа курьером со свободным графиком: выбирайте удобные дни, формат доставки и проходите регистрацию онлайн."
-h1: "Курьер со свободным графиком"
-hero_image: "/images/hero-courier.png"
-hero_image_alt: "Курьер с термосумкой смотрит в телефон на городской улице"
+title: Курьер со свободным графиком — работа в удобное время
+slug: svobodniy-grafik
+url: /rabota_kurerom_svobodniy_grafik.html
+audience_key: svobodniy_grafik
+description: 'Работа курьером со свободным графиком: выбирайте удобные дни, формат доставки и проходите регистрацию онлайн.'
+h1: Курьер со свободным графиком
+hero_badge: Работа курьером со свободным графиком
+hero_subtitle: 'Работа курьером со свободным графиком: выбирайте удобные дни, формат доставки'
+hero_image: /media/6596a816bcff7d6b1109b3ec-2.webp
+hero_image_alt: Курьер с термосумкой смотрит в телефон на городской улице
 ---
-
