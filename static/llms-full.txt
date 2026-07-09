@@ -24,7 +24,7 @@
 ## Основные страницы
 
 - [Главная](https://kurergo.ru/) - лендинг о работе курьером: преимущества, форматы доставки, калькулятор дохода, FAQ, города и регистрация.
-- [Блог](https://kurergo.ru/blog/) - база статей для SEO и ответов на вопросы пользователей.
+- [WIKI](https://kurergo.ru/wiki/) - база статей для SEO и ответов на вопросы пользователей.
 - [LLMS short](https://kurergo.ru/llms.txt) - короткая версия индекса для LLM.
 
 ## Посадочные страницы под аудитории
@@ -41,143 +41,143 @@
 
 ## Приоритетные статьи
 
-- [Как стать курьером Яндекс Еды](https://kurergo.ru/blog/kak-stat-kurierom-yandex-eda/) - регистрация, первый слот, подготовка новичка.
-- [Регистрация курьера Яндекса](https://kurergo.ru/blog/rabota-kurierom-yandex-registraciya/) - документы, приложение, выбор района, первый день.
-- [Сколько зарабатывает курьер Яндекса](https://kurergo.ru/blog/skolko-zarabatyvaet-kurier-yandex-2026/) - факторы дохода, выплаты, расчет дня и месяца.
-- [Полный гид по Яндекс Еде](https://kurergo.ru/blog/yandex-eda-kurier-polnyj-gid/) - форматы, заказы, районы, отзывы и подготовка.
-- [Работа курьером без опыта](https://kurergo.ru/blog/seo-49-rabota-kurierom-bez-opyta-gid-novichka/) - старт для новичка.
-- [Частые вопросы](https://kurergo.ru/blog/faq-rabota-kurierom/) - короткие ответы о графике, опыте, транспорте и старте.
+- [Как стать курьером Яндекс Еды](https://kurergo.ru/wiki/kak-stat-kurierom-yandex-eda/) - регистрация, первый слот, подготовка новичка.
+- [Регистрация курьера Яндекса](https://kurergo.ru/wiki/rabota-kurierom-yandex-registraciya/) - документы, приложение, выбор района, первый день.
+- [Сколько зарабатывает курьер Яндекса](https://kurergo.ru/wiki/skolko-zarabatyvaet-kurier-yandex-2026/) - факторы дохода, выплаты, расчет дня и месяца.
+- [Полный гид по Яндекс Еде](https://kurergo.ru/wiki/yandex-eda-kurier-polnyj-gid/) - форматы, заказы, районы, отзывы и подготовка.
+- [Работа курьером без опыта](https://kurergo.ru/wiki/seo-49-rabota-kurierom-bez-opyta-gid-novichka/) - старт для новичка.
+- [Частые вопросы](https://kurergo.ru/wiki/faq-rabota-kurierom/) - короткие ответы о графике, опыте, транспорте и старте.
 
 ## Тематические кластеры
 
 ### Заработок
 
-- [Сколько зарабатывает курьер Яндекса в 2026 году: реальные доходы по регионам](https://kurergo.ru/blog/seo-01-skolko-zarabatyvaet-kurier-yandex-2026-regiony/) - доход по регионам, факторы заработка и честный расчет.
-- [Курьер Яндекс Еды: сколько можно заработать за день, неделю и месяц](https://kurergo.ru/blog/seo-02-kurier-yandex-edy-zarabotok-den-nedelya-mesyac/) - расчет дохода по периодам.
-- [Пеший курьер Яндекса: реальный заработок без автомобиля](https://kurergo.ru/blog/seo-03-peshij-kurier-yandexa-realnyj-zarabotok/) - пеший формат, доход и ограничения.
-- [Сколько платят курьерам Яндекса за один заказ](https://kurergo.ru/blog/seo-04-skolko-platyat-kureram-yandexa-za-odin-zakaz/) - оплата заказа и факторы суммы.
-- [Доход курьера на велосипеде: выгодно ли работать в Яндексе](https://kurergo.ru/blog/seo-05-dohod-kuriera-na-velosipede-yandex/) - велоформат, мобильность и расходы.
-- [Как увеличить заработок курьера Яндекса на 30%](https://kurergo.ru/blog/seo-06-kak-uvelichit-zarabotok-kuriera-yandexa/) - районы, время выхода, дисциплина и оптимизация.
-- [Сколько зарабатывает курьер на личном автомобиле](https://kurergo.ru/blog/seo-07-skolko-zarabatyvaet-kurier-na-lichnom-avtomobile/) - автоформат, топливо, парковка и чистый доход.
-- [Сколько получает курьер в час, день и месяц](https://kurergo.ru/blog/skolko-poluchaet-kurer-v-chas-den-mesyats/) - методика расчета дохода курьера.
-- [Сколько зарабатывает курьер Яндекса в 2026 году](https://kurergo.ru/blog/skolko-zarabatyvaet-kurier-yandex-2026/) - большой обзор дохода, выплат и факторов.
-- [В какое время лучше работать курьером](https://kurergo.ru/blog/luchshee-vremya-dlya-raboty-kurerom/) - пики спроса, спокойные часы и выбор слотов.
-- [Работа курьером на полный день](https://kurergo.ru/blog/rabota-kurerom-na-polnyj-den/) - кому подходит полный график и где риски усталости.
-- [Платное ожидание в доставке](https://kurergo.ru/blog/platnoe-ozhidanie-v-yandex-dostavke-dlya-kurera/) - как учитывать ожидание и не завышать ожидания по доходу.
-- [Чаевые курьеру в доставке](https://kurergo.ru/blog/chaevye-kureru-v-dostavke-yandex-eda/) - добровольная благодарность клиента и влияние на итоговый доход.
+- [Сколько зарабатывает курьер Яндекса в 2026 году: реальные доходы по регионам](https://kurergo.ru/wiki/seo-01-skolko-zarabatyvaet-kurier-yandex-2026-regiony/) - доход по регионам, факторы заработка и честный расчет.
+- [Курьер Яндекс Еды: сколько можно заработать за день, неделю и месяц](https://kurergo.ru/wiki/seo-02-kurier-yandex-edy-zarabotok-den-nedelya-mesyac/) - расчет дохода по периодам.
+- [Пеший курьер Яндекса: реальный заработок без автомобиля](https://kurergo.ru/wiki/seo-03-peshij-kurier-yandexa-realnyj-zarabotok/) - пеший формат, доход и ограничения.
+- [Сколько платят курьерам Яндекса за один заказ](https://kurergo.ru/wiki/seo-04-skolko-platyat-kureram-yandexa-za-odin-zakaz/) - оплата заказа и факторы суммы.
+- [Доход курьера на велосипеде: выгодно ли работать в Яндексе](https://kurergo.ru/wiki/seo-05-dohod-kuriera-na-velosipede-yandex/) - велоформат, мобильность и расходы.
+- [Как увеличить заработок курьера Яндекса на 30%](https://kurergo.ru/wiki/seo-06-kak-uvelichit-zarabotok-kuriera-yandexa/) - районы, время выхода, дисциплина и оптимизация.
+- [Сколько зарабатывает курьер на личном автомобиле](https://kurergo.ru/wiki/seo-07-skolko-zarabatyvaet-kurier-na-lichnom-avtomobile/) - автоформат, топливо, парковка и чистый доход.
+- [Сколько получает курьер в час, день и месяц](https://kurergo.ru/wiki/skolko-poluchaet-kurer-v-chas-den-mesyats/) - методика расчета дохода курьера.
+- [Сколько зарабатывает курьер Яндекса в 2026 году](https://kurergo.ru/wiki/skolko-zarabatyvaet-kurier-yandex-2026/) - большой обзор дохода, выплат и факторов.
+- [В какое время лучше работать курьером](https://kurergo.ru/wiki/luchshee-vremya-dlya-raboty-kurerom/) - пики спроса, спокойные часы и выбор слотов.
+- [Работа курьером на полный день](https://kurergo.ru/wiki/rabota-kurerom-na-polnyj-den/) - кому подходит полный график и где риски усталости.
+- [Платное ожидание в доставке](https://kurergo.ru/wiki/platnoe-ozhidanie-v-yandex-dostavke-dlya-kurera/) - как учитывать ожидание и не завышать ожидания по доходу.
+- [Чаевые курьеру в доставке](https://kurergo.ru/wiki/chaevye-kureru-v-dostavke-yandex-eda/) - добровольная благодарность клиента и влияние на итоговый доход.
 
 ### Устройство на работу
 
-- [Как стать курьером Яндекса за один день](https://kurergo.ru/blog/seo-08-kak-stat-kurierom-yandexa-za-odin-den/) - быстрый старт и порядок действий.
-- [Пошаговая инструкция: как устроиться курьером в Яндекс](https://kurergo.ru/blog/seo-09-poshagovaya-instrukciya-ustroitsya-kurierom-yandex/) - пошаговый маршрут кандидата.
-- [Какие документы нужны для работы курьером Яндекса](https://kurergo.ru/blog/seo-10-dokumenty-dlya-raboty-kurierom-yandexa/) - документы и подготовка.
-- [Самозанятый курьер Яндекса: плюсы и минусы](https://kurergo.ru/blog/seo-11-samozanyatyj-kurier-yandexa-plyusy-minusy/) - самозанятость, выплаты и особенности.
-- [Работа курьером Яндекс Еда без опыта](https://kurergo.ru/blog/seo-12-rabota-kurierom-yandex-eda-bez-opyta/) - старт без опыта.
-- [Как быстро пройти регистрацию в Яндекс Про](https://kurergo.ru/blog/seo-13-kak-bystro-projti-registraciyu-v-yandex-pro/) - регистрация в приложении.
-- [Стоит ли устраиваться курьером в Яндекс в 2026 году](https://kurergo.ru/blog/seo-14-stoit-li-ustraivatsya-kurierom-yandex-2026/) - оценка профессии перед стартом.
-- [Работа курьером Яндекса: регистрация](https://kurergo.ru/blog/rabota-kurierom-yandex-registraciya/) - документы, приложение, район и первый слот.
-- [Что нужно для старта курьером](https://kurergo.ru/blog/chto-nuzhno-dlya-starta/) - короткий чек-лист подготовки.
-- [КИС АРТ для курьеров](https://kurergo.ru/blog/kis-art-dlya-kurerov-chto-eto/) - регистрация, данные и частые ошибки.
-- [Самозанятый или парковый курьер](https://kurergo.ru/blog/samozanyatyj-ili-parkovyj-kurer/) - сравнение форматов оформления.
-- [Как мигранту устроиться курьером](https://kurergo.ru/blog/kak-migrantu-ustroitsya-kurerom-v-yandex-eda/) - документы, статус и безопасный старт.
-- [Можно ли работать курьером без самозанятости](https://kurergo.ru/blog/mozhno-li-rabotat-kurerom-bez-samozanyatosti/) - варианты подключения и налоговый статус.
-- [Как стать самозанятым курьером](https://kurergo.ru/blog/kak-stat-samozanyatym-kurerom-i-ne-zaputatsya/) - самозанятость, налоги и ошибки новичков.
+- [Как стать курьером Яндекса за один день](https://kurergo.ru/wiki/seo-08-kak-stat-kurierom-yandexa-za-odin-den/) - быстрый старт и порядок действий.
+- [Пошаговая инструкция: как устроиться курьером в Яндекс](https://kurergo.ru/wiki/seo-09-poshagovaya-instrukciya-ustroitsya-kurierom-yandex/) - пошаговый маршрут кандидата.
+- [Какие документы нужны для работы курьером Яндекса](https://kurergo.ru/wiki/seo-10-dokumenty-dlya-raboty-kurierom-yandexa/) - документы и подготовка.
+- [Самозанятый курьер Яндекса: плюсы и минусы](https://kurergo.ru/wiki/seo-11-samozanyatyj-kurier-yandexa-plyusy-minusy/) - самозанятость, выплаты и особенности.
+- [Работа курьером Яндекс Еда без опыта](https://kurergo.ru/wiki/seo-12-rabota-kurierom-yandex-eda-bez-opyta/) - старт без опыта.
+- [Как быстро пройти регистрацию в Яндекс Про](https://kurergo.ru/wiki/seo-13-kak-bystro-projti-registraciyu-v-yandex-pro/) - регистрация в приложении.
+- [Стоит ли устраиваться курьером в Яндекс в 2026 году](https://kurergo.ru/wiki/seo-14-stoit-li-ustraivatsya-kurierom-yandex-2026/) - оценка профессии перед стартом.
+- [Работа курьером Яндекса: регистрация](https://kurergo.ru/wiki/rabota-kurierom-yandex-registraciya/) - документы, приложение, район и первый слот.
+- [Что нужно для старта курьером](https://kurergo.ru/wiki/chto-nuzhno-dlya-starta/) - короткий чек-лист подготовки.
+- [КИС АРТ для курьеров](https://kurergo.ru/wiki/kis-art-dlya-kurerov-chto-eto/) - регистрация, данные и частые ошибки.
+- [Самозанятый или парковый курьер](https://kurergo.ru/wiki/samozanyatyj-ili-parkovyj-kurer/) - сравнение форматов оформления.
+- [Как мигранту устроиться курьером](https://kurergo.ru/wiki/kak-migrantu-ustroitsya-kurerom-v-yandex-eda/) - документы, статус и безопасный старт.
+- [Можно ли работать курьером без самозанятости](https://kurergo.ru/wiki/mozhno-li-rabotat-kurerom-bez-samozanyatosti/) - варианты подключения и налоговый статус.
+- [Как стать самозанятым курьером](https://kurergo.ru/wiki/kak-stat-samozanyatym-kurerom-i-ne-zaputatsya/) - самозанятость, налоги и ошибки новичков.
 
 ### Возраст, студенты и подработка
 
-- [Со скольки лет можно работать курьером Яндекса](https://kurergo.ru/blog/seo-15-so-skolki-let-mozhno-rabotat-kurierom-yandexa/) - возрастные требования.
-- [Можно ли стать курьером Яндекса в 16 лет](https://kurergo.ru/blog/seo-16-mozhno-li-stat-kurierom-yandexa-v-16-let/) - ограничения для молодых кандидатов.
-- [Работа для студентов: курьер Яндекс Еды](https://kurergo.ru/blog/seo-17-rabota-dlya-studentov-kurier-yandex-edy/) - совмещение учебы и доставки.
-- [Подработка курьером после учебы](https://kurergo.ru/blog/seo-18-podrabotka-kurierom-posle-ucheby/) - вечерняя занятость.
-- [Со скольки лет можно работать курьером Яндекса](https://kurergo.ru/blog/so-skolki-let-yandex-kurier-trebovaniya/) - возраст, требования и старт.
-- [Со скольки лет можно работать курьером](https://kurergo.ru/blog/so-skolki-let-mozhno-rabotat-kurerom-gid/) - общий гид по возрасту и условиям.
-- [Работа для студента без опыта](https://kurergo.ru/blog/rabota-dlya-studenta-bez-opyta/) - варианты занятости и совмещение.
-- [Летняя подработка для студента](https://kurergo.ru/blog/letnyaya-podrabotka-dlya-studenta/) - сезонные варианты без опыта.
-- [Куда устроиться на подработку](https://kurergo.ru/blog/kuda-ustroitsya-na-podrabotku/) - форматы с гибким графиком.
-- [Как найти работу без образования](https://kurergo.ru/blog/kak-najti-rabotu-bez-obrazovaniya/) - практичные варианты старта.
+- [Со скольки лет можно работать курьером Яндекса](https://kurergo.ru/wiki/seo-15-so-skolki-let-mozhno-rabotat-kurierom-yandexa/) - возрастные требования.
+- [Можно ли стать курьером Яндекса в 16 лет](https://kurergo.ru/wiki/seo-16-mozhno-li-stat-kurierom-yandexa-v-16-let/) - ограничения для молодых кандидатов.
+- [Работа для студентов: курьер Яндекс Еды](https://kurergo.ru/wiki/seo-17-rabota-dlya-studentov-kurier-yandex-edy/) - совмещение учебы и доставки.
+- [Подработка курьером после учебы](https://kurergo.ru/wiki/seo-18-podrabotka-kurierom-posle-ucheby/) - вечерняя занятость.
+- [Со скольки лет можно работать курьером Яндекса](https://kurergo.ru/wiki/so-skolki-let-yandex-kurier-trebovaniya/) - возраст, требования и старт.
+- [Со скольки лет можно работать курьером](https://kurergo.ru/wiki/so-skolki-let-mozhno-rabotat-kurerom-gid/) - общий гид по возрасту и условиям.
+- [Работа для студента без опыта](https://kurergo.ru/wiki/rabota-dlya-studenta-bez-opyta/) - варианты занятости и совмещение.
+- [Летняя подработка для студента](https://kurergo.ru/wiki/letnyaya-podrabotka-dlya-studenta/) - сезонные варианты без опыта.
+- [Куда устроиться на подработку](https://kurergo.ru/wiki/kuda-ustroitsya-na-podrabotku/) - форматы с гибким графиком.
+- [Как найти работу без образования](https://kurergo.ru/wiki/kak-najti-rabotu-bez-obrazovaniya/) - практичные варианты старта.
 
 ### Отзывы, плюсы и минусы
 
-- [Работа курьером Яндекса: честные отзывы сотрудников](https://kurergo.ru/blog/seo-19-rabota-kurierom-yandexa-chestnye-otzyvy/) - отзывы и практический разбор.
-- [Что говорят курьеры о работе в Яндексе](https://kurergo.ru/blog/seo-20-chto-govoryat-kuriery-o-rabote-v-yandexe/) - частые мнения курьеров.
-- [5 главных плюсов работы курьером Яндекса](https://kurergo.ru/blog/seo-21-pyat-glavnyh-plyusov-raboty-kurierom-yandexa/) - преимущества формата.
-- [Минусы работы курьером Яндекса](https://kurergo.ru/blog/seo-22-minusy-raboty-kurierom-yandexa/) - риски и ограничения.
-- [Яндекс курьер отзывы: плюсы, минусы и честный разбор](https://kurergo.ru/blog/yandex-kurier-otzyvy-plyusy-minusy/) - как читать отзывы.
-- [Плюсы и минусы работы курьером](https://kurergo.ru/blog/plyusy-i-minusy-raboty-kurerom-gid/) - честный разбор перед стартом.
-- [Стоит ли работать курьером](https://kurergo.ru/blog/stoit-li-byt-kurerom/) - доход, расходы и личные критерии выбора.
-- [Яндекс Еда или Купер](https://kurergo.ru/blog/yandex-eda-ili-kuper-gde-luchshe-rabotat-kurerom/) - сравнение сервисов для курьера.
-- [Работа курьером или таксистом](https://kurergo.ru/blog/rabota-kurerom-ili-taksistom-chto-vybrat/) - сравнение подработки в доставке и такси.
+- [Работа курьером Яндекса: честные отзывы сотрудников](https://kurergo.ru/wiki/seo-19-rabota-kurierom-yandexa-chestnye-otzyvy/) - отзывы и практический разбор.
+- [Что говорят курьеры о работе в Яндексе](https://kurergo.ru/wiki/seo-20-chto-govoryat-kuriery-o-rabote-v-yandexe/) - частые мнения курьеров.
+- [5 главных плюсов работы курьером Яндекса](https://kurergo.ru/wiki/seo-21-pyat-glavnyh-plyusov-raboty-kurierom-yandexa/) - преимущества формата.
+- [Минусы работы курьером Яндекса](https://kurergo.ru/wiki/seo-22-minusy-raboty-kurierom-yandexa/) - риски и ограничения.
+- [Яндекс курьер отзывы: плюсы, минусы и честный разбор](https://kurergo.ru/wiki/yandex-kurier-otzyvy-plyusy-minusy/) - как читать отзывы.
+- [Плюсы и минусы работы курьером](https://kurergo.ru/wiki/plyusy-i-minusy-raboty-kurerom-gid/) - честный разбор перед стартом.
+- [Стоит ли работать курьером](https://kurergo.ru/wiki/stoit-li-byt-kurerom/) - доход, расходы и личные критерии выбора.
+- [Яндекс Еда или Купер](https://kurergo.ru/wiki/yandex-eda-ili-kuper-gde-luchshe-rabotat-kurerom/) - сравнение сервисов для курьера.
+- [Работа курьером или таксистом](https://kurergo.ru/wiki/rabota-kurerom-ili-taksistom-chto-vybrat/) - сравнение подработки в доставке и такси.
 
 ### Яндекс Еда и Яндекс Доставка
 
-- [Как стать курьером Яндекс Еды и начать зарабатывать](https://kurergo.ru/blog/seo-23-kak-stat-kurierom-yandex-edy-i-nachat-zarabatyvat/) - старт в Яндекс Еде.
-- [Пеший курьер Яндекс Еды: инструкция для новичков](https://kurergo.ru/blog/seo-24-peshij-kurier-yandex-edy-instrukciya/) - пеший формат.
-- [Сколько заказов выполняет курьер Яндекс Еды за смену](https://kurergo.ru/blog/seo-25-skolko-zakazov-vypolnyaet-kurier-yandex-edy/) - заказы за смену.
-- [Курьер Яндекс Еды или Самокат: где выше доход](https://kurergo.ru/blog/seo-26-kurier-yandex-edy-ili-samokat-gde-vyshe-dohod/) - сравнение сервисов.
-- [Как выбрать лучший район для работы курьером Яндекс Еды](https://kurergo.ru/blog/seo-27-kak-vybrat-luchshij-rajon-yandex-edy/) - район и спрос.
-- [Работа в Яндекс Доставке: сколько можно заработать](https://kurergo.ru/blog/seo-28-rabota-v-yandex-dostavke-skolko-zarabotat/) - доставка товаров.
-- [Курьер на личном авто: условия работы в Яндекс Доставке](https://kurergo.ru/blog/seo-29-kurier-na-lichnom-avto-yandex-dostavka/) - автоформат.
-- [Курьер на велосипеде или автомобиле: что выгоднее](https://kurergo.ru/blog/seo-30-kurier-na-velosipede-ili-avtomobile/) - сравнение транспорта.
-- [Как получать больше заказов в Яндекс Доставке](https://kurergo.ru/blog/seo-31-kak-poluchat-bolshe-zakazov-yandex-dostavka/) - повышение эффективности.
-- [Яндекс Еда курьер: полный гид](https://kurergo.ru/blog/yandex-eda-kurier-polnyj-gid/) - заказы, районы, форматы и отзывы.
-- [Яндекс Доставка курьер: авто, велосипед или пешком](https://kurergo.ru/blog/yandex-dostavka-kurier-avto-velo/) - выбор формата доставки.
-- [Пешком, на велосипеде или на авто](https://kurergo.ru/blog/peshiy-velo-avto-kurier/) - сравнение вариантов.
-- [Свободный график курьера](https://kurergo.ru/blog/svobodniy-grafik-kuriera/) - планирование слотов.
-- [Ежедневные выплаты курьеру](https://kurergo.ru/blog/ezhednevnye-vyplaty/) - быстрые выплаты и подработка.
-- [Как работают алгоритмы доставки для курьеров](https://kurergo.ru/blog/kak-rabotayut-algoritmy-yandex-edy-dlya-kurerov/) - простое объяснение распределения заказов и факторов.
-- [Рейтинг курьера](https://kurergo.ru/blog/kak-ustroen-reyting-kurera-i-kak-ego-ne-isportit/) - качество доставки, аккуратность и влияние спорных ситуаций.
-- [За что курьер может получить вычет или ограничение](https://kurergo.ru/blog/za-chto-shtrafuyut-kurerov-yandex-eda/) - как снизить риск удержаний и ограничений.
+- [Как стать курьером Яндекс Еды и начать зарабатывать](https://kurergo.ru/wiki/seo-23-kak-stat-kurierom-yandex-edy-i-nachat-zarabatyvat/) - старт в Яндекс Еде.
+- [Пеший курьер Яндекс Еды: инструкция для новичков](https://kurergo.ru/wiki/seo-24-peshij-kurier-yandex-edy-instrukciya/) - пеший формат.
+- [Сколько заказов выполняет курьер Яндекс Еды за смену](https://kurergo.ru/wiki/seo-25-skolko-zakazov-vypolnyaet-kurier-yandex-edy/) - заказы за смену.
+- [Курьер Яндекс Еды или Самокат: где выше доход](https://kurergo.ru/wiki/seo-26-kurier-yandex-edy-ili-samokat-gde-vyshe-dohod/) - сравнение сервисов.
+- [Как выбрать лучший район для работы курьером Яндекс Еды](https://kurergo.ru/wiki/seo-27-kak-vybrat-luchshij-rajon-yandex-edy/) - район и спрос.
+- [Работа в Яндекс Доставке: сколько можно заработать](https://kurergo.ru/wiki/seo-28-rabota-v-yandex-dostavke-skolko-zarabotat/) - доставка товаров.
+- [Курьер на личном авто: условия работы в Яндекс Доставке](https://kurergo.ru/wiki/seo-29-kurier-na-lichnom-avto-yandex-dostavka/) - автоформат.
+- [Курьер на велосипеде или автомобиле: что выгоднее](https://kurergo.ru/wiki/seo-30-kurier-na-velosipede-ili-avtomobile/) - сравнение транспорта.
+- [Как получать больше заказов в Яндекс Доставке](https://kurergo.ru/wiki/seo-31-kak-poluchat-bolshe-zakazov-yandex-dostavka/) - повышение эффективности.
+- [Яндекс Еда курьер: полный гид](https://kurergo.ru/wiki/yandex-eda-kurier-polnyj-gid/) - заказы, районы, форматы и отзывы.
+- [Яндекс Доставка курьер: авто, велосипед или пешком](https://kurergo.ru/wiki/yandex-dostavka-kurier-avto-velo/) - выбор формата доставки.
+- [Пешком, на велосипеде или на авто](https://kurergo.ru/wiki/peshiy-velo-avto-kurier/) - сравнение вариантов.
+- [Свободный график курьера](https://kurergo.ru/wiki/svobodniy-grafik-kuriera/) - планирование слотов.
+- [Ежедневные выплаты курьеру](https://kurergo.ru/wiki/ezhednevnye-vyplaty/) - быстрые выплаты и подработка.
+- [Как работают алгоритмы доставки для курьеров](https://kurergo.ru/wiki/kak-rabotayut-algoritmy-yandex-edy-dlya-kurerov/) - простое объяснение распределения заказов и факторов.
+- [Рейтинг курьера](https://kurergo.ru/wiki/kak-ustroen-reyting-kurera-i-kak-ego-ne-isportit/) - качество доставки, аккуратность и влияние спорных ситуаций.
+- [За что курьер может получить вычет или ограничение](https://kurergo.ru/wiki/za-chto-shtrafuyut-kurerov-yandex-eda/) - как снизить риск удержаний и ограничений.
 
 ### Транспорт, сезонность и техника
 
-- [Электросамокат для курьера](https://kurergo.ru/blog/elektrosamokat-dlya-kurera-kak-vybrat/) - запас хода, вес, колеса, тормоза и аккумулятор.
-- [Велосипед для работы курьером](https://kurergo.ru/blog/velosiped-dlya-raboty-kurerom/) - выбор велосипеда, обслуживание и аренда.
-- [Яндекс Байк для курьеров](https://kurergo.ru/blog/yandex-bike-arenda-dlya-kurerov/) - аренда, преимущества и расчет выгоды.
-- [Как работать курьером зимой](https://kurergo.ru/blog/kak-rabotat-kurerom-zimoj/) - одежда, маршруты, телефон и безопасность.
-- [Что делать, если у курьера не работает GPS](https://kurergo.ru/blog/chto-delat-esli-u-kurera-ne-rabotaet-gps/) - геолокация, навигатор и приложение.
-- [Где арендовать велосипед или самокат курьеру](https://kurergo.ru/blog/gde-arendovat-velosiped-ili-samokat-kureru/) - аренда, выгода и расчет расходов.
-- [Как выбрать термосумку для курьера](https://kurergo.ru/blog/kak-vybrat-termosumku-dlya-kurera/) - размер, удобство, уход и сохранность заказа.
-- [Обслуживание авто курьера](https://kurergo.ru/blog/obsluzhivanie-avto-kurera-rashody/) - топливо, мойка, ремонт, амортизация и чистый доход.
+- [Электросамокат для курьера](https://kurergo.ru/wiki/elektrosamokat-dlya-kurera-kak-vybrat/) - запас хода, вес, колеса, тормоза и аккумулятор.
+- [Велосипед для работы курьером](https://kurergo.ru/wiki/velosiped-dlya-raboty-kurerom/) - выбор велосипеда, обслуживание и аренда.
+- [Яндекс Байк для курьеров](https://kurergo.ru/wiki/yandex-bike-arenda-dlya-kurerov/) - аренда, преимущества и расчет выгоды.
+- [Как работать курьером зимой](https://kurergo.ru/wiki/kak-rabotat-kurerom-zimoj/) - одежда, маршруты, телефон и безопасность.
+- [Что делать, если у курьера не работает GPS](https://kurergo.ru/wiki/chto-delat-esli-u-kurera-ne-rabotaet-gps/) - геолокация, навигатор и приложение.
+- [Где арендовать велосипед или самокат курьеру](https://kurergo.ru/wiki/gde-arendovat-velosiped-ili-samokat-kureru/) - аренда, выгода и расчет расходов.
+- [Как выбрать термосумку для курьера](https://kurergo.ru/wiki/kak-vybrat-termosumku-dlya-kurera/) - размер, удобство, уход и сохранность заказа.
+- [Обслуживание авто курьера](https://kurergo.ru/wiki/obsluzhivanie-avto-kurera-rashody/) - топливо, мойка, ремонт, амортизация и чистый доход.
 
 ### Практические ситуации на смене
 
-- [Что делать, если клиент не открывает дверь](https://kurergo.ru/blog/chto-delat-esli-klient-ne-otkryvaet-dver-kureru/) - алгоритм действий, связь с клиентом и фиксация ситуации.
-- [Что делать курьеру при ДТП во время смены](https://kurergo.ru/blog/chto-delat-kureru-pri-dtp-na-smene/) - безопасность, поддержка и порядок действий.
-- [Что делать, если пропал интернет](https://kurergo.ru/blog/chto-delat-kureru-esli-propal-internet/) - связь, маршрут, приложение и подготовка к сбоям.
-- [Что делать, если заблокировали самозанятость или выплаты](https://kurergo.ru/blog/chto-delat-esli-samozanyatost-zablokirovali-kureru/) - проверка статуса, реквизитов, налогового режима и поддержки.
-- [Как курьеру вывести деньги на карту](https://kurergo.ru/blog/kak-vyvesti-dengi-kureru-yandex-eda-na-kartu/) - выплаты, реквизиты и типовые ошибки.
-- [Сколько налогов платит самозанятый курьер](https://kurergo.ru/blog/skolko-nalogov-platit-samozanyatyj-kurer/) - налоговый режим, расчет и планирование чистого дохода.
-- [Налоговые вычеты для самозанятых курьеров](https://kurergo.ru/blog/nalogovye-vychety-dlya-samozanyatyh-kurerov/) - что проверить новичку.
-- [Как доставлять больше заказов и меньше уставать](https://kurergo.ru/blog/kak-dostavlyat-bolshe-i-menshe-ustavat/) - спокойная система работы, район, паузы и темп.
+- [Что делать, если клиент не открывает дверь](https://kurergo.ru/wiki/chto-delat-esli-klient-ne-otkryvaet-dver-kureru/) - алгоритм действий, связь с клиентом и фиксация ситуации.
+- [Что делать курьеру при ДТП во время смены](https://kurergo.ru/wiki/chto-delat-kureru-pri-dtp-na-smene/) - безопасность, поддержка и порядок действий.
+- [Что делать, если пропал интернет](https://kurergo.ru/wiki/chto-delat-kureru-esli-propal-internet/) - связь, маршрут, приложение и подготовка к сбоям.
+- [Что делать, если заблокировали самозанятость или выплаты](https://kurergo.ru/wiki/chto-delat-esli-samozanyatost-zablokirovali-kureru/) - проверка статуса, реквизитов, налогового режима и поддержки.
+- [Как курьеру вывести деньги на карту](https://kurergo.ru/wiki/kak-vyvesti-dengi-kureru-yandex-eda-na-kartu/) - выплаты, реквизиты и типовые ошибки.
+- [Сколько налогов платит самозанятый курьер](https://kurergo.ru/wiki/skolko-nalogov-platit-samozanyatyj-kurer/) - налоговый режим, расчет и планирование чистого дохода.
+- [Налоговые вычеты для самозанятых курьеров](https://kurergo.ru/wiki/nalogovye-vychety-dlya-samozanyatyh-kurerov/) - что проверить новичку.
+- [Как доставлять больше заказов и меньше уставать](https://kurergo.ru/wiki/kak-dostavlyat-bolshe-i-menshe-ustavat/) - спокойная система работы, район, паузы и темп.
 
 ### Города
 
-- [Работа курьером Яндекса в Москве](https://kurergo.ru/blog/seo-32-rabota-kurierom-yandexa-v-moskve/) - доход и условия в Москве.
-- [Портрет московского курьера](https://kurergo.ru/blog/portret-moskovskogo-kurera-2026/) - кто идет в доставку в Москве и зачем.
-- [Курьер Яндекса в Санкт-Петербурге](https://kurergo.ru/blog/seo-33-kurier-yandexa-v-sankt-peterburge/) - вакансии и зарплаты.
-- [Работа курьером в Екатеринбурге](https://kurergo.ru/blog/seo-34-rabota-kurierom-v-ekaterinburge/) - условия и доход.
-- [Курьер Яндекса в Новосибирске](https://kurergo.ru/blog/seo-35-kurier-yandexa-v-novosibirske/) - стоит ли устраиваться.
-- [Работа курьером в Казани](https://kurergo.ru/blog/seo-36-rabota-kurierom-v-kazani-otzyvy/) - реальные отзывы.
-- [Сколько зарабатывает курьер Яндекса в Краснодаре](https://kurergo.ru/blog/seo-37-skolko-zarabatyvaet-kurier-yandexa-v-krasnodare/) - городская специфика дохода.
-- [Работа курьером в Нижнем Новгороде](https://kurergo.ru/blog/seo-38-rabota-kurierom-v-nizhnem-novgorode/) - вакансии и требования.
-- [Курьер Яндекса в Самаре](https://kurergo.ru/blog/seo-39-kurier-yandexa-v-samare-vakansii-2026/) - вакансии 2026.
-- [Работа курьером в Ростове-на-Дону](https://kurergo.ru/blog/seo-40-rabota-kurierom-v-rostove-na-donu/) - локальный гид.
-- [Курьер Яндекса в Челябинске](https://kurergo.ru/blog/seo-41-kurier-yandexa-v-chelyabinske/) - зарплаты и условия.
-- [Работа курьером в Уфе](https://kurergo.ru/blog/seo-42-rabota-kurierom-v-ufe/) - как быстрее выйти на доход.
-- [Курьер Яндекса в Омске](https://kurergo.ru/blog/seo-43-kurier-yandexa-v-omske/) - реальные цифры заработка.
-- [Работа курьером в Перми](https://kurergo.ru/blog/seo-44-rabota-kurierom-v-permi/) - вакансии и требования.
-- [Курьер Яндекса в Волгограде](https://kurergo.ru/blog/seo-45-kurier-yandexa-v-volgograde/) - полный гид.
-- [Сколько получает курьер Яндекса в Красноярске](https://kurergo.ru/blog/seo-46-skolko-poluchaet-kurier-yandexa-v-krasnoyarske/) - доход в Красноярске.
-- [Яндекс курьер в городах-миллионниках](https://kurergo.ru/blog/yandex-kurier-goroda-millionniki/) - Москва, СПб, Казань, Краснодар и другие города.
+- [Работа курьером Яндекса в Москве](https://kurergo.ru/wiki/seo-32-rabota-kurierom-yandexa-v-moskve/) - доход и условия в Москве.
+- [Портрет московского курьера](https://kurergo.ru/wiki/portret-moskovskogo-kurera-2026/) - кто идет в доставку в Москве и зачем.
+- [Курьер Яндекса в Санкт-Петербурге](https://kurergo.ru/wiki/seo-33-kurier-yandexa-v-sankt-peterburge/) - вакансии и зарплаты.
+- [Работа курьером в Екатеринбурге](https://kurergo.ru/wiki/seo-34-rabota-kurierom-v-ekaterinburge/) - условия и доход.
+- [Курьер Яндекса в Новосибирске](https://kurergo.ru/wiki/seo-35-kurier-yandexa-v-novosibirske/) - стоит ли устраиваться.
+- [Работа курьером в Казани](https://kurergo.ru/wiki/seo-36-rabota-kurierom-v-kazani-otzyvy/) - реальные отзывы.
+- [Сколько зарабатывает курьер Яндекса в Краснодаре](https://kurergo.ru/wiki/seo-37-skolko-zarabatyvaet-kurier-yandexa-v-krasnodare/) - городская специфика дохода.
+- [Работа курьером в Нижнем Новгороде](https://kurergo.ru/wiki/seo-38-rabota-kurierom-v-nizhnem-novgorode/) - вакансии и требования.
+- [Курьер Яндекса в Самаре](https://kurergo.ru/wiki/seo-39-kurier-yandexa-v-samare-vakansii-2026/) - вакансии 2026.
+- [Работа курьером в Ростове-на-Дону](https://kurergo.ru/wiki/seo-40-rabota-kurierom-v-rostove-na-donu/) - локальный гид.
+- [Курьер Яндекса в Челябинске](https://kurergo.ru/wiki/seo-41-kurier-yandexa-v-chelyabinske/) - зарплаты и условия.
+- [Работа курьером в Уфе](https://kurergo.ru/wiki/seo-42-rabota-kurierom-v-ufe/) - как быстрее выйти на доход.
+- [Курьер Яндекса в Омске](https://kurergo.ru/wiki/seo-43-kurier-yandexa-v-omske/) - реальные цифры заработка.
+- [Работа курьером в Перми](https://kurergo.ru/wiki/seo-44-rabota-kurierom-v-permi/) - вакансии и требования.
+- [Курьер Яндекса в Волгограде](https://kurergo.ru/wiki/seo-45-kurier-yandexa-v-volgograde/) - полный гид.
+- [Сколько получает курьер Яндекса в Красноярске](https://kurergo.ru/wiki/seo-46-skolko-poluchaet-kurier-yandexa-v-krasnoyarske/) - доход в Красноярске.
+- [Яндекс курьер в городах-миллионниках](https://kurergo.ru/wiki/yandex-kurier-goroda-millionniki/) - Москва, СПб, Казань, Краснодар и другие города.
 
 ### Высококонверсионные материалы
 
-- [7 причин стать курьером Яндекса уже сегодня](https://kurergo.ru/blog/seo-47-sem-prichin-stat-kurierom-yandexa/) - мотивационный разбор преимуществ.
-- [Как заработать первые 100 000 рублей курьером Яндекса](https://kurergo.ru/blog/seo-48-kak-zarabotat-pervye-100000-kurierom-yandexa/) - план и ограничения расчета.
-- [Работа курьером без опыта: полный гид новичка](https://kurergo.ru/blog/seo-49-rabota-kurierom-bez-opyta-gid-novichka/) - базовый старт.
-- [Курьер Яндекса 2026: полный обзор профессии](https://kurergo.ru/blog/seo-50-kurier-yandexa-2026-polnyj-obzor-professii/) - профессия, условия, доход и перспективы.
-- [Где лучше работать курьером](https://kurergo.ru/blog/gde-luchshe-rabotat-kurerom/) - сравнение сервисов и форматов.
-- [Востребованные профессии в России в 2026 году](https://kurergo.ru/blog/vostrebovannye-professii-v-rossii-2026/) - профессии и варианты старта без лишней теории.
+- [7 причин стать курьером Яндекса уже сегодня](https://kurergo.ru/wiki/seo-47-sem-prichin-stat-kurierom-yandexa/) - мотивационный разбор преимуществ.
+- [Как заработать первые 100 000 рублей курьером Яндекса](https://kurergo.ru/wiki/seo-48-kak-zarabotat-pervye-100000-kurierom-yandexa/) - план и ограничения расчета.
+- [Работа курьером без опыта: полный гид новичка](https://kurergo.ru/wiki/seo-49-rabota-kurierom-bez-opyta-gid-novichka/) - базовый старт.
+- [Курьер Яндекса 2026: полный обзор профессии](https://kurergo.ru/wiki/seo-50-kurier-yandexa-2026-polnyj-obzor-professii/) - профессия, условия, доход и перспективы.
+- [Где лучше работать курьером](https://kurergo.ru/wiki/gde-luchshe-rabotat-kurerom/) - сравнение сервисов и форматов.
+- [Востребованные профессии в России в 2026 году](https://kurergo.ru/wiki/vostrebovannye-professii-v-rossii-2026/) - профессии и варианты старта без лишней теории.
 
 ## Частые вопросы для ИИ-ответов
 

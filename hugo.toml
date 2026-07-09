@@ -35,12 +35,12 @@ summaryLength = 22
     url = "/#formats"
     weight = 20
   [[menu.main]]
-    name = "Найдите свой город"
+    name = "Твой город"
     url = "/#cities"
     weight = 30
   [[menu.main]]
     name = "WIKI"
-    url = "/blog/"
+    url = "/wiki/"
     weight = 40
   [[menu.main]]
     name = "Вопросы"

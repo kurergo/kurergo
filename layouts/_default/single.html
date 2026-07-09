@@ -1,6 +1,6 @@
 {{ define "main" }}
   <article class="article">
-    <a class="back-link" href="{{ "/blog/" | relURL }}">Назад в блог</a>
+    <a class="back-link" href="{{ "/wiki/" | relURL }}">Назад в WIKI</a>
     <header>
       <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02.01.2006" }}</time>
       <h1>{{ .Title }}</h1>
@@ -16,7 +16,7 @@
     <div class="article-body">
       {{ .Content }}
     </div>
-    {{ if eq .Section "blog" }}
+    {{ if eq .Section "wiki" }}
       {{ partial "blog-registration-cta.html" (dict "page" . "compact" true) }}
     {{ end }}
   </article>

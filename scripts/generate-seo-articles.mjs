@@ -359,22 +359,22 @@ const articles = [
 ];
 
 const linkMap = {
-  "доходе курьера": "/blog/skolko-zarabatyvaet-kurier-yandex-2026/",
-  "регистрации": "/blog/rabota-kurierom-yandex-registraciya/",
-  "Яндекс Еде": "/blog/yandex-eda-kurier-polnyj-gid/",
-  "форматах доставки": "/blog/yandex-dostavka-kurier-avto-velo/",
-  "возрасте и требованиях": "/blog/so-skolki-let-yandex-kurier-trebovaniya/",
-  "реальных отзывах курьеров": "/blog/yandex-kurier-otzyvy-plyusy-minusy/",
-  "городах": "/blog/yandex-kurier-goroda-millionniki/",
+  "доходе курьера": "/wiki/skolko-zarabatyvaet-kurier-yandex-2026/",
+  "регистрации": "/wiki/rabota-kurierom-yandex-registraciya/",
+  "Яндекс Еде": "/wiki/yandex-eda-kurier-polnyj-gid/",
+  "форматах доставки": "/wiki/yandex-dostavka-kurier-avto-velo/",
+  "возрасте и требованиях": "/wiki/so-skolki-let-yandex-kurier-trebovaniya/",
+  "реальных отзывах курьеров": "/wiki/yandex-kurier-otzyvy-plyusy-minusy/",
+  "городах": "/wiki/yandex-kurier-goroda-millionniki/",
 };
 
 const shortLinkMap = {
-  "чек-листе перед стартом": "/blog/chto-nuzhno-dlya-starta/",
-  "ежедневных выплатах": "/blog/ezhednevnye-vyplaty/",
-  "частых вопросах": "/blog/faq-rabota-kurierom/",
-  "коротком пути к первой доставке": "/blog/kak-stat-kurierom-yandex-eda/",
-  "выборе транспорта": "/blog/peshiy-velo-avto-kurier/",
-  "свободном графике": "/blog/svobodniy-grafik-kuriera/",
+  "чек-листе перед стартом": "/wiki/chto-nuzhno-dlya-starta/",
+  "ежедневных выплатах": "/wiki/ezhednevnye-vyplaty/",
+  "частых вопросах": "/wiki/faq-rabota-kurierom/",
+  "коротком пути к первой доставке": "/wiki/kak-stat-kurierom-yandex-eda/",
+  "выборе транспорта": "/wiki/peshiy-velo-avto-kurier/",
+  "свободном графике": "/wiki/svobodniy-grafik-kuriera/",
 };
 
 function frontMatter(article) {
@@ -421,7 +421,7 @@ function makeArticle(article) {
 
   body += `## Как принять решение\n\n`;
   body += `Хорошее решение строится не на рекламном обещании, а на проверке. Если формат кажется подходящим, начните с регистрации, короткого слота и знакомого района. После нескольких выходов станет понятно, насколько совпали ожидания и реальность.\n\n`;
-  body += `Если вам нужен быстрый старт, переходите к [заявке на регистрацию](/#benefits) или изучите [пошаговую инструкцию по регистрации](/blog/rabota-kurierom-yandex-registraciya/). Если сначала хотите оценить деньги, прочитайте материал о [доходе курьера Яндекса](/blog/skolko-zarabatyvaet-kurier-yandex-2026/).\n`;
+  body += `Если вам нужен быстрый старт, переходите к [заявке на регистрацию](/#benefits) или изучите [пошаговую инструкцию по регистрации](/wiki/rabota-kurierom-yandex-registraciya/). Если сначала хотите оценить деньги, прочитайте материал о [доходе курьера Яндекса](/wiki/skolko-zarabatyvaet-kurier-yandex-2026/).\n`;
 
   body += keywordBlock(article);
   body += relatedLinks(article.slug);
@@ -465,10 +465,10 @@ function makeArticle(article) {
   return body;
 }
 
-await mkdir("content/blog", { recursive: true });
+await mkdir("content/wiki", { recursive: true });
 
 for (const article of articles) {
-  const file = `content/blog/${article.slug}.md`;
+  const file = `content/wiki/${article.slug}.md`;
   await writeFile(file, makeArticle(article));
   console.log(file);
 }

@@ -157,13 +157,13 @@ collections:
   - name: "posts"
     label: "WIKI / статьи"
     label_singular: "Статья"
-    folder: "content/blog"
+    folder: "content/wiki"
     create: true
     identifier_field: "slug"
     slug: "{{slug}}"
     extension: "md"
     format: "frontmatter"
-    preview_path: "blog/{{slug}}/"
+    preview_path: "wiki/{{slug}}/"
     fields:
       - { label: "Заголовок", name: "title", widget: "string" }
       - {

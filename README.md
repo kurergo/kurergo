@@ -31,7 +31,7 @@ Workflow находится в `.github/workflows/hugo.yml`. После push в 
 
 ## Блог
 
-Статьи лежат в `content/blog/`. Для новой статьи можно создать Markdown-файл с front matter:
+Статьи лежат в `content/wiki/`. Для новой статьи можно создать Markdown-файл с front matter:
 
 ```md
 ---

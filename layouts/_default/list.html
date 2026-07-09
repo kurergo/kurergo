@@ -4,7 +4,7 @@
     <h1>{{ .Title }}</h1>
     <p>{{ .Description }}</p>
   </section>
-  {{ if eq .Section "blog" }}
+  {{ if eq .Section "wiki" }}
     {{ partial "blog-registration-cta.html" (dict "page" . "compact" false) }}
   {{ end }}
   <section class="section">
@@ -26,7 +26,7 @@
       {{ end }}
     </div>
     {{ if gt $paginator.TotalPages 1 }}
-      <nav class="pagination" aria-label="Навигация по страницам блога">
+      <nav class="pagination" aria-label="Навигация по страницам WIKI">
         {{ with $paginator.Prev }}
           <a class="pagination-link pagination-prev" href="{{ .URL }}" aria-label="Предыдущая страница">Назад</a>
         {{ else }}

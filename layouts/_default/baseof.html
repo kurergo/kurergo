@@ -21,7 +21,7 @@
     {{ if .IsHome }}
       {{ with .Params.hero_image }}<link rel="preload" as="image" href="{{ . | relURL }}" fetchpriority="high">{{ end }}
     {{ end }}
-    {{ if and .IsPage (eq .Section "blog") }}
+    {{ if and .IsPage (eq .Section "wiki") }}
       {{ $articleImage := .Params.image | default "/media/kurer.jpg" }}
       {{ $preloadImage := $articleImage }}
       {{ $articleWebp := replaceRE "\\.(jpg|jpeg|png)$" ".webp" $articleImage }}
@@ -32,7 +32,7 @@
     {{ end }}
     {{ with resources.Get "css/main.css" }}
       {{ $css := . | minify | fingerprint }}
-      {{ if or $.IsHome (eq $.Section "blog") }}
+      {{ if or $.IsHome (eq $.Section "wiki") }}
         <style>{{ $css.Content | safeCSS }}</style>
       {{ else }}
         <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
@@ -60,7 +60,7 @@
         ]
       }
     </script>
-    {{ if and .IsPage (eq .Section "blog") }}
+    {{ if and .IsPage (eq .Section "wiki") }}
       <script type="application/ld+json">
         {
           "@context": "https://schema.org",
@@ -167,7 +167,7 @@
         <p>KurerGO — справочный партнерский ресурс о работе и подработке курьером. Не является официальным сайтом Яндекса. Условия подключения, выплаты и требования могут отличаться по городам.</p>
       </div>
       <div class="footer-links">
-        <a href="{{ "/blog/" | relURL }}">Блог</a>
+        <a href="{{ "/wiki/" | relURL }}">WIKI</a>
         <a href="{{ "/index.xml" | relURL }}">RSS</a>
         <a href="{{ .Site.Params.referral_url }}" target="_blank" rel="noopener nofollow sponsored" data-cta="footer">Регистрация</a>
       </div>

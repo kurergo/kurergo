@@ -10,13 +10,13 @@ const dates = [
 ];
 
 const existingLinks = [
-  ["Большой разбор дохода курьера", "/blog/skolko-zarabatyvaet-kurier-yandex-2026/"],
-  ["Инструкция по регистрации", "/blog/rabota-kurierom-yandex-registraciya/"],
-  ["Гид по Яндекс Еде", "/blog/yandex-eda-kurier-polnyj-gid/"],
-  ["Форматы Яндекс Доставки", "/blog/yandex-dostavka-kurier-avto-velo/"],
-  ["Возраст и требования", "/blog/so-skolki-let-yandex-kurier-trebovaniya/"],
-  ["Отзывы курьеров", "/blog/yandex-kurier-otzyvy-plyusy-minusy/"],
-  ["Работа в городах-миллионниках", "/blog/yandex-kurier-goroda-millionniki/"],
+  ["Большой разбор дохода курьера", "/wiki/skolko-zarabatyvaet-kurier-yandex-2026/"],
+  ["Инструкция по регистрации", "/wiki/rabota-kurierom-yandex-registraciya/"],
+  ["Гид по Яндекс Еде", "/wiki/yandex-eda-kurier-polnyj-gid/"],
+  ["Форматы Яндекс Доставки", "/wiki/yandex-dostavka-kurier-avto-velo/"],
+  ["Возраст и требования", "/wiki/so-skolki-let-yandex-kurier-trebovaniya/"],
+  ["Отзывы курьеров", "/wiki/yandex-kurier-otzyvy-plyusy-minusy/"],
+  ["Работа в городах-миллионниках", "/wiki/yandex-kurier-goroda-millionniki/"],
 ];
 
 const topics = [
@@ -92,14 +92,14 @@ const categoryNames = {
 };
 
 const clusterHubs = {
-  zarabotok: ["Большой разбор дохода курьера", "/blog/skolko-zarabatyvaet-kurier-yandex-2026/"],
-  rabota: ["Инструкция по регистрации", "/blog/rabota-kurierom-yandex-registraciya/"],
-  vozrast: ["Возраст и требования", "/blog/so-skolki-let-yandex-kurier-trebovaniya/"],
-  otzyvy: ["Отзывы курьеров", "/blog/yandex-kurier-otzyvy-plyusy-minusy/"],
-  eda: ["Гид по Яндекс Еде", "/blog/yandex-eda-kurier-polnyj-gid/"],
-  dostavka: ["Форматы Яндекс Доставки", "/blog/yandex-dostavka-kurier-avto-velo/"],
-  gorod: ["Работа в городах-миллионниках", "/blog/yandex-kurier-goroda-millionniki/"],
-  conversion: ["Полный обзор профессии курьера", "/blog/seo-50-kurier-yandexa-2026-polnyj-obzor-professii/"],
+  zarabotok: ["Большой разбор дохода курьера", "/wiki/skolko-zarabatyvaet-kurier-yandex-2026/"],
+  rabota: ["Инструкция по регистрации", "/wiki/rabota-kurierom-yandex-registraciya/"],
+  vozrast: ["Возраст и требования", "/wiki/so-skolki-let-yandex-kurier-trebovaniya/"],
+  otzyvy: ["Отзывы курьеров", "/wiki/yandex-kurier-otzyvy-plyusy-minusy/"],
+  eda: ["Гид по Яндекс Еде", "/wiki/yandex-eda-kurier-polnyj-gid/"],
+  dostavka: ["Форматы Яндекс Доставки", "/wiki/yandex-dostavka-kurier-avto-velo/"],
+  gorod: ["Работа в городах-миллионниках", "/wiki/yandex-kurier-goroda-millionniki/"],
+  conversion: ["Полный обзор профессии курьера", "/wiki/seo-50-kurier-yandexa-2026-polnyj-obzor-professii/"],
 };
 
 const clusterBridges = {
@@ -189,16 +189,16 @@ function relatedLinks(article, index) {
       return true;
     })
     .slice(0, 6)
-    .map((item) => `- [${item.title}](/blog/${item.slug}/)`)
+    .map((item) => `- [${item.title}](/wiki/${item.slug}/)`)
     .join("\n");
   const baseLinks = [
     clusterHubs[article.category],
-    ["Большой разбор дохода курьера", "/blog/skolko-zarabatyvaet-kurier-yandex-2026/"],
-    ["Инструкция по регистрации", "/blog/rabota-kurierom-yandex-registraciya/"],
-    ["Полный список материалов блога", "/blog/"],
+    ["Большой разбор дохода курьера", "/wiki/skolko-zarabatyvaet-kurier-yandex-2026/"],
+    ["Инструкция по регистрации", "/wiki/rabota-kurierom-yandex-registraciya/"],
+    ["Полный список материалов WIKI", "/wiki/"],
   ]
     .filter(Boolean)
-    .filter(([, url]) => url !== `/blog/${article.slug}/`)
+    .filter(([, url]) => url !== `/wiki/${article.slug}/`)
     .filter(([title, url], idx, arr) => arr.findIndex(([, otherUrl]) => otherUrl === url) === idx)
     .map(([title, url]) => `- [${title}](${url})`)
     .join("\n");
@@ -313,10 +313,10 @@ function makeArticle(article, index) {
   return body;
 }
 
-await mkdir("content/blog", { recursive: true });
+await mkdir("content/wiki", { recursive: true });
 
 for (const [index, article] of topics.entries()) {
-  const file = `content/blog/${article.slug}.md`;
+  const file = `content/wiki/${article.slug}.md`;
   await writeFile(file, makeArticle(article, index));
   console.log(file);
 }

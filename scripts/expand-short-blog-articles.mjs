@@ -37,10 +37,10 @@ const articles = [
       ]],
     ],
     links: [
-      ["Пошаговая инструкция: как устроиться курьером в Яндекс", "/blog/seo-09-poshagovaya-instrukciya-ustroitsya-kurierom-yandex/"],
-      ["Какие документы нужны для работы курьером Яндекса", "/blog/seo-10-dokumenty-dlya-raboty-kurierom-yandexa/"],
-      ["Работа курьером без опыта: полный гид новичка", "/blog/seo-49-rabota-kurierom-bez-opyta-gid-novichka/"],
-      ["Инструкция по регистрации", "/blog/rabota-kurierom-yandex-registraciya/"],
+      ["Пошаговая инструкция: как устроиться курьером в Яндекс", "/wiki/seo-09-poshagovaya-instrukciya-ustroitsya-kurierom-yandex/"],
+      ["Какие документы нужны для работы курьером Яндекса", "/wiki/seo-10-dokumenty-dlya-raboty-kurierom-yandexa/"],
+      ["Работа курьером без опыта: полный гид новичка", "/wiki/seo-49-rabota-kurierom-bez-opyta-gid-novichka/"],
+      ["Инструкция по регистрации", "/wiki/rabota-kurierom-yandex-registraciya/"],
     ],
     faq: [
       ["Что нужно курьеру для первого выхода?", "Смартфон, интернет, зарядка, пауэрбанк, документ, вода, удобная одежда и понятный район для первого слота."],
@@ -85,10 +85,10 @@ const articles = [
       ]],
     ],
     links: [
-      ["Сколько зарабатывает курьер Яндекса в 2026 году: реальные доходы по регионам", "/blog/seo-01-skolko-zarabatyvaet-kurier-yandex-2026-regiony/"],
-      ["Курьер Яндекс Еды: сколько можно заработать за день, неделю и месяц", "/blog/seo-02-kurier-yandex-edy-zarabotok-den-nedelya-mesyac/"],
-      ["Как увеличить заработок курьера Яндекса на 30%", "/blog/seo-06-kak-uvelichit-zarabotok-kuriera-yandexa/"],
-      ["Большой разбор дохода курьера", "/blog/skolko-zarabatyvaet-kurier-yandex-2026/"],
+      ["Сколько зарабатывает курьер Яндекса в 2026 году: реальные доходы по регионам", "/wiki/seo-01-skolko-zarabatyvaet-kurier-yandex-2026-regiony/"],
+      ["Курьер Яндекс Еды: сколько можно заработать за день, неделю и месяц", "/wiki/seo-02-kurier-yandex-edy-zarabotok-den-nedelya-mesyac/"],
+      ["Как увеличить заработок курьера Яндекса на 30%", "/wiki/seo-06-kak-uvelichit-zarabotok-kuriera-yandexa/"],
+      ["Большой разбор дохода курьера", "/wiki/skolko-zarabatyvaet-kurier-yandex-2026/"],
     ],
     faq: [
       ["Ежедневные выплаты означают гарантированный доход?", "Нет. Доход зависит от города, спроса, района, времени на линии, транспорта и других условий."],
@@ -133,10 +133,10 @@ const articles = [
       ]],
     ],
     links: [
-      ["Работа курьером без опыта: полный гид новичка", "/blog/seo-49-rabota-kurierom-bez-opyta-gid-novichka/"],
-      ["Со скольки лет можно работать курьером Яндекса", "/blog/seo-15-so-skolki-let-mozhno-rabotat-kurierom-yandexa/"],
-      ["Курьер Яндекса 2026: полный обзор профессии", "/blog/seo-50-kurier-yandexa-2026-polnyj-obzor-professii/"],
-      ["Инструкция по регистрации", "/blog/rabota-kurierom-yandex-registraciya/"],
+      ["Работа курьером без опыта: полный гид новичка", "/wiki/seo-49-rabota-kurierom-bez-opyta-gid-novichka/"],
+      ["Со скольки лет можно работать курьером Яндекса", "/wiki/seo-15-so-skolki-let-mozhno-rabotat-kurierom-yandexa/"],
+      ["Курьер Яндекса 2026: полный обзор профессии", "/wiki/seo-50-kurier-yandexa-2026-polnyj-obzor-professii/"],
+      ["Инструкция по регистрации", "/wiki/rabota-kurierom-yandex-registraciya/"],
     ],
     faq: [
       ["Можно ли начать курьером без опыта?", "Да, если пройти инструкции, подготовить телефон и начать с понятного района."],
@@ -181,10 +181,10 @@ const articles = [
       ]],
     ],
     links: [
-      ["Как стать курьером Яндекс Еды и начать зарабатывать", "/blog/seo-23-kak-stat-kurierom-yandex-edy-i-nachat-zarabatyvat/"],
-      ["Пеший курьер Яндекс Еды: инструкция для новичков", "/blog/seo-24-peshij-kurier-yandex-edy-instrukciya/"],
-      ["Как выбрать лучший район для работы курьером Яндекс Еды", "/blog/seo-27-kak-vybrat-luchshij-rajon-yandex-edy/"],
-      ["Гид по Яндекс Еде", "/blog/yandex-eda-kurier-polnyj-gid/"],
+      ["Как стать курьером Яндекс Еды и начать зарабатывать", "/wiki/seo-23-kak-stat-kurierom-yandex-edy-i-nachat-zarabatyvat/"],
+      ["Пеший курьер Яндекс Еды: инструкция для новичков", "/wiki/seo-24-peshij-kurier-yandex-edy-instrukciya/"],
+      ["Как выбрать лучший район для работы курьером Яндекс Еды", "/wiki/seo-27-kak-vybrat-luchshij-rajon-yandex-edy/"],
+      ["Гид по Яндекс Еде", "/wiki/yandex-eda-kurier-polnyj-gid/"],
     ],
     faq: [
       ["Как стать курьером Яндекс Еды?", "Оставить заявку, пройти инструкции, подготовить смартфон и выбрать удобный район для первого слота."],
@@ -229,10 +229,10 @@ const articles = [
       ]],
     ],
     links: [
-      ["Пеший курьер Яндекса: реальный заработок без автомобиля", "/blog/seo-03-peshij-kurier-yandexa-realnyj-zarabotok/"],
-      ["Доход курьера на велосипеде: выгодно ли работать в Яндексе", "/blog/seo-05-dohod-kuriera-na-velosipede-yandex/"],
-      ["Курьер на велосипеде или автомобиле: что выгоднее", "/blog/seo-30-kurier-na-velosipede-ili-avtomobile/"],
-      ["Форматы Яндекс Доставки", "/blog/yandex-dostavka-kurier-avto-velo/"],
+      ["Пеший курьер Яндекса: реальный заработок без автомобиля", "/wiki/seo-03-peshij-kurier-yandexa-realnyj-zarabotok/"],
+      ["Доход курьера на велосипеде: выгодно ли работать в Яндексе", "/wiki/seo-05-dohod-kuriera-na-velosipede-yandex/"],
+      ["Курьер на велосипеде или автомобиле: что выгоднее", "/wiki/seo-30-kurier-na-velosipede-ili-avtomobile/"],
+      ["Форматы Яндекс Доставки", "/wiki/yandex-dostavka-kurier-avto-velo/"],
     ],
     faq: [
       ["Какой формат доставки выбрать новичку?", "Начните с доступного варианта и знакомого района. После нескольких слотов станет понятно, нужен ли другой транспорт."],
@@ -277,10 +277,10 @@ const articles = [
       ]],
     ],
     links: [
-      ["Как выбрать лучший район для работы курьером Яндекс Еды", "/blog/seo-27-kak-vybrat-luchshij-rajon-yandex-edy/"],
-      ["Как получать больше заказов в Яндекс Доставке", "/blog/seo-31-kak-poluchat-bolshe-zakazov-yandex-dostavka/"],
-      ["Работа для студентов: курьер Яндекс Еды", "/blog/seo-17-rabota-dlya-studentov-kurier-yandex-edy/"],
-      ["Курьер Яндекса 2026: полный обзор профессии", "/blog/seo-50-kurier-yandexa-2026-polnyj-obzor-professii/"],
+      ["Как выбрать лучший район для работы курьером Яндекс Еды", "/wiki/seo-27-kak-vybrat-luchshij-rajon-yandex-edy/"],
+      ["Как получать больше заказов в Яндекс Доставке", "/wiki/seo-31-kak-poluchat-bolshe-zakazov-yandex-dostavka/"],
+      ["Работа для студентов: курьер Яндекс Еды", "/wiki/seo-17-rabota-dlya-studentov-kurier-yandex-edy/"],
+      ["Курьер Яндекса 2026: полный обзор профессии", "/wiki/seo-50-kurier-yandexa-2026-polnyj-obzor-professii/"],
     ],
     faq: [
       ["Как планировать график курьера?", "Начните с коротких слотов в знакомом районе, затем сравните разные дни и временные окна."],
@@ -346,9 +346,9 @@ function articleBody(article) {
   return body;
 }
 
-await mkdir("content/blog", { recursive: true });
+await mkdir("content/wiki", { recursive: true });
 
 for (const article of articles) {
-  await writeFile(`content/blog/${article.slug}.md`, articleBody(article));
-  console.log(`content/blog/${article.slug}.md`);
+  await writeFile(`content/wiki/${article.slug}.md`, articleBody(article));
+  console.log(`content/wiki/${article.slug}.md`);
 }

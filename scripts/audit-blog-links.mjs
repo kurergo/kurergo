@@ -1,7 +1,7 @@
 import { readFile, readdir } from "node:fs/promises";
 import path from "node:path";
 
-const blogDir = "content/blog";
+const wikiDir = "content/wiki";
 
 const generatedTopics = [
   ["zarabotok", "seo-01-skolko-zarabatyvaet-kurier-yandex-2026-regiony"],
@@ -71,16 +71,16 @@ for (const [slug, cluster] of hubBySlug) {
   clusterBySlug.set(slug, cluster);
 }
 
-const files = (await readdir(blogDir)).filter((file) => file.endsWith(".md") && file !== "_index.md");
+const files = (await readdir(wikiDir)).filter((file) => file.endsWith(".md") && file !== "_index.md");
 const slugs = new Set(files.map((file) => file.replace(/\.md$/, "")));
 const graph = new Map();
 const titles = new Map();
 
 for (const file of files) {
   const slug = file.replace(/\.md$/, "");
-  const text = await readFile(path.join(blogDir, file), "utf8");
+  const text = await readFile(path.join(wikiDir, file), "utf8");
   titles.set(slug, text.match(/^title:\s*"([^"]+)"/m)?.[1] ?? slug);
-  const links = [...text.matchAll(/\]\(\/blog\/([^)#/]+)\/?\)/g)].map((match) => match[1]);
+  const links = [...text.matchAll(/\]\(\/wiki\/([^)#/]+)\/?\)/g)].map((match) => match[1]);
   graph.set(slug, [...new Set(links)]);
 }
 
