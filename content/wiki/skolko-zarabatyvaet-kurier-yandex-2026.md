@@ -138,6 +138,10 @@ faq:
 
 Если хотите сравнить формат с альтернативами, откройте [Яндекс Еда или Купер](/wiki/yandex-eda-ili-kuper-gde-luchshe-rabotat-kurerom/) и [курьер или таксист](/wiki/rabota-kurerom-ili-taksistom-chto-vybrat/).
 
+## Что влияет на итоговый доход помимо часов
+
+При расчете дохода учитывайте не только время на линии. На итог влияют [бонусы, коэффициенты и множители](/wiki/bonusy-koeffitsienty-i-mnozhiteli-yandex-pro/), [фиолетовые зоны](/wiki/fioletovye-zony-yandex-pro/), [выбор выгодных заказов](/wiki/kak-opredelyat-vygodnye-zakazy-kureru/), карта для выплат и учет расходов. Если сравниваете несколько вариантов занятости, посмотрите материал [можно ли работать в нескольких сервисах](/wiki/mozhno-li-rabotat-v-neskolkih-servisah-kureru/).
+
 ## Вопросы и ответы
 
 ### Сколько зарабатывает курьер Яндекса в месяц?

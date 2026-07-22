@@ -175,6 +175,10 @@ faq:
 
 Если вы работаете в плотном районе, пригодятся материалы про [лучшее время для выхода](/wiki/luchshee-vremya-dlya-raboty-kurerom/) и [как доставлять больше без перегруза](/wiki/kak-dostavlyat-bolshe-i-menshe-ustavat/).
 
+## Что проверить по технике и безопасности
+
+Выбор формата связан не только с доходом. Пешему, вело- и автокурьеру стоит заранее изучить [безопасность на дороге](/wiki/bezopasnost-kurera-na-doroge/), [страхование для курьеров](/wiki/strahovanie-dlya-kurerov/), [смартфон для работы](/wiki/smartfon-dlya-raboty-kurerom/) и [форму с термокоробом](/wiki/forma-i-termokorob-kurera-gde-vzyat/).
+
 ## Вопросы и ответы
 
 ### Какой формат доставки выбрать новичку?

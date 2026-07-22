@@ -66,3 +66,7 @@ faq:
   <p>Пройдите регистрацию онлайн, выберите город и удобный формат доставки. Условия и доступные варианты зависят от региона.</p>
   <a class="btn btn-primary" href="https://reg.eda.yandex.ru/?advertisement_campaign=forms_for_agents&user_invite_code=569fd35d6ccc4111852a73036a77109f&utm_content=blank" target="_blank" rel="noopener nofollow sponsored" data-cta="article-registration">Стать курьером</a>
 </div>
+
+## Инструменты для более спокойной смены
+
+Для устойчивого результата важно не только ускоряться, но и выбирать правильные условия: [плановые слоты](/wiki/planovye-sloty-yandex-pro/), [фиолетовые зоны](/wiki/fioletovye-zony-yandex-pro/), [бонусы и коэффициенты](/wiki/bonusy-koeffitsienty-i-mnozhiteli-yandex-pro/) и [выгодные заказы](/wiki/kak-opredelyat-vygodnye-zakazy-kureru/). Если работаете на дороге, отдельно изучите [безопасность курьера](/wiki/bezopasnost-kurera-na-doroge/).

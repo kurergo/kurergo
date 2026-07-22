@@ -150,6 +150,10 @@ faq:
 
 Для финансовой части полезны отдельные материалы про [вывод денег на карту](/wiki/kak-vyvesti-dengi-kureru-yandex-eda-na-kartu/), [налоги самозанятого курьера](/wiki/skolko-nalogov-platit-samozanyatyj-kurer/) и [чаевые в доставке](/wiki/chaevye-kureru-v-dostavke-yandex-eda/).
 
+## Практические ситуации на смене
+
+После общего обзора полезно перейти к конкретным сценариям: [первый рабочий день курьера](/wiki/pervyj-rabochij-den-kurera/), [доставка из ресторанов](/wiki/dostavka-iz-restoranov-chto-nuzhno-znat-kureru/), [заказ отменили в пути](/wiki/zakaz-otmenen-v-puti-chto-delat-kureru/), [повредил заказ](/wiki/povredil-zakaz-v-puti-chto-delat-kureru/) и [конфликт с сотрудниками ресторана](/wiki/konflikt-s-sotrudnikami-restorana-kurer/). Для подготовки техники смотрите [смартфон для работы курьером](/wiki/smartfon-dlya-raboty-kurerom/) и [пауэрбанк](/wiki/pauerbank-dlya-kurera-kak-vybrat/).
+
 ## Вопросы и ответы
 
 ### Кто такой курьер Яндекс Еды?
