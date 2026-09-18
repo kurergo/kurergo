@@ -2,7 +2,7 @@
   <article class="article">
     <a class="back-link" href="{{ "/wiki/" | relURL }}">Назад в WIKI</a>
     <header>
-      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02.01.2006" }}</time>
+      <p class="article-meta">Материал KurerGO · Опубликовано <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02.01.2006" }}</time>{{ if gt .Lastmod.Unix .Date.Unix }} · Обновлено <time datetime="{{ .Lastmod.Format "2006-01-02" }}">{{ .Lastmod.Format "02.01.2006" }}</time>{{ end }}</p>
       <h1>{{ .Title }}</h1>
       <p>{{ .Description }}</p>
       {{ $image := .Params.image | default "/media/kurer.jpg" }}
@@ -13,9 +13,23 @@
       {{ end }}
       <img class="article-cover" src="{{ $imageSrc | relURL }}" alt="" width="960" height="480" loading="eager" fetchpriority="high" decoding="async">
     </header>
+    {{ if .TableOfContents }}
+      <nav class="article-toc" aria-label="Содержание статьи">
+        <strong>В этой статье</strong>
+        {{ .TableOfContents }}
+      </nav>
+    {{ end }}
     <div class="article-body">
       {{ .Content }}
     </div>
+    {{ if eq .Section "wiki" }}
+      {{ with .Params.faq }}
+        <section class="article-body article-faq" aria-label="Вопросы и ответы">
+          <h2>Вопросы и ответы</h2>
+          {{ range . }}<h3>{{ .question }}</h3><p>{{ .answer }}</p>{{ end }}
+        </section>
+      {{ end }}
+    {{ end }}
     {{ if eq .Section "wiki" }}
       {{ partial "blog-registration-cta.html" (dict "page" . "compact" true) }}
     {{ end }}

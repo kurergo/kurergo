@@ -37,6 +37,12 @@
     </div>
   </section>
 
+  {{ with .Content }}
+    <section class="kg-section kg-editorial article-body" aria-label="Условия и выбор формата">
+      {{ . }}
+    </section>
+  {{ end }}
+
   {{ with $audienceItems }}
     <section class="kg-section kg-audience" id="audience">
       <div class="kg-section-head">
@@ -57,7 +63,7 @@
     <section class="kg-section kg-benefits" id="benefits">
       <div class="kg-section-head">
         <h2>Что делает формат удобным</h2>
-        <p>Собрали основные преимущества осторожно и без обещаний гарантированного дохода.</p>
+        <p>Сравните возможности формата с доступными условиями в вашем городе.</p>
       </div>
       <div class="kg-benefit-board">
         {{ range $index, $item := . }}
@@ -73,8 +79,8 @@
 
   <section class="kg-section kg-calculator-section" id="income-calculator">
     <div class="kg-section-head">
-      <h2>Рассчитайте возможный доход</h2>
-      <p>Выберите город, формат доставки и удобный ритм. Итог нужен только как ориентир.</p>
+      <h2>Посчитайте условный сценарий дохода</h2>
+      <p>Задайте формат и часы. Модель: часы × дни в неделю × условная ставка × 4,4 недели. Расходы и налоги не вычтены.</p>
     </div>
     <form class="kg-calculator" data-income-calculator>
       <div class="kg-calc-panel">
@@ -96,7 +102,7 @@
             <label><input type="radio" name="transport" value="{{ $calcRates.bike | default 470 }}"> Велосипед</label>
             <label><input type="radio" name="transport" value="{{ $calcRates.car | default 520 }}"> Авто</label>
           </div>
-          <p class="kg-field-note">Ориентировочная модель расчета. Коэффициенты редактируются в CMS.</p>
+          <p class="kg-field-note">Условные ставки для примера: пешком {{ $calcRates.walking }} ₽/ч, велосипед {{ $calcRates.bike }} ₽/ч, авто {{ $calcRates.car }} ₽/ч. Это не тарифы сервиса; модель одинакова для всех городов.</p>
         </fieldset>
 
         <label class="kg-range">
@@ -112,7 +118,7 @@
         </label>
       </div>
       <aside class="kg-calc-result">
-        <span>Примерный доход в месяц</span>
+        <span>Сумма по выбранному сценарию</span>
         <strong><span data-calc-result>41 800</span> ₽</strong>
         <p>Расчет ориентировочный. Доход не гарантируется и зависит от города, спроса, количества заказов и времени на линии.</p>
         <a class="kg-btn kg-btn-dark" href="{{ $applyURL }}" target="_blank" rel="noopener nofollow sponsored" data-cta="calculator" data-audience="{{ $audienceKey }}">{{ $ctaText }}</a>
@@ -183,10 +189,10 @@
   <section class="kg-section kg-wiki" id="wiki">
     <div class="kg-section-head">
       <h2>Полезная WIKI для будущих курьеров</h2>
-      <p>Экспертные статьи, чек-листы и ответы на частые вопросы по работе курьером.</p>
+      <p>Инструкции по подключению, выбору транспорта и расчёту расходов.</p>
     </div>
     <div class="kg-post-grid">
-      {{ range first 3 (where .Site.RegularPages.ByDate.Reverse "Section" "blog") }}
+      {{ range first 3 (where (where .Site.RegularPages.ByLastmod.Reverse "Section" "wiki") "Params.editorially_reviewed" true) }}
         {{ $image := .Params.cover_image | default .Params.image | default "/media/kurer.jpg" }}
         {{ $imageSrc := $image }}
         {{ $webp := replaceRE "\\.(jpg|jpeg|png)$" ".webp" $image }}
@@ -233,9 +239,9 @@
   <dialog class="kg-chat-dialog" data-chat-dialog>
     <form method="dialog" class="kg-chat-card" data-chat-form data-chat-webhook="{{ .Params.chat_webhook_url }}">
       <button class="kg-chat-close" type="button" aria-label="Закрыть" data-chat-close>×</button>
-      <p class="kg-pill">AI-консультант</p>
+      <p class="kg-pill">Подбор формата</p>
       <h2>Подберем формат доставки</h2>
-      <p>Укажите город и удобный способ связи. Если подключен n8n webhook, заявка уйдет в сценарий автоматически.</p>
+      <p>Укажите город и предпочтения по доставке. Зарегистрироваться можно и без консультации — по ссылке ниже.</p>
       <label>
         <span>Город</span>
         <input name="city" type="text" autocomplete="address-level2" placeholder="Например, Москва" required>

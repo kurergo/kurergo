@@ -1237,3 +1237,17 @@ input[type="range"]::-moz-range-thumb {
     transition: none !important;
   }
 }
+
+/* Editorial guides: readable tables and navigation on narrow screens. */
+.kg-editorial { max-width: 1120px; }
+.article-body table { display: block; max-width: 100%; overflow-x: auto; border-collapse: collapse; font-size: .95em; }
+.article-body th, .article-body td { padding: 14px 16px; border: 1px solid var(--line, #d8d8d0); text-align: left; vertical-align: top; min-width: 150px; }
+.article-body th { background: var(--cream); color: var(--ink); }
+.article-meta { color: var(--muted); font-size: .9rem; }
+.article-toc { margin: 28px 0; padding: 24px; border-radius: var(--radius); background: var(--cream); }
+.article-toc ul { padding-left: 1.25rem; }
+.article-toc li { margin-top: .6rem; }
+.article-toc a { text-decoration: underline; text-underline-offset: 3px; }
+.article-faq { margin-top: 36px; }
+.article header .article-meta time { display: inline; margin: 0; color: inherit; font-size: inherit; white-space: nowrap; }
+.article-body h2, .article-body h3 { scroll-margin-top: 120px; }

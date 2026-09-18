@@ -6,6 +6,7 @@
       <p class="eyebrow">Городская страница</p>
       <h1>{{ .Params.h1 | default .Title }}</h1>
       <p>{{ .Description }}</p>
+      {{ with .Lastmod }}<p class="article-meta">Обновлено <time datetime="{{ .Format "2006-01-02" }}">{{ .Format "02.01.2006" }}</time></p>{{ end }}
     </header>
     <div class="article-body">
       {{ .Content }}

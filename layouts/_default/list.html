@@ -4,6 +4,7 @@
     <h1>{{ .Title }}</h1>
     <p>{{ .Description }}</p>
   </section>
+  {{ with .Content }}<section class="section article-body">{{ . }}</section>{{ end }}
   {{ if eq .Section "wiki" }}
     {{ partial "blog-registration-cta.html" (dict "page" . "compact" false) }}
   {{ end }}
