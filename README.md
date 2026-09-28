@@ -2,16 +2,19 @@
 
 Современный лендинг для привлечения курьеров в Яндекс Еду с SEO-блогом и готовым деплоем на GitHub Pages.
 
-## Где менять ссылку регистрации
+## Где менять ссылки регистрации
 
-Партнерская ссылка вынесена в `hugo.toml`:
+Адрес промежуточной страницы и партнерская ссылка вынесены в `hugo.toml`:
 
 ```toml
 [params]
+  registration_redirect_url = "/go/yandex-courier/"
   referral_url = "https://reg.eda.yandex.ru/..."
+  registration_click_goal = "registration_cta_click"
+  registration_goal = "outbound_yandex_courier"
 ```
 
-Все CTA-кнопки на сайте используют это значение.
+Все CTA-кнопки ведут на `registration_redirect_url`. Промежуточная страница отправляет цель `registration_goal` в Яндекс Метрику и перенаправляет посетителя на `referral_url`.
 
 ## Локальный запуск
 

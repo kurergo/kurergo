@@ -1,5 +1,5 @@
 {{ define "main" }}
-  {{ $applyURL := .Params.cta_url | default .Site.Params.referral_url }}
+  {{ $applyURL := .Site.Params.registration_redirect_url }}
   <article class="article city-page">
     <a class="back-link" href="{{ "/#cities" | relURL }}">Назад к городам</a>
     <header>
@@ -14,8 +14,7 @@
     <section class="article-cta">
       <h2>Начните регистрацию в своем городе</h2>
       <p>Условия, доступные форматы и выплаты уточняются на стороне сервиса при подключении.</p>
-      <a class="btn btn-primary" href="{{ $applyURL }}" target="_blank" rel="noopener nofollow sponsored" data-cta="city_final">Стать курьером</a>
+      <a class="btn btn-primary" href="{{ $applyURL }}" target="_blank" rel="noopener nofollow sponsored" data-cta="city_final" data-registration-cta>Стать курьером</a>
     </section>
   </article>
 {{ end }}
-

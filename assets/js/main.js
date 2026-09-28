@@ -1,4 +1,5 @@
-const metrikaId = 109618174;
+const metrikaId = Number(document.body.dataset.metrikaId || 109618174);
+const registrationClickGoal = document.body.dataset.registrationClickGoal || "registration_cta_click";
 
 const reachGoal = (goal, params = {}) => {
   if (typeof window.ym === "function") {
@@ -55,6 +56,13 @@ document.querySelectorAll("[data-cta]").forEach((link) => {
       city: link.dataset.city || undefined,
       audience: link.dataset.audience || document.querySelector("[data-audience]")?.dataset.audience || undefined,
     });
+    if (link.hasAttribute("data-registration-cta")) {
+      reachGoal(registrationClickGoal, {
+        placement: cta,
+        city: link.dataset.city || undefined,
+        audience: link.dataset.audience || document.querySelector("[data-audience]")?.dataset.audience || undefined,
+      });
+    }
   });
 });
 

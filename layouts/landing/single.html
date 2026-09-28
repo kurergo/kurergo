@@ -1,5 +1,5 @@
 {{ define "main" }}
-  {{ $applyURL := .Params.cta_url | default .Site.Params.referral_url }}
+  {{ $applyURL := .Site.Params.registration_redirect_url }}
   {{ $audienceKey := .Params.audience_key | default .Params.audience | default "" }}
   {{ $audienceConfig := index hugo.Data.audiences $audienceKey | default dict }}
   {{ $heroImage := .Params.hero_image | default $audienceConfig.hero_image | default "/images/hero-courier.png" }}
@@ -27,7 +27,7 @@
         </ul>
       {{ end }}
       <div class="kg-actions">
-        <a class="kg-btn kg-btn-primary" href="{{ $applyURL }}" target="_blank" rel="noopener nofollow sponsored" data-cta="hero" data-audience="{{ $audienceKey }}">{{ $ctaText }}</a>
+        <a class="kg-btn kg-btn-primary" href="{{ $applyURL }}" target="_blank" rel="noopener nofollow sponsored" data-cta="hero" data-audience="{{ $audienceKey }}" data-registration-cta>{{ $ctaText }}</a>
         <a class="kg-btn kg-btn-secondary" href="#income-calculator" data-cta="calculator_scroll" data-audience="{{ $audienceKey }}">Рассчитать доход</a>
       </div>
       <p class="kg-note">{{ .Params.hero_microtext | default "Условия и доход зависят от города, спроса и времени на линии." }}</p>
@@ -121,7 +121,7 @@
         <span>Сумма по выбранному сценарию</span>
         <strong><span data-calc-result>41 800</span> ₽</strong>
         <p>Расчет ориентировочный. Доход не гарантируется и зависит от города, спроса, количества заказов и времени на линии.</p>
-        <a class="kg-btn kg-btn-dark" href="{{ $applyURL }}" target="_blank" rel="noopener nofollow sponsored" data-cta="calculator" data-audience="{{ $audienceKey }}">{{ $ctaText }}</a>
+        <a class="kg-btn kg-btn-dark" href="{{ $applyURL }}" target="_blank" rel="noopener nofollow sponsored" data-cta="calculator" data-audience="{{ $audienceKey }}" data-registration-cta>{{ $ctaText }}</a>
       </aside>
     </form>
   </section>
@@ -230,11 +230,11 @@
   <section class="kg-final" id="register">
     <h2>Готовы попробовать?</h2>
     <p>Пройдите регистрацию онлайн и выберите удобный формат доставки.</p>
-    <a class="kg-btn kg-btn-primary" href="{{ $applyURL }}" target="_blank" rel="noopener nofollow sponsored" data-cta="final" data-audience="{{ $audienceKey }}">{{ $ctaText }}</a>
+    <a class="kg-btn kg-btn-primary" href="{{ $applyURL }}" target="_blank" rel="noopener nofollow sponsored" data-cta="final" data-audience="{{ $audienceKey }}" data-registration-cta>{{ $ctaText }}</a>
     <small>Доход не гарантируется и зависит от города, спроса, количества заказов и времени на линии.</small>
   </section>
 
-  <a class="kg-sticky-cta" href="{{ $applyURL }}" target="_blank" rel="noopener nofollow sponsored" data-cta="sticky" data-audience="{{ $audienceKey }}">{{ $ctaText }}</a>
+  <a class="kg-sticky-cta" href="{{ $applyURL }}" target="_blank" rel="noopener nofollow sponsored" data-cta="sticky" data-audience="{{ $audienceKey }}" data-registration-cta>{{ $ctaText }}</a>
 
   <dialog class="kg-chat-dialog" data-chat-dialog>
     <form method="dialog" class="kg-chat-card" data-chat-form data-chat-webhook="{{ .Params.chat_webhook_url }}">
@@ -257,7 +257,7 @@
       <input name="audience" type="hidden" value="{{ $audienceKey }}">
       <button class="kg-btn kg-btn-primary" type="submit">Отправить</button>
       <p class="kg-chat-status" data-chat-status></p>
-      <a class="kg-chat-fallback" href="{{ $applyURL }}" target="_blank" rel="noopener nofollow sponsored" data-cta="chat_apply" data-audience="{{ $audienceKey }}">Перейти к регистрации без консультации</a>
+      <a class="kg-chat-fallback" href="{{ $applyURL }}" target="_blank" rel="noopener nofollow sponsored" data-cta="chat_apply" data-audience="{{ $audienceKey }}" data-registration-cta>Перейти к регистрации без консультации</a>
     </form>
   </dialog>
 {{ end }}
