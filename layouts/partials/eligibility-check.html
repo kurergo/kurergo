@@ -1,0 +1,24 @@
+<section class="kg-section kg-eligibility" id="eligibility">
+  <div class="kg-section-head"><p class="kg-kicker">Перед регистрацией</p><h2>Уточните, что нужно для старта</h2><p>{{ hugo.Data.eligibility.notice }}</p></div>
+  <div class="kg-requirements">
+    <article><h3>Возраст и город</h3><p>Уточните возрастной порог и возможность подключения именно в вашем городе. Наличие города в справочнике KurerGO не подтверждает приём.</p></article>
+    <article><h3>Документы</h3><p>Проверьте список для вашего гражданства и способа оформления. Для автодоставки отдельно уточните документы на транспорт.</p></article>
+    <article><h3>Условия и расходы</h3><p>Изучите договор, порядок выплат и расходы на экипировку или аренду до первого выхода.</p></article>
+  </div>
+  <details class="kg-check" data-eligibility-check>
+    <summary>Проверить свой сценарий без телефона</summary>
+    <form data-eligibility-form>
+      <p>Проверка необязательна. Ответы остаются на этой странице и не отправляются в анкету.</p>
+      <div class="kg-check-fields">
+        <label>Город<input name="city" type="text" maxlength="80" placeholder="Введите ваш город" autocomplete="off" required></label>
+        <label>Формат<select name="transport"><option value="walking">Пешком</option><option value="bike">Велосипед</option><option value="car">Автомобиль</option></select></label>
+        <label>Возрастная категория<select name="age" required><option value="">Выберите категорию</option><option value="under18">До 18 лет</option><option value="adult">18 лет и старше</option></select></label>
+      </div>
+      <button class="kg-btn kg-btn-dark" type="submit" disabled>Что проверить в анкете</button>
+      <p class="kg-check-result" data-eligibility-result role="status" hidden></p>
+      <noscript><p>Интерактивная проверка требует JavaScript. Возраст, город и формат можно сразу проверить в официальной анкете по кнопке регистрации.</p></noscript>
+    </form>
+  </details>
+  {{ with hugo.Data.eligibility.verified_at }}<p class="kg-note">Дата проверки источника: {{ . }}. Это не подтверждение допуска кандидата.</p>{{ end }}
+  <p class="kg-note">Подтверждённого справочника по городам пока нет. <a href="{{ hugo.Data.eligibility.source_url }}" rel="noopener nofollow">Официальная анкета и актуальные условия</a>.</p>
+</section>

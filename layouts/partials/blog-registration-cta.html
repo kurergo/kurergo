@@ -7,7 +7,7 @@
     {{ if not $compact }}
       <p>Оставьте заявку, пройдите короткие инструкции и выберите удобный слот. Формат можно подобрать под свой график: пешком, на велосипеде, самокате или автомобиле.</p>
     {{ end }}
-    <a class="btn btn-primary" href="{{ $page.Site.Params.registration_redirect_url }}" target="_blank" rel="noopener nofollow sponsored" data-cta="blog-registration" data-registration-cta>Стать курьером</a>
+    {{ partial "registration-cta.html" (dict "page" $page "placement" "blog-registration" "class" "btn btn-primary" "text" "Стать курьером") }}
   </div>
   <div class="blog-registration-features" aria-label="Преимущества регистрации">
     <article>

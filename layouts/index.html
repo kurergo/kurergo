@@ -1,253 +1,27 @@
 {{ define "main" }}
-  {{ $applyURL := .Site.Params.registration_redirect_url }}
-  {{ $heroImage := .Params.hero_image | default "/images/hero-courier.png" }}
-  {{ $heroAlt := .Params.hero_image_alt | default "Курьер с термосумкой смотрит в телефон на городской улице" }}
-  {{ $cities := .Params.cities | default hugo.Data.cities }}
-  {{ $calcRates := .Params.calculator.rates | default (dict "walking" 380 "bike" 470 "car" 520) }}
-
-  <section class="kg-hero" id="top">
-    <div class="kg-hero-copy">
-      <p class="kg-pill">{{ .Params.hero_badge | default "Подработка курьером" }}</p>
-      <h1>{{ .Params.h1 | default .Title }}</h1>
-      <p class="kg-hero-lead">{{ .Params.hero_subtitle | default .Description }}</p>
-      {{ with .Params.hero_badges }}
-        <ul class="kg-check-list" aria-label="Ключевые условия">
-          {{ range . }}
-            <li>{{ . }}</li>
-          {{ end }}
-        </ul>
-      {{ end }}
-      <div class="kg-actions">
-        <a class="kg-btn kg-btn-primary" href="{{ $applyURL }}" target="_blank" rel="noopener nofollow sponsored" data-cta="hero" data-registration-cta>{{ .Params.cta_text | default "Стать курьером" }}</a>
-        <a class="kg-btn kg-btn-secondary" href="#income-calculator" data-cta="calculator_scroll">Рассчитать доход</a>
-      </div>
-      <p class="kg-note">{{ .Params.hero_microtext | default "Условия и доход зависят от города, спроса и времени на линии." }}</p>
-    </div>
-    <div class="kg-hero-media">
-      <img src="{{ $heroImage | relURL }}" alt="{{ $heroAlt }}" width="640" height="640" loading="eager" fetchpriority="high" decoding="async">
-    </div>
-  </section>
-
-  {{ with .Content }}
-    <section class="kg-section kg-editorial article-body" aria-label="Условия и выбор формата">
-      {{ . }}
-    </section>
-  {{ end }}
-
-  {{ with .Params.audience }}
-    <section class="kg-section kg-audience" id="audience">
-      <div class="kg-section-head">
-        <h2>Кому подойдет</h2>
-      </div>
-      <div class="kg-audience-grid">
-        {{ range . }}
-          <article>
-            <h3>{{ .title }}</h3>
-            <p>{{ .text }}</p>
-          </article>
-        {{ end }}
-      </div>
-    </section>
-  {{ end }}
-
-  {{ with .Params.benefits }}
-    <section class="kg-section kg-benefits" id="benefits">
-      <div class="kg-section-head">
-        <h2>Что делает формат удобным</h2>
-        <p>Сравните возможности формата с доступными условиями в вашем городе.</p>
-      </div>
-      <div class="kg-benefit-board">
-        {{ range $index, $item := . }}
-          <article>
-            <span>{{ printf "%02d" (add $index 1) }}</span>
-            <h3>{{ $item.title }}</h3>
-            <p>{{ $item.text }}</p>
-          </article>
-        {{ end }}
-      </div>
-    </section>
-  {{ end }}
-
-  <section class="kg-section kg-calculator-section" id="income-calculator">
-    <div class="kg-section-head">
-      <h2>Посчитайте условный сценарий дохода</h2>
-      <p>Задайте формат и часы. Модель: часы × дни в неделю × условная ставка × 4,4 недели. Расходы и налоги не вычтены.</p>
-    </div>
-    <form class="kg-calculator" data-income-calculator>
-      <div class="kg-calc-panel">
-        <label>
-          <span>Город</span>
-          <select name="city">
-            {{ range $cities }}
-              {{ $cityName := . }}
-              {{ if reflect.IsMap . }}{{ $cityName = .name }}{{ end }}
-              <option value="{{ $cityName }}">{{ $cityName }}</option>
-            {{ end }}
-          </select>
-        </label>
-
-        <fieldset>
-          <legend>Тип доставки</legend>
-          <div class="kg-segmented">
-            <label><input type="radio" name="transport" value="{{ $calcRates.walking | default 380 }}" checked> Пеший</label>
-            <label><input type="radio" name="transport" value="{{ $calcRates.bike | default 470 }}"> Велосипед</label>
-            <label><input type="radio" name="transport" value="{{ $calcRates.car | default 520 }}"> Авто</label>
-          </div>
-          <p class="kg-field-note">Условные ставки для примера: пешком {{ $calcRates.walking }} ₽/ч, велосипед {{ $calcRates.bike }} ₽/ч, авто {{ $calcRates.car }} ₽/ч. Это не тарифы сервиса; модель одинакова для всех городов.</p>
-        </fieldset>
-
-        <label class="kg-range">
-          <span>Дней в неделю</span>
-          <output data-calc-output="days">5</output>
-          <input type="range" name="days" min="1" max="7" value="5">
-        </label>
-
-        <label class="kg-range">
-          <span>Часов в день</span>
-          <output data-calc-output="hours">5</output>
-          <input type="range" name="hours" min="1" max="12" value="5">
-        </label>
-      </div>
-      <aside class="kg-calc-result">
-        <span>Сумма по выбранному сценарию</span>
-        <strong><span data-calc-result>41 800</span> ₽</strong>
-        <p>Расчет ориентировочный. Доход не гарантируется и зависит от города, спроса, количества заказов и времени на линии.</p>
-        <a class="kg-btn kg-btn-dark" href="{{ $applyURL }}" target="_blank" rel="noopener nofollow sponsored" data-cta="calculator" data-registration-cta>{{ .Params.cta_text | default "Стать курьером" }}</a>
-      </aside>
-    </form>
-  </section>
-
-  {{ with .Params.steps }}
-    <section class="kg-section kg-steps" id="how">
-      <div class="kg-section-head">
-        <h2>Как начать</h2>
-      </div>
-      <div class="kg-steps-grid">
-        {{ range $index, $item := . }}
-          <article>
-            <span>{{ add $index 1 }}</span>
-            <h3>{{ $item.title }}</h3>
-            <p>{{ $item.text }}</p>
-          </article>
-        {{ end }}
-      </div>
-    </section>
-  {{ end }}
-
-  {{ with .Params.formats }}
-    <section class="kg-section kg-formats" id="formats">
-      <div class="kg-section-head">
-        <h2>Форматы доставки</h2>
-      </div>
-      <div class="kg-format-grid">
-        {{ range . }}
-          <article>
-            <h3>{{ .title }}</h3>
-            <p>{{ .text }}</p>
-          </article>
-        {{ end }}
-      </div>
-    </section>
-  {{ end }}
-
-  <section class="kg-consultant" id="consultant">
-    <div>
-      <h2>Не знаете, какой формат выбрать?</h2>
-      <p>Ответьте на несколько вопросов, а консультант подскажет сценарий: пеший, вело, авто, вечерний или по выходным.</p>
-    </div>
-    <button class="kg-btn kg-btn-primary" type="button" data-chat-open>Подобрать формат</button>
-  </section>
-
+  {{ partial "conversion-hero.html" . }}
+  <div class="kg-trust-strip"><span>Регистрация на официальном сайте</span><span>Без анкеты на KurerGO</span><span>Помощь до и после подключения</span></div>
+  {{ partial "analytics-consent.html" . }}
+  {{ partial "format-picker.html" . }}
+  {{ partial "start-steps.html" . }}
+  {{ partial "eligibility-check.html" . }}
   <section class="kg-section kg-cities" id="cities">
-    <div class="kg-section-head">
-      <h2>Выберите свой город</h2>
-    </div>
-    <div class="kg-city-grid">
-      {{ range $cities }}
-        {{ $cityName := . }}
-        {{ $citySlug := "" }}
-        {{ if reflect.IsMap . }}
-          {{ $cityName = .name }}
-          {{ $citySlug = .slug }}
-        {{ else }}
-          {{ $citySlug = . | urlize }}
-        {{ end }}
-        <a href="{{ printf "/goroda/%s/" $citySlug | relURL }}" data-cta="city" data-city="{{ $cityName }}">{{ $cityName }}</a>
-      {{ end }}
-    </div>
+    <div class="kg-section-head"><p class="kg-kicker">Ближе к вам</p><h2>Начните со своего города</h2><p>Городские инструкции помогут подготовиться. Наличие подключения уточняйте в официальной анкете.</p></div>
+    <div class="kg-city-grid">{{ range .Params.cities | default hugo.Data.cities }}<a href="{{ printf "/goroda/%s/" .slug | relURL }}" data-cta="city" data-city="{{ .name }}">{{ .name }}</a>{{ end }}</div>
+    <p class="kg-note">Не нашли свой город? Проверьте его в анкете сервиса — справочник не ограничивает географию подключения.</p>
   </section>
-
+  {{ partial "income-calculator.html" . }}
+  {{ with .Content }}<section class="kg-section kg-editorial article-body" aria-label="Подробнее о работе курьером"><details class="kg-editorial-details"><summary>Подробнее о работе, выборе формата и расходах</summary>{{ . }}</details></section>{{ end }}
   <section class="kg-section kg-wiki" id="wiki">
-    <div class="kg-section-head">
-      <h2>Полезная WIKI для будущих курьеров</h2>
-      <p>Инструкции по подключению, выбору транспорта и расчёту расходов.</p>
-    </div>
-    <div class="kg-post-grid">
-      {{ range first 3 (where (where .Site.RegularPages.ByLastmod.Reverse "Section" "wiki") "Params.editorially_reviewed" true) }}
-        {{ $image := .Params.cover_image | default .Params.image | default "/media/kurer.jpg" }}
-        {{ $imageSrc := $image }}
-        {{ $webp := replaceRE "\\.(jpg|jpeg|png)$" ".webp" $image }}
-        {{ if and (ne $webp $image) (fileExists (printf "static%s" $webp)) }}
-          {{ $imageSrc = $webp }}
-        {{ end }}
-        <a class="kg-post-card" href="{{ .RelPermalink }}">
-          <img src="{{ $imageSrc | relURL }}" alt="" width="480" height="270" loading="lazy" decoding="async">
-          <span>{{ with .Params.category }}{{ . }}{{ else }}WIKI{{ end }}</span>
-          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02.01.2006" }}</time>
-          <h3>{{ .Title }}</h3>
-          <p>{{ .Description }}</p>
-        </a>
-      {{ end }}
-    </div>
-    <a class="kg-btn kg-btn-secondary" href="{{ "/wiki/" | relURL }}">Открыть WIKI</a>
+    <div class="kg-section-head"><p class="kg-kicker">Подготовьтесь к старту</p><h2>Ответы, которые пригодятся</h2><p>Практические инструкции без обещаний гарантированного заработка.</p></div>
+    <div class="kg-post-grid">{{ range first 3 (where (where .Site.RegularPages.ByLastmod.Reverse "Section" "wiki") "Params.editorially_reviewed" true) }}
+      {{ $image := .Params.cover_image | default .Params.image | default "/media/kurer.jpg" }}
+      {{ $webp := replaceRE "\\.(jpg|jpeg|png)$" ".webp" $image }}
+      {{ if fileExists (printf "static%s" $webp) }}{{ $image = $webp }}{{ end }}
+      <a class="kg-post-card" href="{{ .RelPermalink }}"><img src="{{ $image | relURL }}" alt="" width="480" height="270" loading="lazy" decoding="async"><span>Инструкция KurerGO</span><h3>{{ .Title }}</h3><p>{{ .Description }}</p></a>
+    {{ end }}</div>
+    <a class="kg-text-link" href="{{ "/wiki/" | relURL }}">Все инструкции в WIKI</a>
   </section>
-
-  {{ with .Params.faq }}
-    <section class="kg-section kg-faq" id="faq">
-      <div class="kg-section-head">
-        <h2>Ответы на вопросы</h2>
-      </div>
-      <div class="kg-faq-list">
-        {{ range . }}
-          <details>
-            <summary>{{ .question }}</summary>
-            <p>{{ .answer }}</p>
-          </details>
-        {{ end }}
-      </div>
-    </section>
-  {{ end }}
-
-  <section class="kg-final" id="register">
-    <h2>Готовы попробовать?</h2>
-    <p>Пройдите регистрацию онлайн и выберите удобный формат доставки.</p>
-    <a class="kg-btn kg-btn-primary" href="{{ $applyURL }}" target="_blank" rel="noopener nofollow sponsored" data-cta="final" data-registration-cta>{{ .Params.cta_text | default "Стать курьером" }}</a>
-    <small>Доход не гарантируется и зависит от города, спроса, количества заказов и времени на линии.</small>
-  </section>
-
-  <a class="kg-sticky-cta" href="{{ $applyURL }}" target="_blank" rel="noopener nofollow sponsored" data-cta="sticky" data-registration-cta>{{ .Params.cta_text | default "Стать курьером" }}</a>
-
-  <dialog class="kg-chat-dialog" data-chat-dialog>
-    <form method="dialog" class="kg-chat-card" data-chat-form data-chat-webhook="{{ .Params.chat_webhook_url }}">
-      <button class="kg-chat-close" type="button" aria-label="Закрыть" data-chat-close>×</button>
-      <p class="kg-pill">Подбор формата</p>
-      <h2>Подберем формат доставки</h2>
-      <p>Укажите город и предпочтения по доставке. Зарегистрироваться можно и без консультации — по ссылке ниже.</p>
-      <label>
-        <span>Город</span>
-        <input name="city" type="text" autocomplete="address-level2" placeholder="Например, Москва" required>
-      </label>
-      <label>
-        <span>Контакт</span>
-        <input name="contact" type="text" autocomplete="tel" placeholder="Телефон или Telegram" required>
-      </label>
-      <label>
-        <span>Комментарий</span>
-        <textarea name="message" rows="3" placeholder="Пешком, вело, авто, вечера или выходные"></textarea>
-      </label>
-      <button class="kg-btn kg-btn-primary" type="submit">Отправить</button>
-      <p class="kg-chat-status" data-chat-status></p>
-      <a class="kg-chat-fallback" href="{{ $applyURL }}" target="_blank" rel="noopener nofollow sponsored" data-cta="chat_apply" data-registration-cta>Перейти к регистрации без консультации</a>
-    </form>
-  </dialog>
+  {{ partial "conversion-faq.html" . }}
+  {{ partial "conversion-final.html" . }}
 {{ end }}

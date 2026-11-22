@@ -1,11 +1,9 @@
 {{ define "main" }}
-  {{ $applyURL := .Site.Params.registration_redirect_url }}
   {{ $audienceKey := .Params.audience_key | default .Params.audience | default "" }}
   {{ $audienceConfig := index hugo.Data.audiences $audienceKey | default dict }}
   {{ $heroImage := .Params.hero_image | default $audienceConfig.hero_image | default "/images/hero-courier.png" }}
   {{ $heroAlt := .Params.hero_image_alt | default $audienceConfig.hero_image_alt | default "Курьер с термосумкой смотрит в телефон на городской улице" }}
   {{ $cities := .Params.cities | default hugo.Data.featured_cities | default hugo.Data.cities }}
-  {{ $calcRates := .Params.calculator.rates | default hugo.Data.income.default.rates | default (dict "walking" 380 "bike" 470 "car" 520) }}
   {{ $heroBadges := .Params.hero_badges | default $audienceConfig.hero_badges }}
   {{ $audienceItems := .Params.audience_cards | default .Params.audience_items | default $audienceConfig.audience }}
   {{ $benefits := .Params.benefits | default $audienceConfig.benefits }}
@@ -27,7 +25,7 @@
         </ul>
       {{ end }}
       <div class="kg-actions">
-        <a class="kg-btn kg-btn-primary" href="{{ $applyURL }}" target="_blank" rel="noopener nofollow sponsored" data-cta="hero" data-audience="{{ $audienceKey }}" data-registration-cta>{{ $ctaText }}</a>
+        {{ partial "registration-cta.html" (dict "page" . "placement" "hero" "text" $ctaText) }}
         <a class="kg-btn kg-btn-secondary" href="#income-calculator" data-cta="calculator_scroll" data-audience="{{ $audienceKey }}">Рассчитать доход</a>
       </div>
       <p class="kg-note">{{ .Params.hero_microtext | default "Условия и доход зависят от города, спроса и времени на линии." }}</p>
@@ -77,54 +75,7 @@
     </section>
   {{ end }}
 
-  <section class="kg-section kg-calculator-section" id="income-calculator">
-    <div class="kg-section-head">
-      <h2>Посчитайте условный сценарий дохода</h2>
-      <p>Задайте формат и часы. Модель: часы × дни в неделю × условная ставка × 4,4 недели. Расходы и налоги не вычтены.</p>
-    </div>
-    <form class="kg-calculator" data-income-calculator>
-      <div class="kg-calc-panel">
-        <label>
-          <span>Город</span>
-          <select name="city">
-            {{ range $cities }}
-              {{ $cityName := . }}
-              {{ if reflect.IsMap . }}{{ $cityName = .name }}{{ end }}
-              <option value="{{ $cityName }}">{{ $cityName }}</option>
-            {{ end }}
-          </select>
-        </label>
-
-        <fieldset>
-          <legend>Тип доставки</legend>
-          <div class="kg-segmented">
-            <label><input type="radio" name="transport" value="{{ $calcRates.walking | default 380 }}" checked> Пеший</label>
-            <label><input type="radio" name="transport" value="{{ $calcRates.bike | default 470 }}"> Велосипед</label>
-            <label><input type="radio" name="transport" value="{{ $calcRates.car | default 520 }}"> Авто</label>
-          </div>
-          <p class="kg-field-note">Условные ставки для примера: пешком {{ $calcRates.walking }} ₽/ч, велосипед {{ $calcRates.bike }} ₽/ч, авто {{ $calcRates.car }} ₽/ч. Это не тарифы сервиса; модель одинакова для всех городов.</p>
-        </fieldset>
-
-        <label class="kg-range">
-          <span>Дней в неделю</span>
-          <output data-calc-output="days">5</output>
-          <input type="range" name="days" min="1" max="7" value="5">
-        </label>
-
-        <label class="kg-range">
-          <span>Часов в день</span>
-          <output data-calc-output="hours">5</output>
-          <input type="range" name="hours" min="1" max="12" value="5">
-        </label>
-      </div>
-      <aside class="kg-calc-result">
-        <span>Сумма по выбранному сценарию</span>
-        <strong><span data-calc-result>41 800</span> ₽</strong>
-        <p>Расчет ориентировочный. Доход не гарантируется и зависит от города, спроса, количества заказов и времени на линии.</p>
-        <a class="kg-btn kg-btn-dark" href="{{ $applyURL }}" target="_blank" rel="noopener nofollow sponsored" data-cta="calculator" data-audience="{{ $audienceKey }}" data-registration-cta>{{ $ctaText }}</a>
-      </aside>
-    </form>
-  </section>
+  {{ partial "income-calculator.html" . }}
 
   {{ with $steps }}
     <section class="kg-section kg-steps" id="how">
@@ -162,10 +113,12 @@
   <section class="kg-consultant" id="consultant">
     <div>
       <h2>Не знаете, какой формат выбрать?</h2>
-      <p>Ответьте на несколько вопросов, а консультант подскажет сценарий: пеший, вело, авто, вечерний или по выходным.</p>
+      <p>Сравните требования к городу, возрасту и транспорту. Для этого не нужно оставлять телефон.</p>
     </div>
-    <button class="kg-btn kg-btn-primary" type="button" data-chat-open data-audience="{{ $audienceKey }}">Подобрать формат</button>
+    <a class="kg-btn kg-btn-primary" href="#eligibility">Разобраться в условиях</a>
   </section>
+
+  {{ partial "eligibility-check.html" . }}
 
   <section class="kg-section kg-cities" id="cities">
     <div class="kg-section-head">
@@ -230,34 +183,10 @@
   <section class="kg-final" id="register">
     <h2>Готовы попробовать?</h2>
     <p>Пройдите регистрацию онлайн и выберите удобный формат доставки.</p>
-    <a class="kg-btn kg-btn-primary" href="{{ $applyURL }}" target="_blank" rel="noopener nofollow sponsored" data-cta="final" data-audience="{{ $audienceKey }}" data-registration-cta>{{ $ctaText }}</a>
+    {{ partial "registration-cta.html" (dict "page" . "placement" "final" "text" $ctaText) }}
     <small>Доход не гарантируется и зависит от города, спроса, количества заказов и времени на линии.</small>
   </section>
 
-  <a class="kg-sticky-cta" href="{{ $applyURL }}" target="_blank" rel="noopener nofollow sponsored" data-cta="sticky" data-audience="{{ $audienceKey }}" data-registration-cta>{{ $ctaText }}</a>
+  {{ partial "registration-cta.html" (dict "page" . "placement" "sticky" "class" "kg-sticky-cta" "text" $ctaText) }}
 
-  <dialog class="kg-chat-dialog" data-chat-dialog>
-    <form method="dialog" class="kg-chat-card" data-chat-form data-chat-webhook="{{ .Params.chat_webhook_url }}">
-      <button class="kg-chat-close" type="button" aria-label="Закрыть" data-chat-close>×</button>
-      <p class="kg-pill">Подбор формата</p>
-      <h2>Подберем формат доставки</h2>
-      <p>Укажите город и предпочтения по доставке. Зарегистрироваться можно и без консультации — по ссылке ниже.</p>
-      <label>
-        <span>Город</span>
-        <input name="city" type="text" autocomplete="address-level2" placeholder="Например, Москва" required>
-      </label>
-      <label>
-        <span>Контакт</span>
-        <input name="contact" type="text" autocomplete="tel" placeholder="Телефон или Telegram" required>
-      </label>
-      <label>
-        <span>Комментарий</span>
-        <textarea name="message" rows="3" placeholder="Пешком, вело, авто, вечера или выходные"></textarea>
-      </label>
-      <input name="audience" type="hidden" value="{{ $audienceKey }}">
-      <button class="kg-btn kg-btn-primary" type="submit">Отправить</button>
-      <p class="kg-chat-status" data-chat-status></p>
-      <a class="kg-chat-fallback" href="{{ $applyURL }}" target="_blank" rel="noopener nofollow sponsored" data-cta="chat_apply" data-audience="{{ $audienceKey }}" data-registration-cta>Перейти к регистрации без консультации</a>
-    </form>
-  </dialog>
 {{ end }}

@@ -1,0 +1,23 @@
+<section class="kg-hero kg-conversion-hero" id="top">
+  <div class="kg-hero-copy">
+    <p class="kg-partner-disclaimer">KurerGO — независимый партнёрский ресурс.<br>Не официальный сайт Яндекса.</p>
+    <p class="kg-kicker">{{ .Params.hero_badge | default "Работа и подработка в доставке" }}</p>
+    <h1>{{ .Params.h1 | default .Title }}</h1>
+    <p class="kg-hero-lead">{{ .Params.hero_subtitle | default .Description }}</p>
+    <div class="kg-actions">{{ partial "registration-cta.html" (dict "page" . "placement" "hero" "text" .Params.cta_text) }}</div>
+    <p class="kg-note">Откроется официальная анкета Яндекс Еды. Город, возраст и условия проверяются при регистрации.</p>
+    <div class="kg-hero-links"><a href="#formats">Выбрать формат доставки</a><a href="{{ "/start/" | relURL }}" data-help-link>Уже есть анкета?</a></div>
+  </div>
+  <div class="kg-hero-visual">
+    {{ $heroPath := .Params.hero_image | default "/media/kurergo_top.webp" }}
+    {{ if eq $heroPath "/media/kurergo_top.webp" }}
+      {{ $image := resources.Get "images/courier-hero.webp" }}
+      {{ $small := $image.Resize "520x webp q80" }}
+      {{ $large := $image.Resize "800x webp q80" }}
+      <img src="{{ $image.RelPermalink }}" srcset="{{ $small.RelPermalink }} 520w, {{ $large.RelPermalink }} 800w, {{ $image.RelPermalink }} 1024w" sizes="(max-width: 760px) 1px, (max-width: 1080px) 44vw, 520px" alt="{{ .Params.hero_image_alt | default "Курьер на велосипеде на городской улице" }}" width="1024" height="1024" fetchpriority="high" loading="eager" decoding="async">
+    {{ else }}
+      <img src="{{ $heroPath | relURL }}" alt="{{ .Params.hero_image_alt | default "Курьер на городской улице" }}" width="1024" height="1024" fetchpriority="high" loading="eager" decoding="async">
+    {{ end }}
+    <div class="kg-hero-caption"><span>Пешком · Велосипед · Авто</span><strong>Двигайтесь<br>в своём ритме.</strong><span>Доступные форматы зависят от города</span></div>
+  </div>
+</section>

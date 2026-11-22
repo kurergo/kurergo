@@ -1,0 +1,8 @@
+{{ define "main" }}
+<article class="article kg-simple-page">
+  <a class="back-link" href="{{ "/" | relURL }}">На главную</a>
+  <header><p class="kg-partner-disclaimer">KurerGO — независимый партнёрский информационный ресурс. Не официальная поддержка Яндекса.</p><h1>{{ .Params.h1 | default .Title }}</h1><p>{{ .Description }}</p></header>
+  <div class="article-body">{{ .Content }}</div>
+  {{ if .Params.help_page }}<section class="kg-final"><h2>Вопросы перед регистрацией?</h2><p>Проверьте условия подключения на официальном сайте. Если анкета уже отправлена, сначала следуйте инструкциям сервиса.</p>{{ partial "registration-cta.html" (dict "page" . "placement" "help" "text" "Открыть официальную анкету") }}</section>{{ end }}
+</article>
+{{ end }}

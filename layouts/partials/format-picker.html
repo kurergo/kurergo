@@ -1,0 +1,17 @@
+<section class="kg-section kg-formats" id="formats">
+  <div class="kg-section-head"><p class="kg-kicker">Ваш способ двигаться</p><h2>Три формата. Ваш выбор.</h2><p>Сравните варианты доставки и то, что стоит учесть перед подключением.</p></div>
+  <div class="kg-format-grid">
+    {{ range hugo.Data.eligibility.formats }}
+    <article class="kg-format-card">
+      <svg class="kg-format-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      {{ if eq .value "walking" }}<circle cx="36" cy="10" r="5"/><path d="m25 54 7-17 7 9 7 8M17 31l10-12 10 4 8 12h9M27 19l5 18M32 37 16 49"/>
+      {{ else if eq .value "bike" }}<circle cx="14" cy="44" r="11"/><circle cx="50" cy="44" r="11"/><path d="m14 44 13-24 12 24H14l11-19h18l7 19M22 20h10M40 14h7l-4 11"/>
+      {{ else }}<path d="M7 44V30l7-14h34l9 14v14H7Zm0-14h50M18 16l-5 14m33-14 5 14M16 38h5m23 0h5M10 44v7h9v-7m27 0v7h9v-7"/>{{ end }}
+      </svg>
+      <h3>{{ .title }}</h3><p>{{ .text }}</p>
+      <details><summary>Что учесть</summary><p>{{ .detail }}</p></details>
+      <a href="{{ .url | relURL }}">Подробнее о формате</a>
+    </article>
+    {{ end }}
+  </div>
+</section>

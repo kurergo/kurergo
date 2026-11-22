@@ -1,0 +1,21 @@
+# No verified eligibility matrix has been supplied. Never infer acceptance from a city list.
+status: unverified
+verified_at: ""
+source_url: https://reg.eda.yandex.ru/
+notice: "Возраст, документы и доступность доставки зависят от города и формата. Актуальные условия проверяются в официальной анкете Яндекс Еды."
+formats:
+  - value: walking
+    title: Пешком
+    text: Без автомобиля и велосипеда. Учитывайте расстояния и нагрузку.
+    detail: Подойдёт, если хотите обойтись без расходов на транспорт. Проверьте доступные зоны, вес заказов и дорогу домой.
+    url: /rabota_peshim_kurerom.html
+  - value: bike
+    title: На велосипеде
+    text: Больше мобильности. На своём или арендованном велосипеде.
+    detail: Учтите аренду, ремонт, хранение и погоду. Перед арендой убедитесь, что подключение доступно в вашем городе.
+    url: /rabota_kurerom_na_velosipede.html
+  - value: car
+    title: На автомобиле
+    text: На личном авто. С учётом топлива, парковок и обслуживания.
+    detail: Считайте доход после расходов на топливо, парковки и обслуживание. Уточните документы и требования к автомобилю.
+    url: /rabota_na_avto.html

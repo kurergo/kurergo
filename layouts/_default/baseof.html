@@ -18,9 +18,6 @@
     {{ if eq .Kind "home" }}<meta name="yandex-verification" content="b85b9051b2e579f0">{{ end }}
     <link rel="icon" href="{{ "favicon.ico" | relURL }}" sizes="any">
     <link rel="shortcut icon" href="{{ "favicon.ico" | relURL }}">
-    {{ if .IsHome }}
-      {{ with .Params.hero_image }}<link rel="preload" as="image" href="{{ . | relURL }}" fetchpriority="high">{{ end }}
-    {{ end }}
     {{ if and .IsPage (eq .Section "wiki") }}
       {{ $articleImage := .Params.image | default "/media/kurer.jpg" }}
       {{ $preloadImage := $articleImage }}
@@ -31,7 +28,7 @@
       <link rel="preload" as="image" href="{{ $preloadImage | relURL }}" fetchpriority="high">
     {{ end }}
     {{ with resources.Get "css/main.css" }}
-      {{ $css := . | minify | fingerprint }}
+      {{ $css := slice . (resources.Get "css/conversion.css") | resources.Concat "css/site.css" | minify | fingerprint }}
       {{ if or $.IsHome (eq $.Section "wiki") }}
         <style>{{ $css.Content | safeCSS }}</style>
       {{ else }}
@@ -111,44 +108,23 @@
         }
       </script>
     {{ end }}
-    <!-- Yandex.Metrika counter -->
-    <script>
-      (function(m,e,t,r,i,k,a){
-        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-      })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id={{ .Site.Params.yandex_metrika_id }}', 'ym');
-      ym({{ .Site.Params.yandex_metrika_id }}, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
-      (function() {
-        setTimeout(function() {
-          if (typeof ym === 'function') {
-            ym({{ .Site.Params.yandex_metrika_id }}, 'reachGoal', 'time_60s');
-          }
-        }, 60000);
-      })();
-      if ('serviceWorker' in navigator && location.protocol === 'https:') {
-        window.addEventListener('load', function() {
-          navigator.serviceWorker.register('{{ "sw.js" | relURL }}').catch(function() {});
-        });
-      }
-    </script>
-    <!-- /Yandex.Metrika counter -->
   </head>
-  <body data-metrika-id="{{ .Site.Params.yandex_metrika_id }}" data-registration-click-goal="{{ .Site.Params.registration_click_goal }}">
-    <noscript><div><img src="https://mc.yandex.ru/watch/{{ .Site.Params.yandex_metrika_id }}" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+  {{ $region := .Params.city | default "unspecified" }}
+  {{ if and (eq .Section "goroda") .File }}{{ $region = .File.ContentBaseName }}{{ end }}
+  <body data-metrika-id="{{ .Site.Params.yandex_metrika_id }}" data-registration-click-goal="{{ .Site.Params.registration_click_goal }}" data-page-region="{{ $region }}" data-page-transport="{{ .Params.transport_type | default .Params.audience_key | default "unspecified" }}" data-landing-variant="{{ .Params.landing_variant | default "conversion-v1" }}">
+    <a class="kg-skip-link" href="#main-content">Перейти к содержимому</a>
     <header class="site-header" data-header>
       <a class="brand" href="{{ "/" | relURL }}" aria-label="На главную">
-        <img class="brand-logo" src="{{ "/logo.png" | relURL }}" alt="Курьерский старт" width="1200" height="300">
+        <span>Kurer<b>GO</b></span>
       </a>
       <nav class="main-nav" aria-label="Основная навигация">
         {{ range .Site.Menus.main }}
           <a href="{{ .URL | relURL }}">{{ .Name }}</a>
         {{ end }}
       </nav>
-      <a class="header-cta" href="{{ .Site.Params.registration_redirect_url }}" target="_blank" rel="noopener nofollow sponsored" data-cta="header" data-registration-cta>Стать курьером</a>
+      {{ partial "registration-cta.html" (dict "page" . "class" "header-cta" "placement" "header" "text" "Регистрация") }}
     </header>
-    <main>
+    <main id="main-content">
       {{ block "main" . }}{{ end }}
     </main>
     <footer class="site-footer">
@@ -158,10 +134,14 @@
       </div>
       <div class="footer-links">
         <a href="{{ "/wiki/" | relURL }}">WIKI</a>
-        <a href="{{ "/index.xml" | relURL }}">RSS</a>
-        <a href="{{ .Site.Params.registration_redirect_url }}" target="_blank" rel="noopener nofollow sponsored" data-cta="footer" data-registration-cta>Регистрация</a>
+        <a href="{{ "/start/" | relURL }}" data-help-link>После регистрации</a>
+        <a href="{{ "/privacy/" | relURL }}">Конфиденциальность</a>
+        <a href="{{ "/terms/" | relURL }}">О ресурсе</a>
+        <button class="kg-privacy-controls" type="button" data-consent-settings hidden>Настройки аналитики</button>
+        {{ partial "registration-cta.html" (dict "page" . "placement" "footer" "class" "kg-footer-registration" "text" "Регистрация") }}
       </div>
     </footer>
+    {{ if not (or .IsHome (eq .Section "lp")) }}{{ partial "analytics-consent.html" . }}{{ end }}
     {{ with resources.Get "js/main.js" }}
       {{ $js := . | minify | fingerprint }}
       <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>

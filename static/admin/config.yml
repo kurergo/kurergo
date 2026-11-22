@@ -26,8 +26,6 @@ collections:
           - { label: "Alt картинки Hero", name: "hero_image_alt", widget: "string", required: false }
           - { label: "Бейджи Hero", name: "hero_badges", widget: "list", required: false }
           - { label: "Текст CTA", name: "cta_text", widget: "string", default: "Стать курьером" }
-          - { label: "CTA URL", name: "cta_url", widget: "string", required: false, hint: "Если пусто, используется referral_url из hugo.toml" }
-          - { label: "URL webhook n8n", name: "chat_webhook_url", widget: "string", required: false }
           - { label: "Микротекст под CTA", name: "hero_microtext", widget: "string", required: false }
           - label: "Кому подойдет"
             name: "audience"
@@ -114,8 +112,6 @@ collections:
       - { label: "Alt картинки Hero", name: "hero_image_alt", widget: "string", required: false }
       - { label: "Бейджи Hero", name: "hero_badges", widget: "list", required: false }
       - { label: "Текст CTA", name: "cta_text", widget: "string", default: "Стать курьером" }
-      - { label: "CTA URL", name: "cta_url", widget: "string", required: false, hint: "Если пусто, используется referral_url из hugo.toml" }
-      - { label: "URL webhook n8n", name: "chat_webhook_url", widget: "string", required: false }
       - { label: "Микротекст под CTA", name: "hero_microtext", widget: "string", required: false }
       - label: "Кому подойдет"
         name: "audience"
@@ -209,3 +205,49 @@ collections:
       - { label: "Черновик", name: "draft", widget: "boolean", default: false, required: false }
       - { label: "Ключевые слова", name: "keywords", widget: "list", required: false }
       - { label: "Текст статьи", name: "body", widget: "markdown" }
+
+  - name: "paid_landings"
+    label: "Рекламные лендинги"
+    folder: "content/lp"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "SEO title", name: "title", widget: "string" }
+      - { label: "Описание", name: "description", widget: "text" }
+      - { label: "H1", name: "h1", widget: "string" }
+      - { label: "Бейдж", name: "hero_badge", widget: "string", required: false }
+      - { label: "Подзаголовок", name: "hero_subtitle", widget: "text" }
+      - { label: "Изображение", name: "hero_image", widget: "image", default: "/media/kurergo_top.webp" }
+      - { label: "Описание изображения", name: "hero_image_alt", widget: "string", required: false }
+      - { label: "Текст кнопки", name: "cta_text", widget: "string", default: "Проверить условия и зарегистрироваться" }
+      - { label: "Вариант для аналитики", name: "landing_variant", widget: "string", default: "paid-general-v1" }
+      - { label: "Регион страницы", name: "city", widget: "string", required: false }
+      - { label: "Дата обновления", name: "lastmod", widget: "datetime" }
+      - { label: "Черновик", name: "draft", widget: "boolean", default: true }
+      - label: "Вопросы и ответы"
+        name: "faq"
+        widget: "list"
+        fields:
+          - { label: "Вопрос", name: "question", widget: "string" }
+          - { label: "Ответ", name: "answer", widget: "text" }
+
+  - name: "requirements"
+    label: "Условия подключения"
+    files:
+      - name: "eligibility"
+        label: "Источники и форматы"
+        file: "data/eligibility.yaml"
+        fields:
+          - { label: "Статус проверки", name: "status", widget: "select", options: ["unverified", "verified"], hint: "Пока нет матрицы подтверждённых правил, интерактивная проверка всегда направляет в официальную анкету." }
+          - { label: "Дата проверки источника", name: "verified_at", widget: "string", required: false }
+          - { label: "Официальный источник", name: "source_url", widget: "string" }
+          - { label: "Пояснение", name: "notice", widget: "text" }
+          - label: "Форматы"
+            name: "formats"
+            widget: "list"
+            fields:
+              - { label: "Код", name: "value", widget: "select", options: ["walking", "bike", "car"] }
+              - { label: "Название", name: "title", widget: "string" }
+              - { label: "Описание", name: "text", widget: "text" }
+              - { label: "Что учесть", name: "detail", widget: "text" }
+              - { label: "Инструкция", name: "url", widget: "string" }

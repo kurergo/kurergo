@@ -1,0 +1,10 @@
+{{ define "main" }}
+  {{ partial "conversion-hero.html" . }}
+  {{ partial "analytics-consent.html" . }}
+  {{ partial "format-picker.html" . }}
+  {{ partial "eligibility-check.html" . }}
+  {{ partial "start-steps.html" . }}
+  {{ partial "conversion-faq.html" . }}
+  <div class="kg-section kg-lp-help"><h2>Нужна справочная информация?</h2><p><a href="{{ "/wiki/" | relURL }}" data-help-link>Инструкции перед подключением</a> · <a href="{{ "/start/" | relURL }}" data-help-link>Помощь после регистрации</a></p></div>
+  {{ partial "conversion-final.html" . }}
+{{ end }}
