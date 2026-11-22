@@ -30,7 +30,7 @@ function harness({ storage = new Map(), blocked = false, eligibility = false, ca
     '[data-income-calculator]': calculator ? calc : null,
   };
   const document = {
-    body: {dataset: {metrikaId:'109618174', registrationClickGoal:'registration_click', landingVariant:'test-v1'}},
+    body: {dataset: {metrikaId:'109618174', registrationClickGoal:'registration_cta_click', landingVariant:'test-v1'}},
     querySelector: selector => nodes[selector] || null,
     createElement: () => ({}),
     head: {append: tag => scripts.push(tag)},
@@ -56,7 +56,7 @@ test('analytics starts immediately without a stored decision or user action', ()
   const init = h.calls.find(args => args[1] === 'init');
   assert.equal(init[2].webvisor, false);
   h.click();
-  assert.equal(h.goals('registration_click').length, 1);
+  assert.equal(h.goals('registration_cta_click').length, 1);
 });
 
 test('legacy stored decisions do not prevent automatic analytics', () => {
@@ -73,26 +73,26 @@ test('early clicks queue safely while the analytics library is loading or blocke
   h.click(); h.click();
   const queued = h.window.ym.a.map(args => Array.from(args));
   assert.equal(queued.filter(args => args[1] === 'init').length, 1);
-  assert.equal(queued.filter(args => args[2] === 'registration_click').length, 2);
+  assert.equal(queued.filter(args => args[2] === 'registration_cta_click').length, 2);
   assert.equal(queued.filter(args => args[2] === 'registration_click_unique').length, 1);
 });
 
 test('every click is measured, unique conversion occurs once across pages in the same tab', () => {
   const h = harness();
   h.click(); h.click();
-  assert.equal(h.goals('registration_click').length, 2);
+  assert.equal(h.goals('registration_cta_click').length, 2);
   assert.equal(h.goals('registration_click_unique').length, 1);
   assert.equal(h.scripts.length, 1);
   const nextPage = harness({storage:h.storage});
   nextPage.click();
-  assert.equal(nextPage.goals('registration_click').length, 1);
+  assert.equal(nextPage.goals('registration_cta_click').length, 1);
   assert.equal(nextPage.goals('registration_click_unique').length, 0);
 });
 
 test('blocked storage does not break registration or in-page deduplication', () => {
   const h = harness({blocked:true});
   h.click(); h.click();
-  assert.equal(h.goals('registration_click').length, 2);
+  assert.equal(h.goals('registration_cta_click').length, 2);
   assert.equal(h.goals('registration_click_unique').length, 1);
 });
 

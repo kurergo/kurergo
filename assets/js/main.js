@@ -40,7 +40,7 @@
     if (!link) return;
     if (link.hasAttribute("data-registration-cta")) {
       const params = { placement: link.dataset.cta || "registration", time: new Date().toISOString() };
-      goal(body.dataset.registrationClickGoal || "registration_click", params);
+      goal(body.dataset.registrationClickGoal || "registration_cta_click", params);
       if (!uniqueClicked) {
         uniqueClicked = true;
         session.set("kg:registration-click", "1");
