@@ -528,44 +528,6 @@ a,button,summary,input,select {
 .kg-skip-link:focus {
   top:12px;
 }
-.kg-privacy-controls {
-  border:0;
-  background:none;
-  text-decoration:underline;
-  cursor:pointer;
-  color:var(--muted);
-  padding:10px 0;
-}
-.kg-consent {
-  position:fixed;
-  z-index:90;
-  bottom:18px;
-  left:18px;
-  max-width:440px;
-  width:calc(100% - 36px);
-  padding:20px;
-  border:1px solid #a4b6aa;
-  border-radius:16px;
-  background:white;
-  box-shadow:0 10px 40px #172d2426;
-}
-.kg-consent[hidden] {
-  display:none;
-}
-.kg-consent p {
-  font-size:.875rem;
-}
-.kg-consent-actions {
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-  margin-top:14px;
-}
-.kg-consent-actions button {
-  font-size:.875rem;
-  min-height:44px;
-  padding:12px;
-}
 .kg-simple-page {
   max-width:850px;
 }
@@ -748,15 +710,6 @@ a,button,summary,input,select {
     bottom:calc(12px + env(safe-area-inset-bottom));
     border-radius:12px;
   }
-  .kg-consent {
-    bottom:calc(88px + env(safe-area-inset-bottom));
-  }
-  .kg-consent-actions {
-    gap:8px;
-  }
-  .kg-consent-actions button {
-    flex:1;
-  }
   .site-footer {
     width:calc(100% - 36px);
     gap:20px;
@@ -770,27 +723,6 @@ a,button,summary,input,select {
   .kg-post-card>img {
     height:180px;
   }
-}
-/* Keep analytics choices in the document so they never cover a registration CTA. */
-.kg-consent {
-  position: relative;
-  inset: auto;
-  z-index: auto;
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  width: min(calc(100% - 40px), var(--container));
-  max-width: var(--container);
-  margin: 18px auto;
-  padding: 18px 22px;
-  box-shadow: none;
-}
-.kg-consent p { flex: 1; }
-.kg-consent-actions { margin-top: 0; flex-shrink: 0; }
-.kg-consent[hidden] { display: none; }
-@media (max-width: 760px) {
-  .kg-consent { display: block; width: calc(100% - 36px); padding: 18px; }
-  .kg-consent-actions { margin-top: 14px; }
 }
 @media (max-width: 760px) {
   .kg-conversion-hero { padding-top: 20px; }

@@ -5,15 +5,11 @@ import vm from 'node:vm';
 
 const source = readFileSync(new URL('../assets/js/main.js', import.meta.url), 'utf8');
 
-function harness({ storage = new Map(), blocked = false, eligibility = false, calculator = false } = {}) {
+function harness({ storage = new Map(), blocked = false, eligibility = false, calculator = false, queued = false } = {}) {
   const events = new Map();
   const calls = [];
   const scripts = [];
   const node = (extra = {}) => ({ hidden: true, addEventListener(name, fn) { this[name] = fn; }, ...extra });
-  const banner = node({ scrollIntoView() {} });
-  const accept = node();
-  const decline = node();
-  const settings = node();
   const check = node({ open: false });
   const result = node({ textContent: '' });
   const form = node({ elements: { age: { value: 'adult' }, transport: { value: 'walking' }, city: { value: 'private city value' } }, querySelector: () => result });
@@ -28,10 +24,6 @@ function harness({ storage = new Map(), blocked = false, eligibility = false, ca
     }
   });
   const nodes = {
-    '[data-consent-banner]': banner,
-    '[data-consent-accept]': accept,
-    '[data-consent-decline]': decline,
-    '[data-consent-settings]': settings,
     '[data-eligibility-check]': eligibility ? check : null,
     '[data-eligibility-form]': eligibility ? form : null,
     '[data-eligibility-form] [name="transport"]': eligibility ? form.elements.transport : null,
@@ -44,7 +36,7 @@ function harness({ storage = new Map(), blocked = false, eligibility = false, ca
     head: {append: tag => scripts.push(tag)},
     addEventListener: (name, fn) => events.set(name, fn)
   };
-  const window = { ym: (...args) => calls.push(args) };
+  const window = queued ? {} : { ym: (...args) => calls.push(args) };
   const sessionStorage = {
     getItem(key) { if (blocked) throw Error('blocked'); return storage.get(key) ?? null; },
     setItem(key, value) { if (blocked) throw Error('blocked'); storage.set(key, value); },
@@ -53,23 +45,40 @@ function harness({ storage = new Map(), blocked = false, eligibility = false, ca
   vm.runInNewContext(source, {document, window, sessionStorage, location: {origin:'https://kurergo.ru', pathname:'/lp/rabota-kurerom/'}, Intl, Date});
   const click = () => events.get('click')({target:{closest:()=>({dataset:{cta:'hero'},hasAttribute: name => name === 'data-registration-cta'})}});
   const goals = name => calls.filter(args => args[1] === 'reachGoal' && args[2] === name);
-  return {calls, scripts, banner, accept, decline, click, goals, storage, form, check, result, calc, outputs};
+  return {calls, scripts, click, goals, storage, form, check, result, calc, outputs, window};
 }
 
-test('no analytics before a decision or after declining; registration clicks do not fail', () => {
+test('analytics starts immediately without a stored decision or user action', () => {
   const h = harness();
+  assert.equal(h.scripts.length, 1);
+  assert.match(h.scripts[0].src, /metrika\/tag\.js\?id=109618174$/);
+  assert.equal(h.scripts[0].async, true);
+  const init = h.calls.find(args => args[1] === 'init');
+  assert.equal(init[2].webvisor, false);
   h.click();
-  assert.equal(h.scripts.length, 0);
-  assert.equal(h.calls.length, 0);
-  h.decline.click();
-  h.click();
-  assert.equal(h.calls.length, 0);
-  assert.equal(h.storage.get('kg:analytics'), 'declined');
+  assert.equal(h.goals('registration_click').length, 1);
+});
+
+test('legacy stored decisions do not prevent automatic analytics', () => {
+  for (const value of ['declined', 'accepted']) {
+    const h = harness({storage:new Map([['kg:analytics', value]])});
+    assert.equal(h.scripts.length, 1);
+    h.click();
+    assert.equal(h.goals('registration_click_unique').length, 1);
+  }
+});
+
+test('early clicks queue safely while the analytics library is loading or blocked', () => {
+  const h = harness({queued:true});
+  h.click(); h.click();
+  const queued = h.window.ym.a.map(args => Array.from(args));
+  assert.equal(queued.filter(args => args[1] === 'init').length, 1);
+  assert.equal(queued.filter(args => args[2] === 'registration_click').length, 2);
+  assert.equal(queued.filter(args => args[2] === 'registration_click_unique').length, 1);
 });
 
 test('every click is measured, unique conversion occurs once across pages in the same tab', () => {
   const h = harness();
-  h.accept.click();
   h.click(); h.click();
   assert.equal(h.goals('registration_click').length, 2);
   assert.equal(h.goals('registration_click_unique').length, 1);
@@ -82,24 +91,13 @@ test('every click is measured, unique conversion occurs once across pages in the
 
 test('blocked storage does not break registration or in-page deduplication', () => {
   const h = harness({blocked:true});
-  h.accept.click(); h.click(); h.click();
+  h.click(); h.click();
   assert.equal(h.goals('registration_click').length, 2);
   assert.equal(h.goals('registration_click_unique').length, 1);
 });
 
-test('revoking consent stops subsequent events', () => {
-  const h = harness();
-  h.accept.click(); h.click(); h.decline.click(); h.click();
-  assert.equal(h.goals('registration_click').length, 1);
-  assert.ok(h.calls.some(args => args[1] === 'destruct'));
-  h.accept.click(); h.click();
-  assert.equal(h.goals('registration_click_unique').length, 1);
-  const nextPage = harness({storage:h.storage}); nextPage.click();
-  assert.equal(nextPage.goals('registration_click_unique').length, 0);
-});
-
 test('unknown city and every age/transport combination require official verification', () => {
-  const h = harness({eligibility:true}); h.accept.click();
+  const h = harness({eligibility:true});
   for (const age of ['under18', 'adult']) {
     for (const transport of ['walking', 'bike', 'car']) {
       h.form.elements.age.value = age;

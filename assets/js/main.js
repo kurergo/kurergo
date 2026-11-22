@@ -2,13 +2,11 @@
   "use strict";
   const body = document.body;
   const counterId = Number(body.dataset.metrikaId);
-  // Session-only consent; no campaign identifiers or personal data are persisted.
+  // Only the unique-click marker is stored for the current tab session.
   const session = {
     get(key) { try { return sessionStorage.getItem(key); } catch { return null; } },
-    set(key, value) { try { sessionStorage.setItem(key, value); return true; } catch { return false; } },
-    remove(key) { try { sessionStorage.removeItem(key); } catch { /* Storage may be blocked. */ } }
+    set(key, value) { try { sessionStorage.setItem(key, value); return true; } catch { return false; } }
   };
-  let consent = session.get("kg:analytics");
   let uniqueClicked = session.get("kg:registration-click") === "1";
   let analyticsLoaded = false;
   const pageContext = () => ({
@@ -18,12 +16,12 @@
     transport: (document.querySelector("[data-eligibility-check]")?.open && document.querySelector('[data-eligibility-form] [name="transport"]')?.value) || body.dataset.pageTransport || "unspecified"
   });
   const goal = (name, params = {}) => {
-    if (consent === "accepted" && typeof window.ym === "function") {
+    if (typeof window.ym === "function") {
       window.ym(counterId, "reachGoal", name, { ...pageContext(), ...params });
     }
   };
   const loadAnalytics = () => {
-    if (analyticsLoaded || consent !== "accepted" || !counterId) return;
+    if (analyticsLoaded || !counterId) return;
     analyticsLoaded = true;
     window.ym = window.ym || function () { (window.ym.a = window.ym.a || []).push(arguments); };
     window.ym.l = Date.now();
@@ -31,26 +29,9 @@
     tag.async = true;
     tag.src = `https://mc.yandex.ru/metrika/tag.js?id=${counterId}`;
     document.head.append(tag);
-    // No session replay or form recording; full URL is transmitted only after consent.
+    // Start on page load. Session replay remains disabled.
     window.ym(counterId, "init", { clickmap: true, trackLinks: true, accurateTrackBounce: true, webvisor: false, params: pageContext() });
   };
-  const banner = document.querySelector("[data-consent-banner]");
-  const settings = document.querySelector("[data-consent-settings]");
-  if (banner) banner.hidden = Boolean(consent);
-  if (settings) settings.hidden = false;
-  const chooseConsent = (value) => {
-    consent = value;
-    session.set("kg:analytics", value);
-    if (banner) banner.hidden = true;
-    if (value === "accepted") loadAnalytics();
-    else {
-      if (analyticsLoaded && typeof window.ym === "function") window.ym(counterId, "destruct");
-      analyticsLoaded = false;
-    }
-  };
-  document.querySelector("[data-consent-accept]")?.addEventListener("click", () => chooseConsent("accepted"));
-  document.querySelector("[data-consent-decline]")?.addEventListener("click", () => chooseConsent("declined"));
-  settings?.addEventListener("click", () => { if (banner) { banner.hidden = false; banner.scrollIntoView({ block: "center" }); } });
   loadAnalytics();
 
   // One registration event per physical activation; /go/ emits only its separate diagnostic goal.
@@ -60,7 +41,7 @@
     if (link.hasAttribute("data-registration-cta")) {
       const params = { placement: link.dataset.cta || "registration", time: new Date().toISOString() };
       goal(body.dataset.registrationClickGoal || "registration_click", params);
-      if (consent === "accepted" && !uniqueClicked) {
+      if (!uniqueClicked) {
         uniqueClicked = true;
         session.set("kg:registration-click", "1");
         goal("registration_click_unique", params);

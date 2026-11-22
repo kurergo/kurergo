@@ -137,11 +137,9 @@
         <a href="{{ "/start/" | relURL }}" data-help-link>После регистрации</a>
         <a href="{{ "/privacy/" | relURL }}">Конфиденциальность</a>
         <a href="{{ "/terms/" | relURL }}">О ресурсе</a>
-        <button class="kg-privacy-controls" type="button" data-consent-settings hidden>Настройки аналитики</button>
         {{ partial "registration-cta.html" (dict "page" . "placement" "footer" "class" "kg-footer-registration" "text" "Регистрация") }}
       </div>
     </footer>
-    {{ if not (or .IsHome (eq .Section "lp")) }}{{ partial "analytics-consent.html" . }}{{ end }}
     {{ with resources.Get "js/main.js" }}
       {{ $js := . | minify | fingerprint }}
       <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
