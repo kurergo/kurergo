@@ -20,7 +20,6 @@ summaryLength = 22
 
 [params]
   description = "KurerGO — справочный ресурс о работе и подработке курьером: форматы доставки, ориентировочный доход, города, WIKI и регистрация онлайн."
-  registration_redirect_url = "/go/yandex-courier/"
   referral_url = "https://reg.eda.yandex.ru/?advertisement_campaign=forms_for_agents&user_invite_code=569fd35d6ccc4111852a73036a77109f&utm_content=blank"
   registration_click_goal = "registration_cta_click"
   registration_goal = "outbound_yandex_courier"

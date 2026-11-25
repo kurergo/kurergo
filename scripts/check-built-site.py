@@ -42,7 +42,11 @@ for rel in existing:
     if not (root / rel).exists():
         errors.append(f'Missing existing HTML URL: {rel}')
 
-routes = ['index.html', 'lp/rabota-kurerom/index.html', 'start/index.html', 'privacy/index.html', 'terms/index.html', 'goroda/moskva/index.html', 'rabota_peshim_kurerom.html']
+routes = [
+    'index.html', 'lp/rabota-kurerom/index.html', 'start/index.html', 'privacy/index.html',
+    'terms/index.html', 'goroda/moskva/index.html', 'rabota_peshim_kurerom.html',
+    'rabota_kurerom_na_velosipede.html', 'rabota_na_avto.html', 'rabota_vyhodnye.html',
+]
 for rel in routes:
     file = root / rel
     if not file.exists():
@@ -53,8 +57,8 @@ for rel in routes:
         errors.append(f'Incorrect canonical: {rel}')
     for a in page.links:
         href = a.get('href', '')
-        if 'data-registration-cta' in a and href != config['registration_redirect_url']:
-            errors.append(f'Non-central registration CTA in {rel}: {href}')
+        if 'data-registration-cta' in a and href != config['referral_url']:
+            errors.append(f'Registration CTA does not link directly to the partner form in {rel}')
         url = urlsplit(href)
         if url.scheme or url.netloc or not url.path:
             continue

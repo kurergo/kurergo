@@ -1,2 +1,2 @@
 {{ $page := .page }}
-<a class="{{ .class | default "kg-btn kg-btn-primary" }}" href="{{ $page.Site.Params.registration_redirect_url | relURL }}" rel="nofollow sponsored" data-cta="{{ .placement | default "registration" }}" data-registration-cta>{{ .text | default "Проверить условия и зарегистрироваться" }}</a>
+<a class="{{ .class | default "kg-btn kg-btn-primary" }}" href="{{ $page.Site.Params.referral_url }}" rel="nofollow sponsored" data-cta="{{ .placement | default "registration" }}" data-registration-cta>{{ .text | default "Проверить условия и зарегистрироваться" }}</a>
